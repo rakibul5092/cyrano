@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="wrapper">
+    <h2>{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.ACCESS_CODES.HOW_DOES_MATCHER_ACCESS' | translate }}</h2>
+    <h5>{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.ACCESS_CODES.REQUEST_ACCESS_CODE_SENT_TO_PHONE' | translate }}</h5>
+
+    <section class="code-types">
+      <button (click)="redirectTo('automationRequirements')" [routerLink]="['../automation-requirements']">
+        <strong>
+          {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.ACCESS_CODES.AUTOMATICALLY' | translate }}
+          <i class="cyrano-chevron-right"></i>
+        </strong>
+        <span>
+          {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.ACCESS_CODES.AUTOMATIC_ACCESS_CODE_FETCH' | translate }}
+        </span>
+      </button>
+
+      <button (click)="redirectTo('changePlatformsPassword')">
+        <strong>
+          {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.ACCESS_CODES.MANUALLY' | translate }}
+          <i class="cyrano-chevron-right"></i>
+        </strong>
+        <span>
+          {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.ACCESS_CODES.MANUALLY_SHARE_ACCESS_CODE' | translate }}
+        </span>
+      </button>
+    </section>
+
+    <section class="action-buttons">
+      <button class="app-black-return-button btn-back" routerLink="../">{{ 'BUTTONS.BACK' | translate }}</button>
+    </section>
+  </div>
+</ion-content>

@@ -1,0 +1,54 @@
+.common-paragraph {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 180%;
+  color: var(--ion-text-color);
+  opacity: 0.6;
+}
+.block-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+}
+ion-card.common-card {
+  max-width: 341px;
+  width: 98%;
+  box-shadow: var(--box-shadow);
+  background: var(--ion-background-color-no-gradient);
+  border-radius: 8px;
+  position: relative;
+  display: block;
+  .card-head {
+    cursor: pointer;
+  }
+  .img-container {
+    img {
+      width: 100%;
+    }
+  }
+  .card-header {
+    display: flex;
+    width: 100%;
+    ion-label {
+      color: var(--ion-text-color);
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 160%;
+      text-transform: capitalize;
+    }
+  }
+  ion-card-content {
+    display: flex;
+  }
+  ion-item.card-header {
+    display: flex;
+    .spacer {
+      flex: 1 1 auto;
+    }
+  }
+}

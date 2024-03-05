@@ -1,0 +1,18 @@
+<section>
+  <div class="table-container">
+    <div class="inner-container f-lato f-w-400 f-md h-160">
+      <div class="table-head">
+        <p class="log-data">{{ 'ADMIN.LOG_CHANGES' | translate }}</p>
+        <p class="timestamp-header">
+          {{ 'ADMIN.TIMESTAMP' | translate }}
+        </p>
+      </div>
+      <div class="table-data-container">
+        <div class="table-data" *ngFor="let item of logDataArray">
+          <p class="log-data">Changes Mobile Number</p>
+          <p class="timestamp f-w-400 f-xs h-100">12 Jan 2022 13:49</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

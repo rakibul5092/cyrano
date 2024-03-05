@@ -1,0 +1,13 @@
+<header class="head">
+  <div class="profile-image-wrapper">
+    <img [src]="reviewData.reviewer.profilePhotoUrl" alt="" class="reviewer-profile-img" />
+  </div>
+  <div class="profile-text">
+    <span class="reviewer f-gilroy-regular f-w-600">
+      {{ reviewData.reviewer.name }}
+      <span class="rating f-gilroy-regular f-sm f-w-400 h-110"><img [src]="icons.yellowReviewStar" /> {{ reviewData.rating }}</span>
+    </span>
+    <span class="duration f-gilroy-regular f-md f-light-gray">{{ reviewData.date | timeAgo }}</span>
+  </div>
+</header>
+<p class="message f-sm f-w-500 f-gilroy-regular">{{ reviewData.message }}</p>

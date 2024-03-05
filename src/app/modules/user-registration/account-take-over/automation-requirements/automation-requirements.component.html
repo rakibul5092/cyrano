@@ -1,0 +1,53 @@
+<ion-content>
+  <div class="wrapper">
+    <h5>
+      {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.CHECK_REQUIREMENTS_AND_GRANT_ACCESS' | translate }}
+    </h5>
+
+    <ul>
+      <li>
+        <label>
+          <lib-dashed-checkbox [checked]="true" (toggle)="toggleState($event, 1)"></lib-dashed-checkbox>
+          <strong [class]="{ 'is-selected': enableAccessibilityStatus }">{{
+            'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.ENABLE_ACCESSIBILITY' | translate
+          }}</strong>
+        </label>
+        <small> This is a placeholder text for changing the settings for accessability in the settings. </small>
+        <a href="">{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.LEARN_MORE' | translate }}</a>
+      </li>
+
+      <li>
+        <label>
+          <lib-dashed-checkbox (toggle)="toggleState($event, 2)"></lib-dashed-checkbox>
+          <strong [class]="{ 'is-selected': changeScreenLockStatus }">{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.CHANGE_SCREEN_LOCK' | translate }}</strong>
+        </label>
+        <small>
+          {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.SET_LOCK_SCREEN_TO_SWIPE_OR_NONE' | translate }}
+        </small>
+        <a href="">{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.LEARN_MORE' | translate }}</a>
+      </li>
+
+      <li>
+        <label>
+          <lib-dashed-checkbox (toggle)="toggleState($event, 3)"></lib-dashed-checkbox>
+          <strong [class]="{ 'is-selected': disableBatteryOptimization }">{{
+            'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.DISABLE_BATTERY_OPTIMIZATION' | translate
+          }}</strong>
+        </label>
+        <small>
+          {{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.CYRANO_THIRD_PARTY_AGREEMENT' | translate }}
+        </small>
+        <a href="">{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.LEARN_MORE' | translate }}</a>
+      </li>
+    </ul>
+
+    <p class="note">
+      <span>{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.NOTE' | translate }} </span>
+      <span>{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.AUTOMATION_REQUIREMENTS.CYRANO_NOTE' | translate }}</span>
+    </p>
+
+    <section class="action-buttons">
+      <button class="app-pink-proceed-button btn-proceed" routerLink="../access-codes">{{ label | translate }}</button>
+    </section>
+  </div>
+</ion-content>

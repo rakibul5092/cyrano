@@ -1,0 +1,157 @@
+<div class="page-body">
+  <div class="auth-container center-contents-row">
+    <app-auth-header></app-auth-header>
+    <form [formGroup]="registerFormGroup" (ngSubmit)="onSubmit()" autocomplete="off" appFocusInvalidInput *ngIf="registerFormGroup">
+      <div class="center-contents-column">
+        <p class="form-title register-title primary-text">
+          {{ 'AUTH.REGISTER_MESSAGE' | translate }}
+        </p>
+        <div class="custom-input">
+          <input
+            type="text"
+            appInvalidInput="firstName"
+            role="presentation"
+            autocomplete="off"
+            [readonly]="loading"
+            formControlName="firstName"
+            placeholder="{{ 'FIELDS.FIRST_NAME' | translate }}"
+          />
+        </div>
+        <app-error-message class="input-error" [control]="registerFormGroup.controls['firstName']"></app-error-message>
+
+        <div class="custom-input">
+          <input
+            type="text"
+            appInvalidInput="lastName"
+            role="presentation"
+            autocomplete="off"
+            [readonly]="loading"
+            formControlName="lastName"
+            placeholder="{{ 'FIELDS.LAST_NAME' | translate }}"
+          />
+        </div>
+        <app-error-message class="input-error" [control]="registerFormGroup.controls['lastName']"></app-error-message>
+
+        <div
+          class="custom-input"
+          style="overflow: unset !important"
+          [ngClass]="{ 'invalid-input': (submitted && registerForm.phone.invalid) || (registerForm.phone.touched && registerForm.phone.invalid) }"
+        >
+          <lib-tel-input
+            [cssClass]="'custom'"
+            [enablePlaceholder]="true"
+            [customPlaceholder]="'FIELDS.PHONE_NUMBER' | translate"
+            [searchCountryFlag]="false"
+            [selectFirstCountry]="false"
+            [showDropDownArrow]="true"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="false"
+            name="phone"
+            formControlName="phone"
+          >
+          </lib-tel-input>
+        </div>
+        <app-error-message
+          class="input-error"
+          [customErrorMessage]="
+            !registerForm.phone.errors?.required && registerForm.phone.touched && registerForm.phone.invalid ? ('VALIDATIONS.NOT_PHONE_NUMBER' | translate) : ''
+          "
+          [control]="registerFormGroup.controls['phone']"
+        ></app-error-message>
+        <div class="custom-input">
+          <input
+            type="email"
+            appInvalidInput="email"
+            role="presentation"
+            autocomplete="off"
+            [readonly]="loading"
+            formControlName="email"
+            placeholder="{{ 'FIELDS.EMAIL' | translate }}"
+          />
+        </div>
+        <app-error-message class="input-error" [control]="registerFormGroup.controls['email']"></app-error-message>
+
+        <div class="custom-input">
+          <input
+            role="presentation"
+            appInvalidInput="password"
+            autocomplete="off"
+            [readonly]="loading"
+            placeholder="{{ 'FIELDS.PASSWORD' | translate }}"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            appPasswordValidator
+            [passwordErrorMsg]="'VALIDATIONS.PASSWORD' | translate"
+          />
+          <button mat-icon-button type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </div>
+        <app-error-message
+          class="input-error"
+          [freeContent]="true"
+          [customErrorMessage]="
+            registerForm.password.errors && registerFormGroup.value.password && (registerForm.password.touched || registerForm.password.dirty)
+              ? registerForm.password.errors?.password?.message
+              : ''
+          "
+          [control]="registerFormGroup.controls['password']"
+        ></app-error-message>
+        <div class="custom-input">
+          <input
+            appInvalidInput="confirmPassword"
+            role="presentation"
+            autocomplete="off"
+            [readonly]="loading"
+            placeholder="{{ 'FIELDS.CONFIRM_PASSWORD' | translate }}"
+            [type]="confirmPasswordHide ? 'password' : 'text'"
+            formControlName="confirmPassword"
+            [appConfirmPasswordValidator]="'password'"
+          />
+          <button mat-icon-button type="button" (click)="confirmPasswordHide = !confirmPasswordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="confirmPasswordHide">
+            <mat-icon>{{ confirmPasswordHide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </div>
+        <app-error-message
+          class="input-error"
+          [customErrorMessage]="
+            registerForm.confirmPassword.value && registerForm.confirmPassword.errors && (registerForm.confirmPassword.touched || registerForm.confirmPassword.dirty)
+              ? ('FIELDS.PASSWORD_MUST_MATCH' | translate)
+              : ''
+          "
+          [control]="registerFormGroup.controls['confirmPassword']"
+        >
+        </app-error-message>
+        <div class="custom-input">
+          <input type="text" role="presentation" autocomplete="off" [readonly]="loading" formControlName="inviteCode" placeholder="{{ 'FIELDS.INVITE_CODE' | translate }}" />
+        </div>
+        <p class="wordWrap terms">
+          {{ 'FIELDS.READ_POLICY' | translate }}
+          <a href="www.cyrano.com" class="primary-link">{{ 'FIELDS.TERM_OF_USE' | translate }}</a>
+          {{ 'FIELDS.AND_ACKNOWLEDGE_THAT' | translate }}
+          <a href="www.cyrano.com" class="primary-link"> {{ 'FIELDS.PRIVACY_POLICY' | translate }}</a>
+        </p>
+        <button mat-raised-button aria-label="register-btn" type="submit" class="primary-button normal-text" [disabled]="loading">
+          <ion-spinner color="danger" *ngIf="loading" name="dots"></ion-spinner>
+          <span *ngIf="!loading || registerFormGroup.invalid">{{ 'AUTH.CREATE_ACCOUNT' | translate }}</span>
+        </button>
+        <p class="secondary-text">
+          {{ 'AUTH.OR_CREATE_ACCOUNT_USING' | translate }}
+        </p>
+        <app-auth-social></app-auth-social>
+        <div class="center-contents-column create-account-section">
+          <div class="center-contents-row">
+            <span class="secondary-text">
+              {{ 'AUTH.OR_LOGIN_ACCOUNT' | translate }}
+            </span>
+            <span class="spacer"></span>
+            <button mat-raised-button class="primary-button normal-text" (click)="commonUtilService.navigate('../auth')" aria-label="createBtn" type="button" [disabled]="loading">
+              {{ 'AUTH.LOGIN' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

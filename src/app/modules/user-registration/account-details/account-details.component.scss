@@ -1,0 +1,17 @@
+@import '../shared.scss';
+@import '../../guru/guru-registration/register/register.component.scss';
+
+.main-wrapper {
+  align-items: unset;
+  height: 100%;
+  width: 100%;
+}
+
+.message {
+  margin-bottom: 15px;
+}
+
+ion-content {
+  --padding-top: 11px;
+  --padding-bottom: 0px;
+}

@@ -1,0 +1,55 @@
+<div class="box request-card" *ngIf="request">
+  <div class="client-card-header">
+    <div class="center-content">
+      <img [src]="request.client.profileImage" alt="clint image" class="user-photo profile-photo2" />
+      <div class="client-card-header-user">
+        <h4>
+          {{ request.client.name }}
+          <img src="assets/images/star.png" alt="rate" />
+          <span class="rate">{{ request.client.rate }}</span>
+        </h4>
+        <p>{{ request.client.country }}</p>
+      </div>
+    </div>
+
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="client menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu"></mat-menu>
+  </div>
+  <img [src]="icons.separator" alt="separator" class="section-separator" />
+  <div class="dating-request-progress">
+    <app-dating-request-progress [progressTime]="45"></app-dating-request-progress>
+  </div>
+  <div class="client-card-body">
+    <h4>{{ 'ACCOUNTS' | translate }}</h4>
+    <div class="accounts accounts-vertical">
+      <button mat-raised-button *ngFor="let account of request.client.accounts">
+        <div>
+          <img [src]="account.logo" alt="account" />
+        </div>
+      </button>
+    </div>
+
+    <div class="accounts-types">
+      <div class="account-info-item grid-container">
+        <div class="item-title">{{ 'GURU.ACCOUNTS_TYPE' | translate }}</div>
+        <div class="item-title">{{ 'GURU.DATES' | translate }}</div>
+      </div>
+      <div class="account-info-item grid-container">
+        <div>{{ request.client.accountsType }}</div>
+        <div>{{ request.client.dates }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="request-card-footer" *ngIf="request.client">
+  <button mat-mini-fab color="primary" type="button" (click)="cancelRequest()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button class="primary-button" type="button" matRipple (click)="acceptRequest()">
+    {{ 'GURU.ACCEPT_REQUEST' | translate }}
+  </button>
+</div>

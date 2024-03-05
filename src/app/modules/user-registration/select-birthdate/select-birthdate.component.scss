@@ -1,0 +1,131 @@
+@import '../shared.scss';
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8.33px;
+  margin-bottom: 16px;
+  position: relative;
+
+  .select-div {
+    position: relative;
+    height: 48px;
+
+    img {
+      position: absolute;
+      right: 20px;
+      top: 22.5px;
+      width: 10px;
+      height: 7.11px;
+      z-index: 99;
+      stroke: var(--cyrano-pink-shade-1);
+    }
+
+    .app-input {
+      border-radius: 100px;
+      height: 48px;
+      border: unset;
+      padding: unset;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: unset;
+      font-size: 16px;
+    }
+
+    ::placeholder {
+      opacity: 0.5;
+      color: var(--ion-text-color);
+      font-size: 16px;
+    }
+
+    ::-moz-placeholder {
+      opacity: 0.5;
+      color: var(--ion-text-color);
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 350px) {
+      .app-input {
+        font-size: 14px;
+      }
+
+      .buttons {
+        gap: 15px;
+
+        ion-button {
+          font-size: 14px;
+        }
+      }
+
+      ::placeholder {
+        font-size: 14px;
+      }
+
+      ::-moz-placeholder {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width: 330px) {
+      .app-input {
+        font-size: 12px;
+      }
+
+      ::placeholder {
+        font-size: 12px;
+      }
+
+      ::-moz-placeholder {
+        font-size: 12px;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .app-input {
+        font-size: 10px;
+      }
+
+      ::placeholder {
+        font-size: 10px;
+      }
+
+      ::-moz-placeholder {
+        font-size: 10px;
+      }
+
+      img {
+        right: 15px;
+        width: 8px;
+        height: 5.11px;
+      }
+    }
+
+    @media screen and (max-width: 290px) {
+      .app-input {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+ion-datetime {
+  --background: var(--cyrano-dark-color);
+  min-width: auto;
+  font-size: 14px;
+  padding: 24px 16px 15px 16px;
+  border-radius: 16px;
+  ion-picker-column-internal {
+    font-size: 16px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  .cancel-button {
+    color: white !important;
+    text-shadow: 0 0 16px #adadad;
+  }
+}

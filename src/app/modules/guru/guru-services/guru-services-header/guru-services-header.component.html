@@ -1,0 +1,15 @@
+<div class="guru-services-header">
+  <span class="title">{{ title }}</span>
+  <div class="back" *ngIf="enableBack">
+    <button mat-icon-button (click)="nav.back()">
+      <img [src]="icons.header.back2" alt="" />
+    </button>
+    <span *ngIf="backTitle">{{ backTitle }}</span>
+  </div>
+
+  <span class="spacer"></span>
+  <button mat-icon-button *ngIf="enableNotification">
+    <img [src]="icons.common.notification" alt="" *ngIf="icons" />
+  </button>
+  <ng-container *ngTemplateOutlet="rightContent"></ng-container>
+</div>

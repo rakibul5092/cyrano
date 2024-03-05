@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="page-body">
+    <div class="page-container">
+      <h2 class="page-title">{{ 'COURSES.COURSES_LESSONS' | translate }}</h2>
+      <p class="course-description">{{ 'COURSES.COURSES_INTRO' | translate }}</p>
+      <button mat-raised-button class="log-action primary-btn" aria-label="mak-as-read-btn" type="button">
+        {{ 'COURSES.YOUR_COURSES' | translate }}
+      </button>
+      <div class="courses-list">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="6" *ngFor="let course of courses">
+              <app-course-card [course]="course" (cardClickEvent)="onCourseClick(course)"> </app-course-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

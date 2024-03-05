@@ -1,0 +1,91 @@
+:host {
+  .no-date {
+    .info-card {
+      font-size: 10px;
+
+      .date {
+        line-height: 100%;
+      }
+
+      .day {
+        margin-top: 14px;
+        line-height: 100%;
+      }
+    }
+  }
+
+  &:first-child {
+    .no-date {
+      .info-card {
+        padding-left: 0;
+      }
+    }
+  }
+
+  font-family: Lato;
+}
+
+.info-card {
+  font-size: 14px;
+  padding: 10px 7px 10px 7px;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+
+  .profile {
+    font-size: 10px;
+    font-family: Lato;
+    margin-top: 20.28px;
+    width: 33px;
+  }
+}
+
+.white-bar {
+  height: 7px;
+  position: relative;
+  top: -7px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.upcoming-date-card {
+  background: linear-gradient(94.44deg, #fe3c72 1.26%, #e15561 100%);
+  box-shadow: 8px 8px 5px rgba(17, 16, 20, 0.25), -8px -8px 12px -2px rgba(203, 199, 209, 0.15);
+  border-radius: 10px;
+  height: 120px;
+  min-width: 85px;
+  width: 85px;
+
+  &.no-date {
+    background: transparent;
+    box-shadow: none;
+    min-width: auto;
+    width: auto;
+
+    > .white-bar {
+      display: none;
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  gap: 5px;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 23px;
+  width: 33px;
+  border: 1px solid white;
+  object-fit: fill;
+}
+
+.day {
+  white-space: nowrap;
+  line-height: 160%;
+}
+
+.date {
+  line-height: 160%;
+}

@@ -1,0 +1,27 @@
+<ion-content fullscreen>
+  <div class="container">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="account.photo"
+      [name]="account.name"
+      [leftIcon]="commonService.icons.hash"
+      [leftText]="account.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+      [rightIcon]="commonService.icons.location"
+      [rightText]="account.address"
+    ></lib-profile-header>
+    <div class="page f-lato f-w-600 f-md h-160">
+      <img src="/assets/images/success.svg" alt="success-image" class="page-image" />
+      <p class="message f-white">
+        {{ 'NOTIFICATIONS.CONGRATS_YOU_GOT_A_DATE_WITH' | translate }}
+      </p>
+      <p class="name f-accent">Sarah Williams!</p>
+      <p class="detail f-sm f-w-400">
+        {{ 'NOTIFICATIONS.DETAILS_OF_DATE' | translate }}
+      </p>
+      <div class="line-divider"></div>
+      <p class="date">21st April, 2022</p>
+      <p class="location">La Vize Bistro, Montford</p>
+    </div>
+  </div>
+</ion-content>

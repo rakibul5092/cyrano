@@ -1,0 +1,10 @@
+<div class="tab">
+  <div
+    *ngFor="let tab of tabs; let i = index"
+    (click)="onTabChange(tab)"
+    [class]="'tab-button tab-button-' + (selectedTab === tab ? 'selected ' + (lang === 'fr' ? 'f-16' : 'f-18') : 'unselected ' + (lang === 'fr' ? 'f-12' : 'f-14'))"
+  >
+    {{ 'TAB_BUTTONS.' + tab | translate }}
+    <div class="border"></div>
+  </div>
+</div>

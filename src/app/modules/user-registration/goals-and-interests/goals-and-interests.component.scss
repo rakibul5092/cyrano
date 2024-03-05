@@ -1,0 +1,56 @@
+@import '../shared.scss';
+@import '../age-and-height/age-and-height.component.scss';
+
+.main-wrapper {
+  max-width: 400px;
+}
+
+.range-container {
+  width: 96%;
+}
+
+.message {
+  margin-bottom: 13px;
+}
+
+.info {
+  margin-bottom: 34px;
+}
+
+.goals-item {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --background: none;
+  --min-height: auto;
+  --border-color: transparent;
+
+  p {
+    word-break: break-word;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+
+ion-checkbox.app-ion-checkbox {
+  margin: 0 20px 0 0;
+}
+
+.h-unset {
+  height: unset;
+}
+
+@media screen and (max-height: 700px) {
+  .main-wrapper {
+    max-height: 275px;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .main-wrapper {
+    max-height: 200px;
+  }
+}

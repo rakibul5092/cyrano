@@ -1,0 +1,17 @@
+<div class="box itinerary-container" *ngIf="itinerary">
+  <div class="itinerary">
+    <img [src]="itinerary.image" alt="itinerary" class="itinerary-img" />
+    <div class="itinerary-info">
+      <h4>{{ itinerary.title }}</h4>
+      <p class="itinerary-data">
+        <span> <img [src]="icons.locationSolid" alt="" class="itinerary-icon" /> {{ itinerary.places }} places </span>
+        <span class="divider"> | </span>
+        <span>
+          <img [src]="icons.time" alt="" class="itinerary-icon" /> 3 hrs 30 min
+          <span class="distance">({{ itinerary.distance }} km)</span>
+        </span>
+      </p>
+      <p class="itinerary-date"><img [src]="icons.calendar" alt="" class="itinerary-icon" /> {{ itinerary.date | date }}</p>
+    </div>
+  </div>
+</div>

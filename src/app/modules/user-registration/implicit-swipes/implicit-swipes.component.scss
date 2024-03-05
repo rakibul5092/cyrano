@@ -1,0 +1,219 @@
+$md: 370px;
+$sm: 320px;
+$xs: 280px;
+
+.main-wrapper {
+  max-width: 500px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.continue-btn {
+  color: var(--cyrano-pink-shade-1);
+  --box-shadow: var(--cyrano-box-shadow);
+  --background: var(--background);
+  --background-activated: transparent;
+  --background-hover: var(--ion-color-primary-contrast, #fff);
+  --background-focused: var(--ion-color-primary-contrast, #fff);
+  --background-activated-opacity: 0;
+  --background-focused-opacity: 0.24;
+  --background-hover-opacity: 0.08;
+}
+
+.text-shadow-btn {
+  text-shadow: 0 0 16px var(--cyrano-pink-shade-1);
+}
+
+.button-container {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.react-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 55px;
+  justify-content: center;
+  padding: 27px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  z-index: 999;
+
+  :nth-child(1) {
+    width: 21.5px;
+    height: 21.5px;
+  }
+
+  :nth-child(2) {
+    width: 32px;
+    height: 25px;
+  }
+
+  .app-round-button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .primary {
+    --background: var(--footer-tab-label);
+  }
+
+  .skip-button {
+    width: 100%;
+    margin-inline: 0px;
+  }
+}
+
+.upper-part {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .count {
+    position: absolute;
+    bottom: 92%;
+    right: 24px;
+    padding: 6px 10px 6px 10px;
+    border-radius: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    font-family: 'Calistoga';
+    color: var(--cyrano-pink-shade-1);
+    background: var(--ion-background-color-no-gradient);
+    box-shadow: var(--cyrano-box-shadow);
+    z-index: 999999;
+
+    .skip-text {
+      justify-content: center;
+      display: flex;
+      height: 16px;
+      transition: height 0.5s;
+    }
+
+    &[disabled='true'] {
+      color: #000000;
+      font-family: 'Gilroy-SemiBold';
+      background: var(--cyrano-milky-white);
+      box-shadow: unset;
+      padding-bottom: 4px;
+      .skip-text {
+        height: 0px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+app-swipe-card {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  touch-action: pan-x;
+  cursor: grab;
+}
+
+@media screen and (max-width: $md) {
+  .react-buttons {
+    gap: 45px;
+
+    .app-round-button {
+      width: 75px;
+      height: 75px;
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .react-buttons {
+    gap: 35px;
+
+    .app-round-button {
+      width: 65px;
+      height: 65px;
+    }
+  }
+}
+
+@media screen and (max-width: $xs) {
+  .react-buttons {
+    gap: 26px;
+
+    .app-round-button {
+      width: 51px;
+      height: 51px;
+    }
+  }
+
+  .app-round-button {
+    width: 51px;
+    height: 51px;
+  }
+}
+
+@media screen and (max-height: 815px) {
+  .react-buttons {
+    gap: 45px;
+    padding: 20px;
+
+    .app-round-button {
+      width: 65px;
+      height: 65px;
+    }
+  }
+}
+
+@media screen and (max-height: 780px) {
+  .react-buttons {
+    gap: 30px;
+    padding: 15px;
+
+    .app-round-button {
+      width: 65px;
+      height: 65px;
+    }
+  }
+}
+
+@media screen and (max-height: 730px) {
+  .react-buttons {
+    gap: 25px;
+    padding: 10px;
+
+    .app-round-button {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+@media screen and (max-height: 670px) {
+  .react-buttons {
+    gap: 25px;
+    padding: 10px;
+
+    .app-round-button {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.loader {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.skip-spinner {
+  --color: var(--cyrano-pink-shade-1);
+  height: 2em;
+  width: 2em;
+}

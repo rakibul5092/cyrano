@@ -1,0 +1,47 @@
+@import '../guru-services-common';
+
+.itineraries-container {
+  margin-bottom: 30px;
+}
+.itineraries-sub-header {
+  display: flex;
+  @extend .normal-text;
+  p {
+    font-size: 16px;
+  }
+  button {
+    display: flex;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 5px;
+    font-size: 14px;
+    img {
+      width: 14px;
+      margin-right: 5px;
+    }
+    span {
+      @extend .normal-text;
+    }
+  }
+}
+
+.empty-itineraries {
+  text-align: center;
+  img.empty-img {
+    position: relative;
+    display: block;
+    margin: 14vh auto;
+    margin-bottom: 0;
+  }
+  h2 {
+    @extend .title-text;
+  }
+  p {
+    @extend .normal-text;
+  }
+  button {
+    margin: 20px auto;
+    font-size: 18px;
+  }
+}

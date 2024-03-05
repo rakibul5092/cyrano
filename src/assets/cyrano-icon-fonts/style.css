@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'cyrano';
+  src: url('fonts/cyrano.eot?iludr8');
+  src: url('fonts/cyrano.eot?iludr8#iefix') format('embedded-opentype'), url('fonts/cyrano.ttf?iludr8') format('truetype'), url('fonts/cyrano.woff?iludr8') format('woff'),
+    url('fonts/cyrano.svg?iludr8#cyrano') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='cyrano-'],
+[class*=' cyrano-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'cyrano' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cyrano-map-marker:before {
+  content: '\e92d';
+}
+.cyrano-camera:before {
+  content: '\e92b';
+}
+.cyrano-redo:before {
+  content: '\e92c';
+}
+.cyrano-three-dots:before {
+  content: '\e92a';
+}
+.cyrano-calender:before {
+  content: '\e928';
+}
+.cyrano-file:before {
+  content: '\e929';
+}
+.cyrano-hint:before {
+  content: '\e927';
+}
+.cyrano-minus:before {
+  content: '\e924';
+}
+.cyrano-checkmark-pierce:before {
+  content: '\e925';
+}
+.cyrano-trash:before {
+  content: '\e926';
+}
+.cyrano-chevron-down:before {
+  content: '\e91a';
+}
+.cyrano-chevron-left:before {
+  content: '\e91b';
+}
+.cyrano-chevron-right:before {
+  content: '\e91c';
+}
+.cyrano-chevrons-down:before {
+  content: '\e91d';
+}
+.cyrano-chevrons-left:before {
+  content: '\e91e';
+}
+.cyrano-chevrons-right:before {
+  content: '\e91f';
+}
+.cyrano-chevrons-up:before {
+  content: '\e920';
+}
+.cyrano-chevron-up:before {
+  content: '\e921';
+}
+.cyrano-video:before {
+  content: '\e922';
+}
+.cyrano-inactive:before {
+  content: '\e923';
+}
+.cyrano-Calendar:before {
+  content: '\e915';
+}
+.cyrano-Coffee-Cup:before {
+  content: '\e916';
+}
+.cyrano-Palace:before {
+  content: '\e917';
+}
+.cyrano-Pen:before {
+  content: '\e918';
+}
+.cyrano-Temple:before {
+  content: '\e919';
+}
+.cyrano-arrow-forward:before {
+  content: '\e902';
+}
+.cyrano-Hash:before {
+  content: '\e903';
+}
+.cyrano-location:before {
+  content: '\e904';
+}
+.cyrano-Lock:before {
+  content: '\e905';
+}
+.cyrano-search:before {
+  content: '\e906';
+}
+.cyrano-vent:before {
+  content: '\e907';
+}
+.cyrano-scan:before {
+  content: '\e908';
+}
+.cyrano-translate:before {
+  content: '\e909';
+}
+.cyrano-live:before {
+  content: '\e90a';
+}
+.cyrano-tab-close:before {
+  content: '\e90b';
+}
+.cyrano-context:before {
+  content: '\e90c';
+}
+.cyrano-theme-changer:before {
+  content: '\e90d';
+}
+.cyrano-profile-avatar:before {
+  content: '\e90e';
+}
+.cyrano-circled-human-avatar:before {
+  content: '\e90f';
+}
+.cyrano-circled-dollar:before {
+  content: '\e910';
+}
+.cyrano-selected-home:before {
+  content: '\e911';
+}
+.cyrano-selected-clients:before {
+  content: '\e912';
+}
+.cyrano-add:before {
+  content: '\e913';
+}
+.cyrano-menu:before {
+  content: '\e914';
+}
+.cyrano-back:before {
+  content: '\e900';
+}
+.cyrano-notification:before {
+  content: '\e901';
+}

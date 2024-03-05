@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-container">
+      <div class="center-contents-column">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
+          <div class="center-contents-column">
+            <p class="form-paragraph">
+              {{ 'UNMATCHED.ACCOUNT_INFO2' | translate }}
+            </p>
+
+            <div class="custom-input custom-input-input">
+              <input type="text" [readonly]="loading" formControlName="phone" placeholder="{{ 'FIELDS.PHONE_NUMBER' | translate }}" />
+            </div>
+            <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'phone', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+
+            <div class="custom-input custom-input-input">
+              <input type="text" [readonly]="loading" formControlName="schedule" placeholder="{{ 'UNMATCHED.SCHEDULE' | translate }}" />
+            </div>
+            <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'schedule', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+
+            <div class="custom-input custom-input-textarea custom-text-area">
+              <textarea [readonly]="loading" formControlName="idealPartnerDescription" placeholder="{{ 'UNMATCHED.PARTNER_DESCRIPTION' | translate }}"> </textarea>
+            </div>
+            <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'idealPartnerDescription', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+
+            <h2>{{ 'UNMATCHED.CREATE_MATCHING_PROFILE' | translate }}</h2>
+            <button mat-raised-button class="log-action primary-btn appearanceBtn" aria-label="filter-notification-btn" type="button">
+              {{ 'UNMATCHED.APPEARANCE_MATCHING_PROFILE' | translate }}
+            </button>
+            <button mat-raised-button class="log-action primary-btn" aria-label="mak-as-read-btn" type="button">
+              {{ 'UNMATCHED.PERSONALITY_MATCHING_PROFILE' | translate }}
+              <span>{{ 'COMING_SOON' | translate }}</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

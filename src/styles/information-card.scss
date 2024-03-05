@@ -1,0 +1,43 @@
+$sm: 320px;
+$md: 360px;
+
+ion-card {
+  background: var(--button-background);
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  padding: 30px 30px 25px 30px;
+  display: grid;
+  margin-inline: 0px;
+
+  .card-header {
+    margin-bottom: 7px;
+    @extend .f-lato;
+    @extend .f-w-600;
+    @extend .h-160;
+    @extend .f-md;
+    @extend .f-white;
+  }
+
+  .information {
+    @extend .f-lato;
+    @extend .f-sm;
+    @extend .f-w-400;
+    @extend .h-180;
+    @extend .f-gray;
+  }
+  swiper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $md) {
+  ion-card {
+    padding: 20px 20px 15px 20px;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  ion-card {
+    padding: 15px 15px 10px 15px;
+  }
+}

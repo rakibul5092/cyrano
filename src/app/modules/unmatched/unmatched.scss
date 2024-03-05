@@ -1,0 +1,135 @@
+.page-container {
+  padding: 25px;
+  padding-bottom: calc(25px + 32px + 90px); // The clientHeight of the footertab is 95 as of the time of adding this line
+  .profile-container {
+    text-align: center;
+    text-transform: capitalize;
+
+    img {
+      border-radius: 50%;
+    }
+
+    .mat-button {
+      margin: -15px 5px;
+      color: var(--ion-text-color-secondary);
+    }
+
+    .mat-button.top-text {
+      padding: 0px 11px;
+      margin: -15px 0px;
+      span {
+        opacity: 0.6;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 160%;
+        font-family: 'lato';
+        margin-left: 4px;
+        text-align: center;
+      }
+
+      .star,
+      .hash {
+        border-radius: 0%;
+      }
+    }
+
+    .mat-button.mat-button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .search-input {
+    margin: 27px 0;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+
+    .mat-icon-button {
+      color: var(--ion-text-color-secondary);
+      top: 5px;
+    }
+
+    .mat-icon-button.left {
+      left: 28px !important;
+    }
+
+    input.leftIcon {
+      padding: 0 20px 0 73px;
+    }
+  }
+
+  .about-me {
+    margin-top: 9px;
+    padding: 29px 30px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 46px;
+    border-radius: 8px;
+
+    div {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 160%;
+      font-family: 'lato';
+
+      .mat-icon-button {
+        position: relative;
+        top: -2px;
+
+        ion-icon {
+          font-size: 14.34px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    p {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 180%;
+      margin-top: 7px;
+      color: var(--ion-text-color-secondary);
+    }
+  }
+
+  .profile-sections {
+    width: 100%;
+
+    button {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      position: relative;
+      display: block;
+      width: 100%;
+      text-align: left;
+      color: var(--ion-text-color-secondary);
+      margin-bottom: 26px;
+    }
+
+    margin: 0 0 29px 25px;
+
+    &-border {
+      border-bottom: var(--border);
+    }
+  }
+
+  .center-contents-column {
+    .contact_button {
+      height: 46px;
+      background: var(--button-background);
+      img {
+        margin-bottom: 2px;
+      }
+      .contact-text {
+        font-size: 16px;
+        line-height: 160%;
+        margin-left: 8px;
+        text-transform: lowercase;
+      }
+    }
+  }
+}

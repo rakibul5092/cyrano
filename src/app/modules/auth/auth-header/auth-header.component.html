@@ -1,0 +1,33 @@
+<div class="auth-header">
+  <button mat-icon-button aria-label="themeBtn" [matMenuTriggerFor]="themesMenu" [matTooltip]="'THEMES.TITLE' | translate" [matTooltipPosition]="'below'" class="theme-btn">
+    <img [src]="commonUtilService.icons.theme" alt="" height="24" width="24" />
+  </button>
+
+  <button mat-icon-button aria-label="local-btn" [matMenuTriggerFor]="languagesMenu" [matTooltip]="'LANGUAGES.TITLE' | translate" [matTooltipPosition]="'below'" class="local-btn">
+    <mat-icon>language</mat-icon>
+  </button>
+
+  <mat-menu #languagesMenu="matMenu">
+    <button
+      mat-menu-item
+      *ngFor="let language of languages"
+      [disabled]="language.key === commonUtilService.activeLanguage"
+      [ngClass]="{ active: language.key === commonUtilService.activeLanguage }"
+      (click)="commonUtilService.changeLanguage(language.key)"
+    >
+      {{ language.name | translate }}
+    </button>
+  </mat-menu>
+
+  <mat-menu #themesMenu="matMenu">
+    <button
+      mat-menu-item
+      *ngFor="let theme of themes"
+      [disabled]="theme.key === commonUtilService.activeTheme"
+      [ngClass]="{ active: theme.key === commonUtilService.activeTheme }"
+      (click)="commonUtilService.changeTheme(theme.key)"
+    >
+      {{ theme.name | translate }}
+    </button>
+  </mat-menu>
+</div>

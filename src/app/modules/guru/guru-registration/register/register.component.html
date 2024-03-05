@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToLogin()" class="login f-calistoga f-w-400 f-md h-160"> {{ 'AUTH.LOGIN' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+  <div class="main-wrapper">
+    <div class="img-container">
+      <img src="assets/images/matcher-logo.svg" />
+    </div>
+    <lib-multi-colored-text [class]="'f-calistoga f-w-400 f-3xl h-160'" [text]="'GURU.REGISTER_TITLE' | translate"> </lib-multi-colored-text>
+    <div class="subtitle f-gilroy-regular f-w-400 f-md h-150 f-light-gray">{{ 'GURU.REGISTER_MESSAGE' | translate }}</div>
+    <form (ngSubmit)="navigateToPhone()" (keyup.enter)="navigateToPhone()" class="form" [formGroup]="registerForm">
+      <div class="name-section">
+        <div class="name">
+          <lib-input-field formControlName="firstName" type="text" [label]="'FIELDS.FIRST_NAME' | translate"></lib-input-field>
+          <app-error-message [control]="form.controls.firstName"> </app-error-message>
+        </div>
+        <div class="name">
+          <lib-input-field formControlName="lastName" type="text" [label]="'FIELDS.LAST_NAME' | translate"></lib-input-field>
+          <app-error-message [control]="form.controls.lastName"> </app-error-message>
+        </div>
+      </div>
+      <div class="email-address top-space">
+        <lib-input-field formControlName="email" type="email" [label]="'FIELDS.EMAIL' | translate"></lib-input-field>
+        <app-error-message [control]="form.controls.email"> </app-error-message>
+      </div>
+      <div class="password top-space">
+        <lib-input-field
+          formControlName="password"
+          customPasswordValidator
+          [type]="passwordVisibility ? 'text' : 'password'"
+          [label]="'FIELDS.PASSWORD' | translate"
+        ></lib-input-field>
+        <ion-icon (click)="changePasswordVisibility()" [name]="passwordVisibility ? 'eye' : 'eye-off'" class="password-icon"></ion-icon>
+      </div>
+      <app-error-message [customErrorMessage]="form.controls.password.errors?.message || ''" [control]="form.controls.password"> </app-error-message>
+
+      <div class="password top-space">
+        <lib-input-field
+          formControlName="confirmPassword"
+          [appConfirmPasswordValidator]="'password'"
+          [type]="confirmPasswordVisibility ? 'text' : 'password'"
+          [label]="'FIELDS.PASSWORD_CONFIRMATION' | translate"
+        ></lib-input-field>
+        <ion-icon (click)="changeConfirmPasswordVisibility()" [name]="confirmPasswordVisibility ? 'eye' : 'eye-off'" class="password-icon"></ion-icon>
+      </div>
+
+      <app-error-message
+        [customErrorMessage]="
+          form.controls.confirmPassword.value && form.controls.confirmPassword.errors && (form.controls.confirmPassword.touched || form.controls.confirmPassword.dirty)
+            ? ('FIELDS.PASSWORD_MUST_MATCH' | translate)
+            : ''
+        "
+        [control]="form.controls.confirmPassword"
+      >
+      </app-error-message>
+      <ion-button type="submit" aria-label="register-btn" mode="md" class="app-primary-button">
+        {{ 'BUTTONS.NEXT' | translate }}
+      </ion-button>
+    </form>
+    <div class="social-login">
+      <div class="option-title f-gilroy-regular f-w-600 f-md h-160">{{ 'GURU.OR_REGISTER_USING' | translate }}</div>
+      <div class="icon-wrapper">
+        <ion-button mode="md" class="app-round-button box-shadow-button">
+          <ion-icon class="others" name="logo-google"></ion-icon>
+        </ion-button>
+        <ion-button mode="md" class="app-round-button box-shadow-button">
+          <ion-icon class="facebook" src="assets/icon/social/facebook.svg"></ion-icon>
+        </ion-button>
+        <ion-button mode="md" class="app-round-button box-shadow-button">
+          <ion-icon class="others" src="assets/icon/social/twitter.svg"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,24 @@
+@import '../../guru.global.scss';
+
+.info-container {
+  display: grid;
+
+  .text-info {
+    display: grid;
+    padding-bottom: 14px;
+    width: calc(100% - 60px);
+
+    .text-1 {
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
+    .text-2 {
+      margin-bottom: 55px;
+    }
+  }
+  app-vertical-tabbar {
+    position: absolute;
+    right: 27px;
+    bottom: 20px;
+  }
+}

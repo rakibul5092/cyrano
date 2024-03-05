@@ -1,0 +1,21 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <ion-row>
+      <!-- Segment tabs -->
+      <ion-segment mode="md" (ionChange)="onChange($event)" [value]="selectedTab">
+        <ion-segment-button *ngFor="let segment of tabs" [value]="segment">
+          <label class="text f-calistoga f-w-400 f-xl">
+            {{ segment | translate }}
+          </label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-row>
+    <ng-container [ngSwitch]="selectedTab">
+      <ion-row *ngSwitchCase="tabs[0]" class="list-row">
+        <!-- Your Client list -->
+        <lib-profile-card (click)="gotoProfileDetails(client.id)" *ngFor="let client of clients" [profile]="client" [progressText]="'GURU.PROGRESS' | translate"></lib-profile-card>
+      </ion-row>
+      <app-client-requests *ngSwitchCase="tabs[1]"></app-client-requests>
+    </ng-container>
+  </div>
+</ion-content>

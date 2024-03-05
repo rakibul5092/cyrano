@@ -1,0 +1,22 @@
+@import '../guru-registration-common';
+
+.background-check-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  .custom-input {
+    margin: 16px 0 5px 0;
+  }
+}
+.page-body {
+  height: 85vh;
+}
+form {
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  height: 92vh;
+}

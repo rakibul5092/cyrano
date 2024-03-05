@@ -1,0 +1,14 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <ion-grid>
+      <ion-row class="list-row">
+        <lib-profile-card
+          [routerLink]="['/unmatched/potential-dates/date', date.id]"
+          *ngFor="let date of potentialDatesArray"
+          [profile]="date"
+          [progressText]="'GURU.PROGRESS' | translate"
+        ></lib-profile-card>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<div class="background-highlights" [class.stick-top]="activeIndex === 2" [ngStyle]="{ 'background-image': 'url(' + backgroundFloatingImageUrl + ')' }"></div>
+<ion-content color="#0000">
+  <div class="swipe-container">
+    <swiper #swiper (activeIndexChange)="onActiveIndexChange($event)" [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+      <ng-template swiperSlide>
+        <div class="stepper">
+          <section class="step-1" [ngStyle]="{ 'background-image': 'url(' + commonUtilService.icons.splash.step1 + ')' }"></section>
+          <div>
+            <p class="information">{{ 'INTRO-SCREEN.STEP-1' | translate }}</p>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="stepper">
+          <section class="step-2" [ngStyle]="{ 'background-image': 'url(' + commonUtilService.icons.splash.step2 + ')' }"></section>
+          <div>
+            <p class="information">{{ 'INTRO-SCREEN.STEP-2' | translate }}</p>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="stepper">
+          <section class="step-3" style="background-position: top" [ngStyle]="{ 'background-image': 'url(' + commonUtilService.icons.splash.step3 + ')' }"></section>
+          <div>
+            <p class="information">{{ 'INTRO-SCREEN.STEP-3' | translate }}</p>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+    <div class="pagination">
+      <span class="page-dot" [class.active]="activeIndex === 0"></span>
+      <span class="page-dot" [class.active]="activeIndex === 1"></span>
+      <span class="page-dot" [class.active]="activeIndex === 2"></span>
+    </div>
+    <div class="actions">
+      <a href="#" class="link-btn" *ngIf="activeIndex < 2" aria-label="skip-button" [routerLink]="['auth']">{{ 'INTRO-SCREEN.SKIP' | translate }}</a>
+
+      <div [class.flex-container]="activeIndex === 2">
+        <button *ngIf="activeIndex > 0" (click)="prevSlide()" mat-raised-button class="rounded-shadow circle" aria-label="login-btn" style="margin-right: 30px" type="submit">
+          <img [src]="commonUtilService.icons.actions.back" alt="" />
+        </button>
+        <button *ngIf="activeIndex < 2" (click)="nextSlide()" mat-raised-button class="rounded-shadow" aria-label="next-btn" type="submit">
+          <span>{{ 'INTRO-SCREEN.NEXT' | translate }}</span>
+        </button>
+        <button
+          *ngIf="activeIndex === 2"
+          (click)="nextSlide()"
+          mat-raised-button
+          [routerLink]="['auth']"
+          style="flex: 0 1 auto"
+          class="rounded-shadow wide ion-text"
+          aria-label="start-getting-dates-button"
+          type="submit"
+        >
+          <ion-text color="danger">{{ 'INTRO-SCREEN.START_GETTING_DATES' | translate }}</ion-text>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,97 @@
+.page-container {
+  min-height: auto;
+}
+
+.account-type-container {
+  position: relative;
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+  height: 88vh;
+  overflow: hidden;
+  padding: 15px;
+  form {
+    height: 100%;
+  }
+  h2 {
+    margin: 30px 24px 50px 20px;
+  }
+  .mat-raised-button {
+    &[disabled] {
+      background: #adadad;
+      opacity: 0.6;
+    }
+  }
+}
+
+.terms-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 100px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--ion-foreground-color);
+  --color-activated: var(--ion-foreground-color);
+  width: 100%;
+  padding-left: 16px;
+  cursor: pointer;
+
+  lib-dashed-checkbox {
+    box-shadow: var(--cyrano-box-inset-shadow);
+    --color: var(--ion-text-color-secondary2);
+    --padding: 0;
+    width: 32px;
+    padding: 4px;
+    border-width: 2px;
+
+    &.accepted {
+      --color: var(--cyrano-pink-shade-1);
+    }
+  }
+
+  p {
+    margin-right: 24px;
+    word-break: break-word;
+    width: 100%;
+    cursor: auto;
+
+    * {
+      cursor: pointer;
+    }
+  }
+  --background: none;
+  --border-color: transparent;
+}
+
+ion-item {
+  font-family: 'Gilroy-Regular';
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  max-width: fit-content;
+}
+
+ion-radio.app-ion-radio {
+  margin: 0 20px 0 0;
+}
+
+ion-checkbox.app-ion-checkbox {
+  margin: 0 20px 0 2px;
+}
+
+@media screen and (max-width: 300px) {
+  h2 {
+    margin: 25px 24px 38px 20px;
+  }
+  h2.page-title {
+    font-size: 22px;
+  }
+  ion-item {
+    font-size: 14px;
+  }
+  .terms-item {
+    margin-top: 90px;
+  }
+}

@@ -1,0 +1,79 @@
+@import '../../guru.global.scss';
+ion-grid {
+  padding: 0px;
+  position: relative;
+
+  ion-row {
+    padding: 0px;
+
+    .measures {
+      display: flex;
+      align-items: flex-end;
+      padding: 0px;
+
+      div {
+        height: 244px;
+        width: 16px;
+        display: grid;
+        align-items: flex-end;
+
+        span {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .bars {
+      padding: 0px;
+
+      .date-container {
+        display: grid;
+        margin-bottom: 22px;
+
+        span {
+          margin-bottom: 14px;
+        }
+      }
+
+      .bar {
+        height: 224px;
+        width: 16px;
+        background: #8f8c84;
+        border-radius: 18px;
+        position: relative;
+        transform: rotate(180deg);
+
+        .bar-indicator {
+          background: var(--text-highlight-color);
+          border-radius: 18px;
+          width: 16px;
+          opacity: 1;
+          height: 45px;
+          position: absolute;
+
+          &-blur {
+            filter: blur(3px);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $md) {
+    ion-row {
+      width: calc(100% - 10px);
+    }
+  }
+
+  @media screen and (max-width: $sm) {
+    ion-row {
+      width: calc(100% - 15px);
+    }
+  }
+
+  app-vertical-tabbar {
+    position: absolute;
+    right: 8px;
+    bottom: 0px;
+  }
+}

@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="guru-registration-screen guru-monthly-goals-screen">
+      <h2 class="page-title page-title-lg">{{ 'MONEY_GOALS.TITLE' | translate }}</h2>
+      <p class="guru-registration-paragraph">{{ 'MONEY_GOALS.INFO' | translate }}</p>
+
+      <!-- Goals cards-->
+      <div class="items-grid monthly-goals">
+        <div class="box center-contents-column first-card">
+          <img [src]="icons.common.earnings" alt="earnings" class="card-icon" />
+          <div>
+            <span class="card-goal-currency">$</span>
+            <span class="card-goal">{{ goal }}</span>
+          </div>
+          <span class="card-description">/{{ 'BACKGROUND_CHECK.MONTH' | translate }}</span>
+        </div>
+        <div class="box center-contents-column second-card">
+          <img [src]="icons.common.dates" alt="earnings" class="card-icon" />
+          <span class="card-goal">42</span>
+          <span class="card-description">{{ 'MONEY_GOALS.DATES_REQUIRED' | translate }}</span>
+        </div>
+      </div>
+      <ion-range min="0" max="100" step="10" snaps="true" [formControl]="dateControl"> </ion-range>
+      <img [src]="icons.separator" alt="separator" class="section-separator" />
+
+      <!-- Goals features-->
+      <div class="goals-features">
+        <div class="goals-feature">
+          <div>
+            <div class="feature-icon center-content">
+              <img [src]="icons.mic" alt="Live sessions" width="26" />
+            </div>
+          </div>
+          <div class="feature-info">
+            <h4>{{ 'MONEY_GOALS.LIVE_SESSIONS' | translate }}</h4>
+            <p class="guru-registration-paragraph">{{ 'MONEY_GOALS.LIVE_SESSIONS_DESCRIPTION' | translate }}</p>
+          </div>
+        </div>
+        <div class="goals-feature">
+          <div>
+            <div class="feature-icon center-content">
+              <img [src]="icons.messaging" alt="Messaging" width="24" />
+            </div>
+          </div>
+          <div class="feature-info">
+            <h4>{{ 'MONEY_GOALS.MESSAGING' | translate }}</h4>
+            <p class="guru-registration-paragraph">{{ 'MONEY_GOALS.MESSAGING_DESCRIPTION' | translate }}</p>
+          </div>
+        </div>
+        <div class="goals-feature">
+          <div>
+            <div class="feature-icon center-content">
+              <img [src]="icons.geo" alt="Sell itineraries" width="18" />
+            </div>
+          </div>
+          <div class="feature-info">
+            <h4>{{ 'MONEY_GOALS.SELLING_ITINERARIES' | translate }}</h4>
+            <p class="guru-registration-paragraph">{{ 'MONEY_GOALS.SELLING_ITINERARIES_DESCRIPTION' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <button mat-raised-button type="button" (click)="continue()" class="continue">
+        <span>{{ 'CONTINUE' | translate }}</span>
+      </button>
+    </div>
+  </div>
+</ion-content>

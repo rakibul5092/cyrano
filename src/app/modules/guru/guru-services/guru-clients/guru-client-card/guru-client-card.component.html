@@ -1,0 +1,35 @@
+<div class="box client-card" *ngIf="client" (click)="openClientDetails()">
+  <div class="client-card-header">
+    <img [src]="client.profileImage" alt="clint image" class="user-photo" />
+    <div class="client-card-header-user">
+      <h4>
+        {{ client.name }}
+        <img src="assets/images/star.png" alt="rate" />
+        <span class="rate">{{ client.rate }}</span>
+      </h4>
+      <p>{{ client.country }}</p>
+    </div>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()" aria-label="client menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu"></mat-menu>
+  </div>
+  <div class="client-card-body">
+    <div class="accounts accounts-vertical">
+      <button mat-raised-button *ngFor="let account of client.accounts">
+        <div>
+          <img [src]="account.logo" alt="account" />
+        </div>
+      </button>
+    </div>
+    <p>
+      <span class="dating-date">{{ client.datingDate | date : 'd MMM y' }}</span>
+      <span class="dot">.</span>
+      <span *ngIf="client.dates > 0" class="successful-dates">
+        {{ client.dates }} {{ 'GURU.SUCCESSFUL_DATES' | translate }} ({{ client.remainingDates }} {{ 'GURU.LEFT' | translate }})
+      </span>
+      <span *ngIf="!client.dates" class="no-dates">{{ 'GURU.NO_DATE_YET' | translate }}</span>
+    </p>
+  </div>
+</div>

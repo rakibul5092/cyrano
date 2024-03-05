@@ -1,0 +1,30 @@
+<ion-grid>
+  <ion-row class="f-lato f-xs f-w-400 h-100 f-white">
+    <!-- Left side unit meaurements -->
+    <ion-col class="ion-text-end measures" size="1">
+      <div>
+        <span *ngFor="let measure of measures">
+          {{ measure }}
+        </span>
+      </div>
+    </ion-col>
+
+    <!-- Column chart -->
+    <ion-col class="bars" size="1.11" *ngFor="let weekday of weekdays">
+      <!-- Weekdays and value -->
+      <div class="date-container">
+        <span>{{ weekday.value }}</span>
+        <span>{{ weekday.day }}</span>
+      </div>
+      <!-- bar of column chart -->
+      <div class="bar">
+        <div class="bar-indicator" [style]="'top: ' + weekday.barValue * 44.8 + 'px'">
+          <div class="bar-indicator bar-indicator-blur"></div>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- Right side vertical tab bar -->
+  <app-vertical-tabbar></app-vertical-tabbar>
+</ion-grid>

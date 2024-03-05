@@ -1,0 +1,68 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="account.photo"
+      [name]="account.name"
+      [leftIcon]="commonService.icons.hash"
+      [leftText]="account.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+      [rightIcon]="commonService.icons.location"
+      [rightText]="account.address"
+    ></lib-profile-header>
+
+    <ng-container [ngSwitch]="guruStatus | async">
+      <div *ngSwitchCase="guruStatusEnum.confirmation" class="page">
+        <img src="/assets/images/drone with package.svg" alt="sending-image" class="page-image" />
+        <p class="message f-lato f-w-600 f-md h-160">
+          {{ ('NOTIFICATIONS.SENDING_TO_GURU' | translate).replace('GURUNAME', 'Jackie Burkhart').replace('DATENAME', 'Jackie Appiah') }}
+        </p>
+        <div class="selected-guru">
+          <img src="https://picsum.photos/id/237/120/120" alt="guru-image" />
+          <p class="guru-name">Jackie Burkhart</p>
+        </div>
+
+        <div class="button-group f-calistoga f-w-400 h-160">
+          <ion-button (click)="onGuruConfirm()" type="button" class="app-primary-button primary">
+            {{ 'BUTTONS.CONFIRM' | translate }}
+          </ion-button>
+          <ion-button (click)="onChangeGuru()" type="button" class="app-black-button dark">
+            {{ 'BUTTONS.CHANGE_GURU' | translate }}
+          </ion-button>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="guruStatusEnum.noGuru" class="page">
+        <img src="assets/images/empty package.png" alt="sending-image" class="page-image" />
+        <div class="status-text f-lato h-160">
+          <span class="f-w-600 f-md f-white">{{ 'NOTIFICATIONS.NO_GURU' | translate }}</span>
+          <span class="f-w-400 f-sm f-dark">{{ 'NOTIFICATIONS.SELECT_A_GURU_FIRST' | translate }}</span>
+        </div>
+
+        <div class="button-group-select f-calistoga f-w-400 h-160">
+          <ion-button (click)="onGuruConfirm()" type="button" class="app-primary-button primary">
+            {{ 'BUTTONS.GET_A_GRURU' | translate }}
+          </ion-button>
+          <ion-button type="button" class="app-black-button dark">
+            {{ 'BUTTONS.EXPLORE_GURUS' | translate }}
+          </ion-button>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="guruStatusEnum.guruConfirmed" class="page">
+        <img src="/assets/images/drone with package.svg" alt="sending-image" class="page-image" />
+
+        <div class="status-text f-lato h-160">
+          <span class="f-w-600 f-md f-white">{{ 'NOTIFICATIONS.GURU_ON_IT' | translate }}</span>
+          <span class="f-w-400 f-sm f-dark">{{ 'NOTIFICATIONS.YOU_WILL_RECEIVE_A_NOTIFICATION' | translate }}</span>
+        </div>
+
+        <div class="explore-dates-button f-calistoga f-w-400 h-160">
+          <ion-button type="button" class="app-black-button dark">
+            {{ 'BUTTONS.EXPLORE_POTENTIALS_DATES' | translate }}
+          </ion-button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>

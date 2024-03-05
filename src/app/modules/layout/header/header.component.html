@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border" *ngIf="user">
+  <ion-toolbar mode="md">
+    <!-- back button -->
+    <ion-buttons mode="ios" *ngIf="showBackButton" class="start-buttons" slot="start">
+      <ion-button class="back-container">
+        <ion-icon [src]="icons.header.back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Title -->
+    <ion-title size="small" [class]="showBackButton ? 'ion-text-center' : ''">
+      <app-marquee class="title-wrapper" [title]="'Hello Jackie'"></app-marquee>
+    </ion-title>
+
+    <!-- End buttons (notification, menu) -->
+    <ion-buttons mode="ios" class="end-buttons" slot="end">
+      <!-- notification icon -->
+      <ion-button class="header-button">
+        <ion-icon class="header-button-alert" *ngIf="notificationCount > 0" [src]="icons.header.notificationAlert"> </ion-icon>
+
+        <ion-icon class="header-button-noti" [src]="icons.header.notification"></ion-icon>
+      </ion-button>
+
+      <ion-button class="header-button" [matMenuTriggerFor]="userMenu">
+        <ion-icon class="header-button-noti" [src]="icons.profile"></ion-icon>
+      </ion-button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="themesMenu">
+          {{ 'THEMES.TITLE' | translate }}
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="languagesMenu">
+          {{ 'LANGUAGES.TITLE' | translate }}
+        </button>
+        <button mat-menu-item (click)="logout()">
+          {{ 'AUTH.LOGOUT' | translate }}
+        </button>
+      </mat-menu>
+      <mat-menu #themesMenu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let theme of themes"
+          [disabled]="theme.key === commonUtilService.activeTheme"
+          [ngClass]="{ active: theme.key === commonUtilService.activeTheme }"
+          (click)="changeTheme(theme)"
+        >
+          {{ theme.name | translate }}
+        </button>
+      </mat-menu>
+      <mat-menu #languagesMenu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let language of languages"
+          [disabled]="language.key === commonUtilService.activeLanguage"
+          [ngClass]="{ active: language.key === commonUtilService.activeLanguage }"
+          (click)="commonUtilService.changeLanguage(language.key)"
+        >
+          {{ language.name | translate }}
+        </button>
+      </mat-menu>
+
+      <!-- menu icon -->
+      <ion-button class="header-button btn_side-menu-toggle" (click)="toggleSideMenu()">
+        <ion-icon class="header-button-menu" [src]="icons.header.menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,52 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <div class="top-container">
+      <!-- Top statistic title -->
+      <ion-text class="header-title f-calistoga f-w-400 f-lg h-160 f-dark">{{ 'GURU.YOUR_LAST_MONTH’S_STATISTICS' | translate }}</ion-text>
+
+      <!-- Circular progress statistics -->
+      <div class="circle-container">
+        <lib-circle-progress
+          [value]="item.value"
+          [max]="item.maxValue"
+          [prefix]="item.unit"
+          width="101px"
+          height="102px"
+          [type]="item.type | translate"
+          *ngFor="let item of statistics"
+        ></lib-circle-progress>
+      </div>
+    </div>
+
+    <!-- Statistic types -->
+    <div class="statistic-mid">
+      <lib-multi-colored-text class="f-calistoga f-w-400 f-lg h-160 f-white" [text]="'GURU.CASHOUT_EARNINGS' | translate"></lib-multi-colored-text>
+
+      <span class="f-lato f-w-400 f-sm h-160 f-gray">
+        {{ 'GURU.YOU_MAY_WITHDRAW' | translate }}
+      </span>
+    </div>
+
+    <!-- Cashout amount slider -->
+    <div class="amount-slider">
+      <app-custom-range [totalAmount]="totalAmount" (rangeChange)="onAmountChange($event)"></app-custom-range>
+    </div>
+    <div class="total">
+      <span class="text f-lato f-w-600 f-md h-160"
+        >{{ 'GURU.TOTAL_WITHDRAWAL' | translate }} =<span class="amount f-calistoga f-w-400 f-lg h-160"> ${{ selectedAmount }}</span>
+      </span>
+    </div>
+
+    <!-- Terms and condition-->
+    <div class="terms">
+      <lib-checkbox id="terms"></lib-checkbox>
+      <lib-multi-colored-text class="f-lato f-w-400 f-sm h-160 f-dark" [text]="'GURU.TERMS_AND_SERVICES' | translate"></lib-multi-colored-text>
+    </div>
+
+    <!-- Withdraw button  -->
+    <ion-button mode="md" class="withdraw f-calistoga f-w-400 f-xl h-160">{{ 'GURU.WITHDRAW_MONEY' | translate }}</ion-button>
+  </div>
+
+  <!-- Background image -->
+  <img [src]="'assets/images/Vector 2.png'" class="vector" alt="vector" />
+</ion-content>

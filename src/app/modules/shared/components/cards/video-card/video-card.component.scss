@@ -1,0 +1,69 @@
+.video-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  .lesson-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100% !important;
+    background: #27242c;
+    opacity: 0.7;
+    font-family: 'Calistoga';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--ion-text-color);
+    padding: 15px 30px;
+    z-index: 9999;
+    p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .video-title {
+      z-index: 9999;
+      color: #fff;
+    }
+  }
+  .lesson-title.pause-mode {
+    height: 100%;
+    .player-progress {
+      min-width: calc(100% - 60px);
+      height: 16px;
+      position: absolute;
+      left: 30px;
+      bottom: 47px;
+      background: #89877e;
+      border-radius: 18px;
+      overflow: hidden;
+
+      .inner-progress {
+        position: relative;
+        height: 16px;
+        background: #f7f5dd;
+        border-radius: 18px;
+        text-align: center;
+        font-family: 'Lato';
+        font-style: normal;
+        font-size: 10px;
+        line-height: 100%;
+        padding: 3.5px 0;
+        font-weight: bold;
+      }
+      .inner-progress-value {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        font-weight: bold;
+        color: #222222;
+      }
+    }
+  }
+}

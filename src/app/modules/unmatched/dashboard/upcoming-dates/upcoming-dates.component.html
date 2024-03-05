@@ -1,0 +1,6 @@
+<div class="wrapper">
+  <ng-container *ngFor="let date of dateData">
+    <app-upcoming-date-card *ngIf="date.date" [upcomingDate]="date"></app-upcoming-date-card>
+    <app-no-date-run-card *ngIf="!date.date" [cardDetails]="date"></app-no-date-run-card>
+  </ng-container>
+</div>

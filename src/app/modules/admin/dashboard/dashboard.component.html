@@ -1,0 +1,41 @@
+<app-header></app-header>
+<ion-content fullscreen>
+  <div class="container">
+    <ion-segment mode="md" (ionChange)="onChange($event)" [value]="selectedTab">
+      <ion-segment-button *ngFor="let segment of segmentTabs" [value]="segment" class="segment text f-calistoga f-w-400 f-xl">{{ segment | translate }} </ion-segment-button>
+    </ion-segment>
+
+    <div class="users-container">
+      <div class="search-input">
+        <input
+          type="button"
+          type="text"
+          [placeholder]="(screenWidth > 355 ? 'FIELDS.SEARCH_FOR_USER' : 'FIELDS.SEARCH_FOR_USER_XS') | translate"
+          class="leftIcon app-input emphasis f-lato f-w-600 f-md h-160"
+        />
+        <button mat-icon-button class="left search-button" type="button">
+          <span class="cyrano cyrano-search search-icon"></span>
+        </button>
+      </div>
+      <div class="all-users-list">
+        <div class="user-component" *ngFor="let profile of profiles">
+          <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+          <lib-profile-header
+            [orientation]="orientation"
+            [photo]="profile.photo"
+            [name]="profile.name"
+            [leftIcon]="commonUtilService.icons.hash"
+            [leftText]="profile.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+            [rightIcon]="commonUtilService.icons.location"
+            [rightText]="profile.address"
+          ></lib-profile-header>
+
+          <button type="button" class="to-profile-button" (click)="gotoProfile(profile)">
+            <span class="cyrano cyrano-arrow-forward"></span>
+          </button>
+        </div>
+        <div class="padding-box"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

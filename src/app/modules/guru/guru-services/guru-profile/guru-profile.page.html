@@ -1,0 +1,46 @@
+<ion-content>
+  <div class="wrapper">
+    <main>
+      <header class="profile-header">
+        <span class="f-calistoga f-w-400 f-3xl">{{ 'HEADER_TITLES.PROFILE' | translate }}</span>
+        <ion-button>
+          <ion-icon class="header-button-menu" [src]="icons.header.menu"></ion-icon>
+        </ion-button>
+      </header>
+      <lib-profile-header
+        [leftIcon]="icons.star"
+        [rightIcon]="icons.hash"
+        [leftText]="profile.averageRating+'/5 Stars'"
+        [rightText]="profile.numberOfReviews+' Reviews'"
+        [photo]="'/assets/images/sample_guru_profile_picture.jpg'"
+        [orientation]="'vertical'"
+        [name]="profile.name"
+        class="guru-profile-header"
+      ></lib-profile-header>
+
+      <div class="custom-input search-input">
+        <button class="left cyrano cyrano-search f-gray" type="button"></button>
+        <input type="button" type="text" placeholder="{{ 'FIELDS.SEARCH' | translate }}" class="f-gilroy-semibold f-w-400" />
+      </div>
+
+      <section class="about-me">
+        <header>
+          <p class="f-gilroy-semibold f-w-800 f-lg">{{ 'GURU.GURU_SERVICES.ABOUT_ME' | translate }}</p>
+          <button class="cyrano cyrano-Pen f-xl"></button>
+        </header>
+        <p class="about-me-content f-sm f-gilroy-regular f-w-500 f-light-gray">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.
+        </p>
+      </section>
+
+      <section class="reviews">
+        <header class="f-gilroy-semibold f-w-800 f-lg">{{ 'GURU.GURU_SERVICES.REVIEWS' | translate }}({{ profile.numberOfReviews }})</header>
+        <div class="review-content">
+          <app-guru-review-card *ngFor="let review of profile.reviews" [reviewData]="review"></app-guru-review-card>
+        </div>
+      </section>
+
+      <button class="btn-see-more f-gilroy-regular f-w-500 f-md"><i class="cyran cyrano-chevron-down"></i> {{ 'BUTTONS.SEE_MORE' | translate }}</button>
+    </main>
+  </div>
+</ion-content>

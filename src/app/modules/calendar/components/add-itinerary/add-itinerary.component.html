@@ -1,0 +1,28 @@
+<section>
+  <h2>
+    <span class="f-gilroy-regular h-160">Add itinerary</span>
+    <button class="add" (click)="submit()">{{ 'BUTTONS.ADD' | translate }}</button>
+  </h2>
+  <form [formGroup]="form">
+    <label for="" class="name">
+      <span>Title</span>
+      <input type="text" formControlName="title" class="app-input" />
+    </label>
+    <label for="" class="name">
+      <span>Description</span>
+      <input type="text" formControlName="description" class="app-input" />
+    </label>
+    <label class="name">
+      <span>place</span>
+      <input type="text" formControlName="place" class="app-input" />
+    </label>
+    <label for="" class="name">
+      <span>Date</span>
+      <input type="text" class="app-input" [value]="form.controls.date.value | date : 'dd MMMM YYYY'" readonly />
+    </label>
+    <label for="" class="name">
+      <span>Location</span>
+      <input type="text" class="app-input" />
+    </label>
+  </form>
+</section>

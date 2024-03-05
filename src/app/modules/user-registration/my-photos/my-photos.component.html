@@ -1,0 +1,48 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'photos'">
+    <form (ngSubmit)="onContinue()">
+      <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.ADD_PHOTOS' | translate }}</span>
+
+      <span class="info f-w-400 f-md h-150 f-light-gray">
+        {{ 'UNMATCHED_USER.PHOTOS_REQUIREMENT' | translate }}
+      </span>
+
+      <ion-row>
+        <ion-col *ngFor="let skeletonLoader of skeletonLoaders; let i = index" size="6">
+          <ng-container *ngIf="!skeletonLoader; else skeleton">
+            <div class="unselected-div" *ngIf="!imgSrcArray[i]?.image; else image" (click)="selectImage()">
+              <div class="rounded-btn center ion-activatable ripple-parent">
+                <ion-icon name="add"></ion-icon>
+                <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #image>
+            <div class="img-wrap">
+              <img [src]="imgSrcArray[i]?.image" />
+              <mat-icon class="delete-icon" (click)="removeImage(i)">delete</mat-icon>
+            </div>
+          </ng-template>
+          <ng-template #skeleton>
+            <div class="img-wrap">
+              <p-skeleton height="100%" width="100%" borderRadius="12px"></p-skeleton>
+              <mat-icon class="delete-icon" (click)="removeImage(i)">delete</mat-icon>
+            </div>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+
+      <div class="button-container">
+        <ion-button
+          (click)="onContinue()"
+          [disabled]="imgSrcArray.length < 2 || imageBeingLoaded"
+          [attr.disabled]="imgSrcArray.length < 2 || imageBeingLoaded"
+          *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+          class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+          >{{ 'UNMATCHED_USER.CONTINUE' | translate }}
+        </ion-button>
+        <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+      </div>
+    </form>
+  </div>
+</ion-content>

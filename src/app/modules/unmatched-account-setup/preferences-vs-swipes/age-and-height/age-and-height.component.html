@@ -1,0 +1,5 @@
+<div class="container">
+  <ng-container *ngFor="let item of dataService.items; let i = index">
+    <app-selectable-item label1="UNMATCHED_ACCOUNT_SETUP.AGE" label2="UNMATCHED_ACCOUNT_SETUP.HEIGHT" [item]="item" (click)="onSelect(i)"> </app-selectable-item>
+  </ng-container>
+</div>

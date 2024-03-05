@@ -1,0 +1,23 @@
+.auth-header {
+  .mat-icon-button {
+    position: absolute;
+    top: 5px;
+    z-index: 999999999;
+    box-shadow: none;
+    background: transparent;
+    &.theme-btn {
+      right: 15px;
+    }
+    &.local-btn {
+      right: 60px;
+      .mat-icon {
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-menu-item.active {
+  color: var(--ion-color-danger);
+  font-weight: bold;
+}

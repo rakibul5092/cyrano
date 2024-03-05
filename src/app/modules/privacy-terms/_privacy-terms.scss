@@ -1,0 +1,25 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  font-family: Lato;
+  padding: 20px;
+}
+
+.indent {
+  margin-left: 20px;
+}
+
+p {
+  text-align: justify;
+}
+
+h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  span:first-child {
+    width: 20px; // push the content right by 20px
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}

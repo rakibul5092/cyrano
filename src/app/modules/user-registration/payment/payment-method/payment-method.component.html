@@ -1,0 +1,27 @@
+<h2 class="title">
+  <span class="title-content-wrapper">{{ 'ACCOUNT_TAKEOVER.HEADER_TITLES.PAYMENT_METHOD' | translate }}</span>
+  <button class="cyrano-tab-close btn-close-dialog" (click)="close()"></button>
+</h2>
+<div class="main-wrapper">
+  <section>
+    <h2>{{ 'PAYMENT.CARD_DETAILS' | translate }}</h2>
+    <form class="payment-details" [formGroup]="form">
+      <ng-container formGroupName="owner">
+        <input type="text" formControlName="firstName" class="app-input" [placeholder]="'FIELDS.FIRST_NAME' | translate" />
+        <input type="text" formControlName="lastName" class="app-input" [placeholder]="'FIELDS.LAST_NAME' | translate" />
+      </ng-container>
+      <app-card-input
+        class="app-input"
+        formControlName="cardNumber"
+        [placeholder]="'FIELDS.CARD_NUMBER' | translate"
+        (updateCardType)="handleUpdateCardType($event)"
+      ></app-card-input>
+      <app-card-expiry class="app-input" formControlName="expiry" class="app-input" [placeholder]="'FIELDS.EXPIRY_DATE' | translate"></app-card-expiry>
+      <input type="text" formControlName="cvc" class="app-input" placeholder="cvc" maxlength="4" />
+    </form>
+    <!-- <label><app-dashed-checkbox></app-dashed-checkbox> {{ 'PAYMENT.SET_AS_DEFAULT_PAYMENT_METHOD' | translate }}</label> -->
+  </section>
+  <section class="action-buttons">
+    <button class="app-pink-proceed-button btn-add" (click)="confirm()">{{ 'BUTTONS.ADD' | translate }}</button>
+  </section>
+</div>

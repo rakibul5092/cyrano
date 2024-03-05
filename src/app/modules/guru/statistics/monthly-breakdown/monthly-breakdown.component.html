@@ -1,0 +1,21 @@
+<ion-grid>
+  <ion-row class="statistics f-lato f-xs f-w-400 h-100 f-white">
+    <ion-col class="ion-text-end measures" size="1.8">
+      <div>
+        <span *ngFor="let measure of measures">
+          {{ '$' + measure }}
+        </span>
+      </div>
+    </ion-col>
+    <ion-col class="ion-text-center" class="bars" size="1.6" *ngFor="let month of months">
+      <div class="date-container">
+        <span>{{ month.name }}</span>
+      </div>
+      <div class="bar">
+        <span [style]="'bottom: ' + (month.value + 10) + 'px'" class="amount" *ngIf="selectedMonth && selectedMonth.id === month.id">{{ '$' + month.value }}</span>
+        <div [class]="'bar-indicator ' + (selectedMonth?.id === month.id ? 'bar-indicator-blur' : '')" [style]="'height: ' + month.value + 'px'"></div>
+        <div (click)="selectedMonth = month" class="bar-indicator" [style]="'height: ' + month.value + 'px'"></div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,44 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <div class="container">
+      <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+      <lib-profile-header
+        [orientation]="orientation"
+        [photo]="request.photo"
+        [name]="request.name"
+        [leftIcon]="commonUtilService.icons.hash"
+        [leftText]="request.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+        [rightIcon]="commonUtilService.icons.location"
+        [rightText]="request.address"
+      ></lib-profile-header>
+    </div>
+
+    <!-- Types  -->
+    <div class="status-container f-lato f-w-700 f-xl h-160">
+      <div class="type">
+        <span class="text text-left">{{
+          ((request.status.key === 'Type' ? 'GURU.TYPE' : 'GURU.LOOKING_FOR_A_DATE_WITH') | translate) + (request.status.key === 'Type' ? ' :' : '')
+        }}</span>
+        <span class="text text-right">{{ request.status.value }}</span>
+      </div>
+      <div class="type">
+        <span class="text text-left">{{
+          ((request.status.key === 'Type' ? 'GURU.TYPE' : 'GURU.LOOKING_FOR_A_DATE_WITH') | translate) + (request.status.key === 'Type' ? ' :' : '')
+        }}</span>
+        <span class="text text-right">{{ request.status.value }}</span>
+      </div>
+    </div>
+
+    <div class="message f-roboto f-w-400 f-md h-180">
+      Your guru will arrive in <span>60 minutes</span> with a <span>first date goal.</span> This will be a
+      <span>small</span>
+      message.
+    </div>
+
+    <!-- Delete and Accept request button -->
+    <div class="buttons" mode="md">
+      <ion-button class="button dark">{{ 'GURU.DELETE' | translate }}</ion-button>
+      <ion-button class="button pink">{{ 'GURU.ACCEPT_REQUEST' | translate }}</ion-button>
+    </div>
+  </div>
+</ion-content>

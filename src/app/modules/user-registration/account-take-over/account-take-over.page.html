@@ -1,0 +1,48 @@
+<ion-content>
+  <section class="main-wrapper" appSubmitOnEnter (enter)="setupDatingAccount()" [route]="'accountTakeOver'">
+    <h2>{{ 'ACCOUNT_TAKEOVER.PLATFORM_TO_DATE_ON' | translate }}</h2>
+    <form id="select-platform" [formGroup]="datingPlatformsForm">
+      <table class="buttons" formArryName="dp">
+        <ng-container *ngFor="let datingPlatformControl of datingPlatformsControl['controls']; let i = index">
+          <tr [formGroup]="datingPlatformControl" class="platform-button">
+            <td>
+              <input
+                type="checkbox"
+                name="platforms"
+                [id]="datingPlatformControl.value.datingPlatform + i"
+                [value]="datingPlatformControl.datingPlatform"
+                #platformCheckbox
+                formControlName="selected"
+              />
+              <label [for]="datingPlatformControl.value.datingPlatform + i">{{ datingPlatformControl.value.datingPlatform }}</label>
+            </td>
+            <td>
+              <ion-select
+                class="dropdown"
+                [ngClass]="{'active': datingPlatformControl.value.selected}"
+                [interfaceOptions]="{cssClass: 'dropdown'}"
+                #platformOption
+                formControlName="accountAlreadyExists"
+              >
+                <ion-select-option *ngFor="let datingPlatformType of datingPlatformTypes" [value]="datingPlatformType.value">
+                  {{ datingPlatformType.label | translate }}
+                </ion-select-option>
+              </ion-select>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </form>
+  </section>
+  <div class="action-buttons">
+    <button
+      class="app-pink-proceed-button btn-next"
+      form="select-platform"
+      [ngClass]="{'app-button-disabled': !datingPlatformsForm.valid}"
+      [disabled]="!datingPlatformsForm.valid"
+      (click)="setupDatingAccount()"
+    >
+      {{ 'BUTTONS.NEXT' | translate }}
+    </button>
+  </div>
+</ion-content>

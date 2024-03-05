@@ -1,0 +1,67 @@
+<app-calendar-header
+  [title]="'CALENDAR.TITLE' | translate"
+  [loading]="loading"
+  (addEvent)="onAddEvent()"
+  (daysFilterEvent)="onDaysFilterEvent($event)"
+  (manageEvent)="onManageEvent()"
+>
+</app-calendar-header>
+
+<ion-content>
+  <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+  <div class="calender-container" #calenderContainer>
+    <div *ngIf="view !== 'day'; else customHeader"></div>
+    <ng-template #customHeader>
+      <div class="custom-header">
+        <div class="custom-header-pagination">
+          <button mat-icon-button type="button" mwlCalendarPreviousView [view]="view" [daysInWeek]="daysInWeek" (click)="onPaginationChange()" [(viewDate)]="viewDate">
+            <mat-icon>navigate_before</mat-icon>
+          </button>
+          <button mat-icon-button class="next-btn" type="button" mwlCalendarNextView [daysInWeek]="daysInWeek" [view]="view" (click)="onPaginationChange()" [(viewDate)]="viewDate">
+            <mat-icon>navigate_next</mat-icon>
+          </button>
+          <div class="currentDate">{{ viewDate | date : 'MMM y' }}</div>
+        </div>
+        <div class="week-day" *ngFor="let weekDay of currentWeekDays">
+          <div [ngClass]="{ today: weekDay.dayDate.getDate() === today.getDate() }">
+            {{ weekDay.day }}
+          </div>
+          <div>{{ weekDay.dayDate.getDate() }}</div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #customTooltip><div></div></ng-template>
+    <mwl-calendar-week-view
+      *ngIf="view === 'week'"
+      #calendarWeekViewComponent
+      [headerTemplate]="customHeader"
+      [tooltipTemplate]="customTooltip"
+      [viewDate]="viewDate"
+      [events]="(loading$ | async) ? [] : filteredEvents"
+      [refresh]="refresh"
+      [daysInWeek]="daysInWeek"
+      (hourSegmentClicked)="onHourSegmentClicked($event)"
+      (eventClicked)="onEditEvent('Clicked', $event.event)"
+    >
+    </mwl-calendar-week-view>
+
+    <mwl-calendar-day-view
+      *ngIf="view === 'day'"
+      #calendarDayViewComponent
+      [tooltipTemplate]="customTooltip"
+      [viewDate]="viewDate"
+      [events]="(loading$ | async) ? [] : filteredEvents"
+      [refresh]="refresh"
+      (hourSegmentClicked)="onHourSegmentClicked($event)"
+      (eventClicked)="onEditEvent('Clicked', $event.event)"
+    >
+    </mwl-calendar-day-view>
+  </div>
+</ion-content>
+
+<div class="button-container">
+  <ion-button mode="md" *ngIf="(loading$ | async) !== true" class="continue-button f-gilroy-regular f-w-400 f-xl h-160" (click)="onContinue()"
+    >{{ 'UNMATCHED_USER.CONTINUE' | translate }}
+  </ion-button>
+  <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+</div>

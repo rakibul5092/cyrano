@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="wrapper" appSubmitOnEnter (enter)="onNext()" [route]="'setupDatingAccount'">
+    <h2>{{ 'ACCOUNT_TAKEOVER.SET_UP_DATING_ACCOUNT' | translate }}</h2>
+    <app-text-mark>
+      <p>{{ 'ACCOUNT_TAKEOVER.DATING_ACCOUNT_SET_UP_BEFORE_PROCEEDING' | translate }}</p>
+      <mark>{{ 'ACCOUNT_TAKEOVER.ALREADY_CREATED' | translate }}</mark>
+      <mark>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS' | translate }}</mark>
+    </app-text-mark>
+
+    <div class="link-cards">
+      <a class="link-card link-to-new-account" (click)="onDatingPlatformsClick('newAccounts')">
+        <h3>
+          <span>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNT' | translate }}</span>
+          <i class="cyrano cyrano-chevron-right icon"></i>
+        </h3>
+        <ul>
+          <li *ngFor="let datingPlatform of newAccounts">{{ datingPlatform?.platform }}</li>
+        </ul>
+      </a>
+
+      <a class="link-card account-already-created" (click)="onDatingPlatformsClick('existingAccounts')">
+        <h3>
+          <span>{{ 'ACCOUNT_TAKEOVER.ALREADY_CREATED_ACCOUNT' | translate }}</span>
+          <i class="cyrano cyrano-checkmark-pierce icon"></i>
+        </h3>
+        <ul>
+          <li *ngFor="let datingPlatform of existingAccounts">{{ datingPlatform?.platform }}</li>
+        </ul>
+      </a>
+    </div>
+
+    <section class="action-buttons">
+      <button class="app-black-return-button btn-back" routerLink="../">{{ 'BUTTONS.BACK' | translate }}</button>
+      <button class="app-pink-proceed-button btn-proceed" (click)="onNext()">
+        {{ 'BUTTONS.PROCEED_TO_PAYMENT' | translate }}
+      </button>
+    </section>
+  </div>
+</ion-content>

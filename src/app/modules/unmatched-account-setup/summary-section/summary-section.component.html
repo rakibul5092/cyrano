@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="summary-container main-wrapper" appSubmitOnEnter (enter)="gotoNextPage()" [route]="'summary'">
+    <ion-icon src="assets/icon/dark/summary-icon.svg"></ion-icon>
+    <div class="title f-calistoga f-w-400 f-3xl h-160 f-white">{{ 'UNMATCHED_ACCOUNT_SETUP.SUMMARY_SECTION' | translate }}</div>
+    <div class="subtitle f-lato f-w-400 f-sm h-100 f-light-gray">
+      <span>{{ 'UNMATCHED_ACCOUNT_SETUP.SUMMARY_SECTION_TEXT_1' | translate }}</span>
+
+      <span>{{ 'UNMATCHED_ACCOUNT_SETUP.SUMMARY_SECTION_TEXT_2' | translate }}</span>
+
+      <span>{{ 'UNMATCHED_ACCOUNT_SETUP.SUMMARY_SECTION_TEXT_3' | translate }}</span>
+
+      <span>{{ 'UNMATCHED_ACCOUNT_SETUP.SUMMARY_SECTION_TEXT_4' | translate }}</span>
+    </div>
+
+    <ion-button (click)="gotoNextPage()" mode="md" class="app-primary-button"> {{ 'UNMATCHED_ACCOUNT_SETUP.CONTINUE_TO_SUMMARY' | translate }}</ion-button>
+  </div>
+</ion-content>

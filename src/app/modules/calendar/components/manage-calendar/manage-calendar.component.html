@@ -1,0 +1,22 @@
+<ion-content>
+  <app-sheet-modal-header [saveButtonTitle]="'BUTTONS.SAVE'" [modalTitle]="'CALENDAR.MANAGE'" (saveEvent)="saveEvent()">
+    <ng-template #leftContent>
+      <div class="select-all" *ngIf="calendars && calendars.length > 0">
+        <lib-dashed-checkbox [checked]="selectAll" (toggle)="onSelectAllChange($event)"></lib-dashed-checkbox>
+      </div>
+    </ng-template>
+  </app-sheet-modal-header>
+  <ion-list mode="md">
+    <ion-item *ngFor="let calendar of calendars || []; let i = index" class="no-shadow">
+      <ion-avatar slot="start">
+        <lib-dashed-checkbox [checked]="calendar.selected" (toggle)="onChange($event, i)"></lib-dashed-checkbox>
+      </ion-avatar>
+      <ion-label>
+        <h2 [ngClass]="{ 'cyrano-account': calendar.title }" [style.color]="calendar.title ? '' : calendar.theme.backgroundColor">
+          {{ calendar.title ? calendar.title : calendar.email }}
+        </h2>
+        <p>{{ calendar.type }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

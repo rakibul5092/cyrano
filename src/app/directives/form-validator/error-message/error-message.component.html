@@ -1,0 +1,19 @@
+<div class="error-messages">
+  <ng-container [ngSwitch]="true">
+    <p class="error" *ngSwitchCase="onError('required')">
+      {{ 'VALIDATIONS.REQUIRED' | translate }}
+    </p>
+    <p class="error" *ngSwitchCase="onError('email')">
+      {{ 'VALIDATIONS.NOT_VALID_EMAIL' | translate }}
+    </p>
+    <p class="error" *ngSwitchCase="onError('minlength') && minLength > 0">
+      {{ 'VALIDATIONS.NOT_VALID_MIN_LENGTH' | translate : { minLength } }}
+    </p>
+    <p class="error" *ngSwitchCase="onError('maxlength') && maxlength > 0">
+      {{ 'VALIDATIONS.NOT_VALID_MAX_LENGTH' | translate : { maxlength } }}
+    </p>
+  </ng-container>
+  <p class="error" *ngIf="customErrorMessage" [ngClass]="{ 'free-content': freeContent }">
+    {{ customErrorMessage }}
+  </p>
+</div>

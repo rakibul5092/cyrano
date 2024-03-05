@@ -1,0 +1,23 @@
+<ion-card class="block-container common-card">
+  <div (click)="cardClickEvent.emit(true)" class="card-head">
+    <div class="block-container img-container">
+      <img class="block-container" [src]="course.cover" />
+    </div>
+    <div class="card-header">
+      <ion-label>{{ course.title }}</ion-label>
+      <span class="spacer"></span>
+      <div class="rating"><img [src]="commonUtilService.icons.star" alt="" /> 4.5/5 {{ 'COURSES.STARTS' | translate }}</div>
+    </div>
+  </div>
+
+  <ion-card-content>
+    <p class="common-paragraph">{{ course.description }}</p>
+    <span class="price">${{ course.price }}</span>
+  </ion-card-content>
+
+  <div class="card-actions">
+    <button mat-raised-button color="danger" class="primary-btn" type="button">
+      {{ 'COURSES.PURCHASE_COURSE' | translate }}
+    </button>
+  </div>
+</ion-card>

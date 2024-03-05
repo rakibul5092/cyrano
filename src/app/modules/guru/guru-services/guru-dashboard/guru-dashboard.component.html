@@ -1,0 +1,86 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="dashboard-container">
+      <section>
+        <app-guru-services-header [title]="'GURU.DASHBOARD' | translate"></app-guru-services-header>
+        <h2 class="section-title">{{ 'GURU.MONTHLY_GOALS_STATS' | translate }}</h2>
+        <div class="items-grid monthly-goals">
+          <app-monthly-goal-card class="first-item" [goalTitle]="'GURU.EARNINGS' | translate" [goalIcon]="icons.common.earnings" [earnings]="1280" [targetEarnings]="4500">
+          </app-monthly-goal-card>
+          <app-monthly-goal-card class="second-item" [goalTitle]="'GURU.DATES' | translate" [goalIcon]="icons.common.dates" [earnings]="24" [targetEarnings]="42">
+          </app-monthly-goal-card>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">{{ 'GURU.HOW_PERFORMING' | translate }}</h2>
+        <div class="box">
+          <div class="box-body">
+            <div class="statistics-item">
+              <div>{{ 'GURU.USER_RATING' | translate }}</div>
+              <div class="right-alignment">4.9/5</div>
+            </div>
+            <div class="statistics-item">
+              <div>{{ 'GURU.AVERAGE_CONVERSATION' | translate }}</div>
+              <div class="right-alignment">3 {{ 'GURU.DAYS' | translate }}</div>
+            </div>
+            <div class="statistics-item">
+              <div>{{ 'GURU.MAX_DATES' | translate }}</div>
+              <div class="right-alignment">7</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">
+          {{ 'GURU.STATS' | translate }}
+          <button mat-button [matMenuTriggerFor]="statsMenu">
+            {{ 'GURU.ALL_TIME' | translate }}
+            <img [src]="icons.common.arrowDown" alt="" />
+          </button>
+          <mat-menu #statsMenu="matMenu">
+            <button mat-menu-item>option</button>
+          </mat-menu>
+        </h2>
+        <div class="box">
+          <div class="box-body stats-statistics">
+            <div class="statistics-item">
+              <div>{{ 'GURU.CONVERSATION' | translate }}</div>
+              <div>{{ 'GURU.SUCCESSFUL_DATES' | translate }}</div>
+            </div>
+            <div class="statistics-item">
+              <div>67</div>
+              <div>65</div>
+            </div>
+            <div class="statistics-item">
+              <div>{{ 'GURU.EARNINGS' | translate }}</div>
+              <div>{{ 'GURU.CLIENTS' | translate }}</div>
+            </div>
+            <div class="statistics-item">
+              <div>$3,590</div>
+              <div>67</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">{{ 'GURU.CURRENT_CLIENTS' | translate }}</h2>
+        <div class="box clients-container">
+          <div class="statistics-item">
+            <div class="clients">
+              <img [src]="client.profileImage" *ngFor="let client of clients" alt="client" />
+            </div>
+            <div class="right-alignment">
+              <button [routerLink]="'/guru'">
+                4 {{ 'GURU.CLIENTS' | translate }}
+                <img [src]="icons.common.arrowRight" alt="" width="5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

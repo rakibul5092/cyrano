@@ -1,0 +1,8 @@
+<ion-app [ngClass]="{ 'no-side-menu': !user }">
+  <!-- <app-side-menu *ngIf="user"></app-side-menu> -->
+  <!-- <app-message-takeover [user]="user"></app-message-takeover> -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+  <!-- <app-footer-tabs [activeTab]="currentRoute" *ngIf="user && (hideFooter | async) === false"></app-footer-tabs> -->
+  <ng-container [cdkPortalHost]="_portal"></ng-container>
+  <ng-container #dynamicModal></ng-container>
+</ion-app>

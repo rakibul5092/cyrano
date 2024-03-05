@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <!-- back button -->
+    <ion-buttons mode="ios" class="start-buttons" slot="start">
+      <ion-button [matTooltip]="'BUTTONS.BACK' | translate" (click)="onBack()" class="back-container">
+        <ion-icon [src]="commonUtilService.icons.header.back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="titleObject">
+      <lib-multi-colored-text [class]="'f-calistoga f-w-400 f-xl h-160 f-white'" [text]="'HEADER_TITLES.' + titleObject.title | translate"></lib-multi-colored-text>
+    </ion-title>
+    <ion-buttons class="end-buttons" mode="ios" slot="end">
+      <ion-button
+        [matTooltip]="'DASHBOARD_SETTINGS.Notifications' | translate"
+        [class]="(notificationsVisible$ | async) ? '' : 'd-none'"
+        (click)="onNotificationClick()"
+        class="header-button"
+      >
+        <ion-icon class="header-button-alert" *ngIf="(notifications$ | async) > 0" [src]="commonUtilService.icons.header.notificationAlert"> </ion-icon>
+
+        <ion-icon class="header-button-noti" [src]="commonUtilService.icons.header.notification"></ion-icon>
+      </ion-button>
+      <ion-button
+        [matTooltip]="(isModal ? 'BUTTONS.CANCEL' : 'HEADER_TITLES.ACTIVITY_LOG') | translate"
+        [class]="isModal ? 'back-container' : 'menu-button'"
+        (click)="onRightHeaderButton()"
+        ><ion-icon [src]="isModal ? commonUtilService.icons.close : 'assets/icon/header/hamburger.svg'"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

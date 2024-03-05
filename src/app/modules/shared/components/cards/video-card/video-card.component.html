@@ -1,0 +1,45 @@
+<div class="video-container">
+  <vg-player (onPlayerReady)="onPlayerReady($event)">
+    <vg-overlay-play (click)="onPlyOverlayClick()" [ngStyle]="{ 'z-index': !inPlayMode ? 999999999999 : 4 }"></vg-overlay-play>
+
+    <vg-buffering *ngIf="inPlayMode"></vg-buffering>
+    <vg-scrub-bar [vgSlider]="true" *ngIf="inPlayMode" style="z-index: 999999999999">
+      <vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+    </vg-scrub-bar>
+
+    <vg-controls style="pointer-events: initial" *ngIf="inPlayMode">
+      <vg-play-pause (click)="onPlyOverlayClick()"></vg-play-pause>
+      <vg-playback-button></vg-playback-button>
+
+      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+      <vg-scrub-bar style="pointer-events: none"></vg-scrub-bar>
+
+      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+      <vg-mute></vg-mute>
+      <vg-volume></vg-volume>
+      <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin>
+      <source [src]="video.url" type="video/mp4" />
+    </video>
+    <div class="lesson-title pause-mode" *ngIf="!inPlayMode">
+      <div class="video-title">
+        <div>{{ video.title }}</div>
+        <p>{{ video.subTitle }}</p>
+      </div>
+      <div class="player-progress" *ngIf="!inPlayMode && progress > 0">
+        <div class="inner-progress center-contents-row" [style.width]="progress + '%'" [style.min-width]="progress + '%'"></div>
+        <div class="inner-progress-value center-contents-row">
+          <vg-controls style="display: contents">
+            <vg-time-display vgProperty="current" vgFormat="mm:ss" style="color: #222"></vg-time-display>/
+            <vg-time-display vgProperty="total" vgFormat="mm:ss" style="color: #222"></vg-time-display>
+          </vg-controls>
+        </div>
+      </div>
+    </div>
+  </vg-player>
+</div>

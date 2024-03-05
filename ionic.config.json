@@ -1,0 +1,7 @@
+{
+  "name": "cyrano",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

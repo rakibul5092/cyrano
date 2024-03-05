@@ -1,0 +1,20 @@
+<ion-content fullscreen>
+  <div class="notification-container">
+    <!-- All notification section -->
+    <div *ngFor="let notification of notifications; let i = index" class="notification-item f-lato f-w-400 f-sm h-160 f-dark">
+      <div class="main-part">
+        <app-rounded-photo [width]="32" [height]="32" [url]="notification.photo"></app-rounded-photo>
+        <div class="text-part">
+          <span>{{ 'GURU.CONGRATULATIONS' | translate }}!</span>
+          <span>{{ notification.firstName }} {{ 'GURU.AGREED_TO_GO_ON_A_DATE_WITH_YOU' | translate }}</span>
+        </div>
+      </div>
+      <div *ngIf="i > 0" class="promotion">
+        {{ 'GURU.DISCOUNT_MESSAGE' | translate }}
+      </div>
+    </div>
+
+    <!-- Mark as read button -->
+    <ion-button mode="md" class="mark-btn f-lato f-w-600 f-md h-160 f-dark">{{ 'GURU.MARK_ALL_AS_READ' | translate }}</ion-button>
+  </div>
+</ion-content>

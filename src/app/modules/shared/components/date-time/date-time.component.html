@@ -1,0 +1,13 @@
+<ion-datetime #datetime mode="ios" hourCycle="h12" [formControl]="dateTimeCTRL" [presentation]="presentation" preferWheel="true" (ionCancel)="onModalDismiss()">
+  <ion-buttons class="custom-style-buttons" slot="buttons">
+    <ion-button (click)="datetime.cancel(); onCancel()" role="button" color="danger">
+      {{ 'BUTTONS.CANCEL' | translate }}
+    </ion-button>
+    <ion-button (click)="datetime.reset(); onClear()" role="button" color="danger">
+      {{ 'BUTTONS.CLEAR' | translate }}
+    </ion-button>
+    <ion-button (click)="datetime.confirm(true)" id="confirm-button" role="button" color="primary">
+      {{ 'OK' | translate }}
+    </ion-button>
+  </ion-buttons>
+</ion-datetime>

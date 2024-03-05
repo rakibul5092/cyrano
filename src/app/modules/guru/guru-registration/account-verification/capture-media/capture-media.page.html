@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="wrapper">
+    <main>
+      <h2 class="f-calistoga f-w-400 h-160 f-3xl">{{ 'GURU.GURU_REGISTRATION.DRIVING_LICENSE' | translate }}</h2>
+      <div class="capture-option-tab-wrapper">
+        <div class="capture-option-tab">
+          <button class="f-gilroy-regular f-md f-w-400 h-160" (click)="setAutomaticCapture(true)">{{ 'BUTTONS.AUTOMATIC' | translate }}</button>
+          <button [disabled]="automaticCapture && autoCaptured" class="f-gilroy-regular f-md f-w-400 h-160" (click)="setAutomaticCapture(false)">
+            {{ 'BUTTONS.MANUAL' | translate }}
+          </button>
+          <span class="tab-switcher" [ngClass]="{'manual': !automaticCapture}"></span>
+        </div>
+      </div>
+
+      <div class="media-capture-wrapper">
+        <video src="" class="main-video" width="720" height="1200" #video></video>
+        <ng-container *ngIf="canAccessCamera; else noCamera">
+          <canvas class="object-track" width="720" height="1200" #objectTrackerCanvas></canvas>
+          <div class="media-overlay" #cameraClip></div>
+          <app-dash-loader [ngClass]="{ 'render': loading }"></app-dash-loader>
+        </ng-container>
+        <ng-template #noCamera>
+          <div class="no-camera center-contents-column f-gilroy-regular">{{ 'GURU.GURU_REGISTRATION.CANNOT_USE_YOUR_CAMERA' | translate }}</div>
+        </ng-template>
+        <div class="controls">
+          <div class="top">
+            <h4 class="f-gilroy-semibold f-lg f-w-700 h-160">{{ captureSide | uppercase | translate }}</h4>
+            <p class="f-gilroy-regular f-sm f-w-400">{{ 'GURU.GURU_REGISTRATION.CENTER_YOUR_ID' | translate }}</p>
+          </div>
+          <div class="bottom">
+            <button *ngIf="!automaticCapture" class="shotter center-contents-column" (click)="manualCaptured ? recapture() : captureManual()">
+              <i [ngClass]="{'cyrano-redo' : manualCaptured, 'cyrano-camera' : !manualCaptured}" class="cyrano center-contents-column"></i>
+            </button>
+            <button [disabled]="!(manualCaptured || autoCaptured)" class="proceed f-gilroy-regular f-w-400 f-xl h-160" (click)="captureNext()">
+              {{ ( automaticCapture ? 'BUTTONS.NEXT' : 'BUTTONS.SAVE' ) | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</ion-content>

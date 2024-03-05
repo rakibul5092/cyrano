@@ -1,0 +1,36 @@
+<ion-content fullscreen>
+  <div class="auth-container">
+    <app-auth-header></app-auth-header>
+    <form (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="center-contents-column">
+        <img [src]="commonUtilService.icons.logo" class="cyrano-logo" width="170" height="80" alt="" />
+        <p class="form-title primary-text">{{ 'AUTH.FORGOT_PASSWORD_ENTER_EMAIL_TITLE' | translate }}</p>
+        <div class="auth-circle">
+          <img [src]="commonUtilService.icons.password.mail" alt="" />
+        </div>
+        <p class="primary-text">
+          {{ 'AUTH.FORGOT_PASSWORD_ENTER_CODE' | translate }}
+        </p>
+        <lib-otp-input class="otp-input" [formControl]="code" [length]="4"></lib-otp-input>
+        <div class="forgot-password">
+          <button mat-button type="button" [disabled]="loading" (click)="reSendVerificationCode()" class="forgot-password-btn resend-cod">
+            {{ 'AUTH.RESEND_VERIFICATION_CODE' | translate }}
+          </button>
+        </div>
+        <p *ngIf="resendInfo" class="forgot-password-info">( {{ resendInfo.retries }}/{{ resendInfo.retriesMax }} - {{ 'AUTH.RESEND_VERIFICATION_CODE_RETRIES' | translate }} )</p>
+        <button
+          mat-raised-button
+          id="auth-btn"
+          class="primary-button normal-text"
+          aria-label="verify email"
+          type="submit"
+          [ngClass]="{ disable: loading || code.invalid }"
+          [disabled]="loading || code.invalid"
+        >
+          <ion-spinner color="danger" *ngIf="loading" name="dots"></ion-spinner>
+          <span *ngIf="!loading">{{ 'VERIFY' | translate }}</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>

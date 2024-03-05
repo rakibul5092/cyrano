@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md">
+    <!-- back button -->
+    <ion-buttons *ngIf="!hideBackButton" mode="ios" class="start-buttons" slot="start">
+      <ion-button class="back-container" (click)="back()">
+        <i class="cyrano cyrano-chevron-left"></i>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Title -->
+    <ion-title size="small" [ngClass]="{ 'no-back-button': hideBackButton }">
+      <app-marquee class="title-content-wrapper" [title]="title"></app-marquee>
+    </ion-title>
+
+    <ion-buttons mode="ios" class="end-buttons" slot="end">
+      <ion-button class="header-button" [disabled]="loading" (click)="addEvent.emit()">
+        <ion-icon class="header-icon" [src]="commonIcons.plus"></ion-icon>
+      </ion-button>
+      <ion-button class="header-button btn_side-menu-toggle" [disabled]="loading" (click)="manageEvent.emit()">
+        <ion-icon class="header-icon" [src]="commonIcons.sliders"></ion-icon>
+      </ion-button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <img class="header-icon filter-icon" [src]="commonIcons.calendarFilter" alt="calendar-filter" />
+      </button>
+      <mat-menu #menu="matMenu" class="mat-menu-sm">
+        <button mat-menu-item (click)="filterEvents(option)" [ngClass]="{ active: option === selectedDayFilter }" *ngFor="let option of daysFilters">
+          {{ option.value < 7 && option.value > 1 ? option.value : null }} {{ option.name | translate }}
+        </button>
+      </mat-menu>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

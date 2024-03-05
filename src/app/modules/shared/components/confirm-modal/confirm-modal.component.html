@@ -1,0 +1,9 @@
+<div class="confirm-dialog">
+  <h2>{{ 'CONFIRM.ARE_YOU_SURE' | translate }}</h2>
+  <button mat-raised-button class="yes" (click)="closeModal(true)">
+    {{ 'CONFIRM.YES' | translate }}
+  </button>
+  <button mat-raised-button class="no" (click)="closeModal(false)">
+    {{ 'CONFIRM.No' | translate }}
+  </button>
+</div>

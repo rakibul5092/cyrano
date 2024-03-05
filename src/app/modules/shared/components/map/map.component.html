@@ -1,0 +1,93 @@
+<google-map
+  #maps
+  *ngIf="apiLoaded"
+  [mapTypeId]="mapType"
+  [options]="mapOptions"
+  [center]="initialLocation || mapOptions.center"
+  [zoom]="zoom"
+  [width]="'100%'"
+  (centerChanged)="centerChanged(maps)"
+  (zoomChanged)="zoomChanged(maps)"
+>
+  <!--   Map marker   -->
+  <map-marker
+    *ngFor="let marker of markers; let i = index"
+    [position]="marker.position"
+    [icon]="marker.icon"
+    (mapClick)="markerClick.emit(marker)"
+    [options]="markerOptions"
+    (mapDragend)="markerDragEnd(i, $event)"
+  >
+    <map-circle
+      #circle="mapCircle"
+      *ngIf="markers[i] && markers[i].position"
+      [center]="markers[i].position"
+      [options]="circleOptions"
+      [radius]="markers[i].radius"
+      (radiusChanged)="radiusChanged(circle, i)"
+      (centerChanged)="debounceCenterchanged(i, circle)"
+    ></map-circle>
+  </map-marker>
+</google-map>
+
+<ion-modal
+  [backdropDismiss]="false"
+  [breakpoints]="[0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7]"
+  [initialBreakpoint]="0.3"
+  [animated]="true"
+  [isOpen]="showSearchBar && footerState && locations.length"
+  class="visibility-hidden"
+  (didPresent)="initAutocomplete()"
+>
+  <ng-template>
+    <div class="wrapper-pullup">
+      <ion-header class="ion-header-maps">
+        <ion-toolbar class="toolbar">
+          <div class="handle"><div class="bar"></div></div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <div class="map-main">
+          <input type="text" class="search-input" placeholder="{{ 'UNMATCHED_USER.CHOOSE_LOCATION' | translate }}" matInput #search />
+          <ion-button class="app-round-button maps-sharp-btn" (click)="addLocation()" *ngIf="editLocationIndex === null">
+            <img [src]="icons.addMapsLocation" alt="add" class="map-img" />
+          </ion-button>
+          <ion-button class="app-round-button maps-sharp-btn" (click)="updateLocation()" *ngIf="editLocationIndex !== null">
+            <mat-icon class="maps-material-base-icon">save</mat-icon>
+          </ion-button>
+        </div>
+        <ion-list lines="none" class="ion-no-padding" cdkDropList (cdkDropListDropped)="drop($event)">
+          <ion-item
+            *ngFor="let location of locations; let i = index"
+            color="light"
+            [ngClass]="{ 'wrapper-class': deleteLocationIndex === i, 'm-b-10': i === locations.length - 1, 'p-t-13': i === 1 }"
+            (mousedown)="mousedown($event)"
+            cdkDrag
+          >
+            <div class="slide">
+              <span class="slide-txt"> {{ 'UNMATCHED_USER.CONFIRM_DELETE' | translate }} </span>
+            </div>
+            <div mat-list-item class="w-96">
+              <ion-label mat-line class="ellipsis-text">
+                <img [src]="icons.dragIcon" alt="drag" class="drag-icon" cdkDragHandle />
+                <span class="pr-10">{{ i + 1 }}.</span>
+                <div class="ticker-container">
+                  <span class="ticker-text" [ngClass]="{ 'editing-loc': editLocationIndex === i }">{{ location }}</span>
+                </div>
+              </ion-label>
+              <span class="maps-round-button" *ngIf="deleteLocationIndex !== i && editLocationIndex !== i" (click)="editItem(i)">
+                <mat-icon class="maps-material-icons">edit</mat-icon>
+              </span>
+              <span class="maps-round-button" *ngIf="editLocationIndex !== i" (click)="deleteItem(i)" id="deleteItemMapSpan">
+                <mat-icon [ngClass]="deleteLocationIndex === i ? 'maps-icon-active' : 'maps-material-icons'" id="deleteItemMapIcon">delete</mat-icon>
+              </span>
+              <span *ngIf="editLocationIndex === i">
+                <span class="editing-label">{{ 'UNMATCHED_USER.EDITING' | translate }}</span>
+              </span>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </div>
+  </ng-template>
+</ion-modal>

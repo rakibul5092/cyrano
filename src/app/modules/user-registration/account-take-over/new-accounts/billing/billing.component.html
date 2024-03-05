@@ -1,0 +1,48 @@
+<ion-content>
+  <div class="wrapper">
+    <form [formGroup]="form" (ngSubmit)="onNext()">
+      <label class="select-us-number">
+        <span>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.SELECT_A_US_PHONE_NUMBER' | translate }}</span>
+        <ion-select class="app-input" [interfaceOptions]="{ cssClass: 'dropdown' }" formControlName="phoneNumber">
+          <ion-select-option *ngFor="let phoneNumber of phoneNumbers" [value]="phoneNumber">
+            {{ phoneNumber }}
+          </ion-select-option>
+        </ion-select>
+      </label>
+
+      <section class="billings">
+        <h5>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.BILLING_PLANS' | translate }}</h5>
+        <div class="plans-wrapper">
+          <label class="plan">
+            <input type="radio" formControlName="pricePlan" value="5" />
+            <p>
+              <span class="price"> <sup>$</sup><span>5</span> </span>
+              <strong> /{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.MONTH' | translate }} </strong>
+            </p>
+          </label>
+          <label class="plan">
+            <input type="radio" formControlName="pricePlan" value="45" />
+            <p>
+              <span class="price"> <sup>$</sup><span>45</span> </span>
+              <strong> /{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.YEAR' | translate }} </strong>
+              <small>({{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.SAVE_20_PERCENT' | translate }})</small>
+            </p>
+          </label>
+        </div>
+      </section>
+
+      <!-- <section class="payment-method">
+        <h5>{{ 'ACCOUNT_TAKEOVER.HEADER_TITLES.PAYMENT_METHOD' | translate }}</h5>
+        <button class="btn-add-payment-method" (click)="addCard()">
+          <i class="cyrano cyrano-add"></i>
+          <span>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.TAP_TO_ADD' | translate }}</span>
+        </button>
+      </section> -->
+
+      <section class="action-buttons">
+        <button class="app-black-return-button btn-back" (click)="onBack()">{{ 'BUTTONS.BACK' | translate }}</button>
+        <button class="app-pink-proceed-button btn-proceed" (click)="onNext()">{{ 'BUTTONS.CONFIRM_PAYMENT' | translate }}</button>
+      </section>
+    </form>
+  </div>
+</ion-content>

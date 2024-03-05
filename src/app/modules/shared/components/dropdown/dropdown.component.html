@@ -1,0 +1,15 @@
+<div [ngClass]="{ 'value-wrapper': true, 'dropdown-open': dropdownOpen }" (click)="toggle($event)" #dropdownValue>
+  <i class="cyrano cyrano-chevron-right"></i>
+  <p class="value">{{ selectedFieldName }}</p>
+</div>
+<ul
+  [ngClass]="{ 'dropdown-wrapper': true, 'dropdown-open': dropdownOpen }"
+  #dropdown
+  (touchstart)="dontBubbleEvent($event)"
+  (mousedown)="dontBubbleEvent($event)"
+  (wheel)="dontBubbleEvent($event)"
+  (transitionend)="setOverflow($event)"
+  (transitionstart)="unsetOverflow()"
+>
+  <li *ngFor="let datum of data" [attr.data-value]="datum[valueProp]" (click)="onInput($event)">{{ datum[labelProp || 'value'] }}</li>
+</ul>

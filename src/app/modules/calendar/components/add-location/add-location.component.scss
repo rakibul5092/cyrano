@@ -1,0 +1,22 @@
+h2 {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section {
+  padding: 24px;
+}
+
+button {
+  background: transparent;
+  color: var(--cyrano-pink-shade-1);
+  margin-left: auto;
+  right: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}

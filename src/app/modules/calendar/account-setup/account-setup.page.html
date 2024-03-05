@@ -1,0 +1,10 @@
+<app-user-registration-header></app-user-registration-header>
+
+<ion-content>
+  <section appSubmitOnEnter (enter)="gotoNextPage()" [route]="'accountSetup'">
+    <i class="cyrano cyrano-calender icon-calendar"></i>
+    <h2 class="f-calistoga f-w-400 f-3xl h-160">{{ 'ACCOUNT_SETUP.YOUR_AVAILABILITY' | translate }}</h2>
+    <p class="f-w-500 f-gilroy-regular f-md f-light-gray">{{ 'ACCOUNT_SETUP.YOU_HAVE_TO_SETUP_AVAILABILITY' | translate }}</p>
+    <button class="app-pink-proceed-button btn-proceed f-xl f-calistoga f-w-400" (click)="gotoNextPage()">{{ 'BUTTONS.SETUP' | translate }}</button>
+  </section>
+</ion-content>

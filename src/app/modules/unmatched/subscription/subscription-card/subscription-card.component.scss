@@ -1,0 +1,151 @@
+.title-and-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.pricing {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 0.5rem;
+  right: 0px;
+
+  &[recommended='false'] {
+    top: 0.75rem;
+  }
+
+  .price {
+    background: var(--footer-tab-label);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+.feature {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.highlight {
+  color: var(--text-highlight-color);
+}
+
+.icon {
+  fill: none;
+  stroke: var(--ion-text-color);
+  margin-right: 18px;
+  width: 10px;
+  height: 16px;
+  padding-top: 2px;
+}
+
+ion-card {
+  padding: 24px;
+  max-width: 279px;
+  margin: auto auto;
+
+  ion-card-header {
+    padding-top: 14px;
+    padding-bottom: 13px;
+    padding-left: 3px;
+  }
+
+  ion-card-content {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 19px;
+  }
+
+  &[recommended='true'] {
+    border: 2.5px solid #fe3c72;
+    overflow: visible;
+  }
+
+  &[recommended='false'] {
+    padding-top: 8px;
+  }
+
+  ion-button {
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 6px;
+    width: 100%;
+    height: 46px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .pricing {
+    top: 27px;
+    right: 18px;
+  }
+
+  ion-card {
+    padding: 15px;
+    max-width: 270px;
+
+    ion-card-content {
+      padding-left: 12px;
+    }
+
+    .icon {
+      margin-right: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .pricing {
+    top: 22px;
+    right: 16px;
+  }
+
+  ion-card {
+    padding: 10px;
+    max-width: 250px;
+
+    ion-card-header {
+      padding-left: 12px;
+    }
+
+    ion-card-content {
+      padding-left: 12px;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+  }
+}
+
+.recommended {
+  height: 2.7rem;
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  left: 39px;
+  width: 42px;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
+  img {
+    z-index: 2;
+    left: 39px;
+    height: 100%;
+  }
+
+  .text {
+    position: relative;
+    top: -85%;
+    z-index: 3;
+    font-weight: 300;
+    font-size: 5px;
+    margin: 0 auto;
+  }
+}

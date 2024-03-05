@@ -1,0 +1,706 @@
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Ionic swiper and swiper.js scss imports */
+@import '~swiper/swiper.min.css';
+@import '~@ionic/angular/css/ionic-swiper';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+@import './styles/shared-styles.scss';
+@import './styles/customized-calendar';
+
+/*icon font css*/
+@import 'assets/cyrano-icon-fonts/style.css';
+
+/*Popover scss files*/
+@import './app/popover-styles/implicit-swiper.scss';
+
+$header-font: 'Calistoga', cursive;
+$secondary-font: 'Lato', serif;
+$header-font: 'Calistoga', cursive;
+$secondary-font: 'Lato', serif;
+
+/* ---------------- cyrano app themes ------------------*/
+@import 'app/theme/themes/index';
+
+html,
+body {
+  --footer-tab-clearance: calc(2rem + 98px);
+  --ngx-tel-country-search-height: 44px;
+  background: var(--ion-background-color);
+  color: var(--ion-text-color);
+  font-family: 'Lato', serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 0 rgba(17, 16, 20, 0.7);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+}
+
+.primary-text,
+button {
+  font-family: 'Calistoga', cursive;
+}
+
+.secondary-text {
+  font-family: 'Gilroy-Regular', serif;
+}
+
+input {
+  font-family: 'Lato', serif;
+}
+
+// ------------------ common styles -------------
+.center-contents-column,
+.center-contents-row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.center-contents-row {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.center-contents-column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.page-body {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.page-container {
+  background: var(--ion-background-color);
+}
+
+.page-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 800px;
+}
+
+/*  Generic class for "inset box-shadowed" inputs */
+.custom-input {
+  background: var(--ion-background-color);
+  border-radius: 100px;
+  box-shadow: var(--input-box-shadow);
+  width: 100%;
+  max-width: 500px;
+  margin: 12px 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  font-style: normal;
+
+  .mat-icon-button,
+  .mat-icon {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .mat-icon {
+    top: 13px;
+  }
+  .mat-icon.left {
+    left: 15px !important;
+  }
+
+  .mat-icon-button.left {
+    left: 5px !important;
+  }
+
+  input {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 160%;
+    font-family: 'Lato';
+  }
+
+  input::placeholder {
+    color: var(--ion-text-color-secondary);
+  }
+
+  input::-ms-input-placeholder {
+    color: var(--ion-text-color-secondary);
+  }
+
+  input::-ms-input-placeholder {
+    color: var(--ion-text-color-secondary);
+  }
+
+  input,
+  textarea {
+    background: transparent !important;
+    border: none;
+    height: 48px;
+    width: 100%;
+    outline: #1e2023;
+    border-radius: 100px;
+    padding: 0 20px;
+    -webkit-appearance: none;
+  }
+
+  &.custom-text-area {
+    border-radius: 12px;
+
+    textarea {
+      font-family: 'Lato', serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 180%;
+      height: 100px;
+      border-radius: 12px;
+      padding: 15px 37px;
+      resize: none;
+    }
+  }
+
+  input.user-name {
+    padding: 0 60px 0 20px;
+  }
+
+  input.leftIcon {
+    padding: 0 20px 0 50px;
+  }
+
+  .invalid-input,
+  &.invalid-input {
+    box-shadow: inset 0 0 10px 0 var(--cyrano-pink-shade-1);
+  }
+}
+
+// ------------------ customization -------------
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.mat-mini-fab.primary-btn,
+.mat-raised-button.primary-btn {
+  background: var(--ion-background-color);
+  box-shadow: var(--box-shadow);
+}
+
+.flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+ion-split-pane {
+  --side-width: 300px;
+  --side-min-width: 300px;
+  --side-max-width: 300px;
+}
+
+//  ion-menu
+ion-menu {
+  --width: 300px;
+}
+
+app-message-takeover {
+  position: fixed;
+  left: auto;
+  z-index: 1000;
+}
+
+lib-profile-header {
+  &.guru-profile-header {
+    span {
+      font-family: 'Gilroy-Regular';
+    }
+
+    .name-vertical {
+      font-family: 'Gilroy-semibold';
+    }
+  }
+}
+
+//  scrollbar styling
+// webkit
+::-webkit-scrollbar {
+  width: 8px;
+  opacity: 0.5;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyrano-dark-color);
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: var(--cyrano-pink-shade-1);
+  opacity: 0.5;
+  border: 3px solid #000;
+}
+
+// moz
+* {
+  scrollbar-width: thin;
+  scrollbar-base-color: rgba(0, 0, 0, 0.5);
+  scrollbar-color: var(--cyrano-pink-shade-1);
+}
+
+/* Font inter */
+@import url('https://rsms.me/inter/inter.css');
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
+}
+
+.mat-menu-panel.ngx-mat-tel-input-mat-menu-panel {
+  min-height: auto;
+  max-height: 35vh;
+  width: 350px;
+  max-width: unset !important;
+  background: var(--background-color);
+  scroll-padding-top: var(--ngx-tel-country-search-height);
+
+  .mat-menu-content {
+    padding-top: 0 !important;
+    padding-bottom: 0;
+  }
+
+  .country-search {
+    border-radius: 0;
+    background-color: #1d1b21 !important;
+    border: 0;
+  }
+
+  .country-list-button {
+    background-color: #27242c !important;
+    padding: 12px !important;
+
+    .icon-wrapper {
+      padding-right: 16px;
+    }
+
+    .label-wrapper {
+      color: #9b9a9a;
+    }
+  }
+
+  .country-list-button:focus {
+    background: var(--cyrano-pink-shade-1) !important;
+    .label-wrapper {
+      color: #fff;
+    }
+  }
+}
+
+//  customization for datepicker
+.custom-sheet-modal,
+.custom-modal {
+  --background: var(--primary-background);
+  --box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 95px rgba(255, 255, 255, 0.32);
+  --border-radius: 16px 16px 0px 0px;
+}
+
+.custom-modal {
+  --border-radius: 0;
+  --height: auto;
+  padding: 20px;
+}
+
+.date-picker-sheet-modal {
+  --max-height: 250px;
+  --background: var(--primary-background);
+  --box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 95px rgba(255, 255, 255, 0.32);
+}
+
+//  Rules for ion-select component
+.dropdown {
+  .alert-wrapper {
+    --max-width: 300px;
+    width: 100%;
+  }
+
+  .select-interface-option {
+    --ion-color-step-850: var(--ion-text-color);
+    --ion-color-primary: var(--cyrano-pink-shade-2);
+
+    .alert-radio-label {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 160%;
+    }
+  }
+
+  .alert-button-group {
+    --ion-color-primary: var(--cyrano-pink-shade-2);
+  }
+}
+
+ion-select {
+  &.dropdown {
+    --padding-start: 0.5rem;
+
+    &::part(icon) {
+      color: #fff0;
+      font-size: 1.25rem;
+      width: auto;
+      height: auto;
+      padding-left: 8px;
+    }
+
+    &::part(icon):after {
+      font-family: 'cyrano';
+      color: var(--cyrano-pink-shade-1);
+      font-weight: bold;
+      content: '\e91a';
+      vertical-align: middle;
+    }
+  }
+}
+
+//  matdialog container
+.mat-dialog-pane mat-dialog-container {
+  background: var(--ion-background-color);
+}
+
+//  mat-tooltip styles
+.message-popup {
+  position: relative !important;
+  color: var(--ion-text-color);
+  background: var(--ion-background-color-no-gradient);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 16px rgba(0, 0, 0, 0.32);
+
+  mat-dialog-container {
+    background: inherit;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mat-dialog-pane {
+    max-width: calc(100% - 40px) !important;
+  }
+
+  .mat-dialog-pane mat-dialog-container {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .mat-dialog-pane {
+    max-width: calc(100% - 24px) !important;
+  }
+}
+
+.normal-paragraph {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+h2.page-title {
+  font-family: 'Calistoga';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+  color: var(--ion-text-color);
+  margin-left: 5px;
+  &.page-title-lg {
+    font-size: 28px;
+    margin-left: 0;
+  }
+}
+.requests {
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 1;
+}
+
+.custom-sheet-modal,
+.custom-modal {
+  --background: var(--primary-background);
+  --box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 95px rgba(255, 255, 255, 0.32);
+  --border-radius: 16px 16px 0px 0px;
+}
+
+.custom-modal {
+  --border-radius: 0;
+  --height: auto;
+  padding: 20px;
+}
+
+.date-picker-sheet-modal {
+  --max-height: 250px;
+  --background: var(--primary-background);
+  --box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 95px rgba(255, 255, 255, 0.32);
+}
+
+.mat-menu-panel {
+  background: var(--ion-background-color);
+  color: var(--ion-text-color);
+  @extend .secondary-text;
+
+  &.mat-menu-sm {
+    min-width: fit-content;
+  }
+}
+
+button.mat-menu-item {
+  color: var(--ion-text-color);
+  @extend .secondary-text;
+  .mat-icon {
+    color: var(--ion-text-color);
+  }
+
+  &.active {
+    color: var(--cyrano-pink-shade-1);
+  }
+}
+
+:host .picker-highlight,
+.picker-highlight {
+  background: none;
+}
+
+//  Style rules for event card options on routine page
+.event-options + * .cdk-overlay-pane {
+  .mat-menu-panel {
+    min-width: auto !important;
+    min-height: auto !important;
+
+    .mat-menu-content {
+      display: flex;
+      padding: 8px;
+      gap: 8px;
+
+      button {
+        padding: 0;
+      }
+    }
+  }
+}
+
+/** hide google map default logo and terms panel**/
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"]
+{
+  display: none !important;
+}
+
+.gm-bundled-control .gmnoprint {
+  display: block;
+}
+
+.gmnoprint:not(.gm-bundled-control) {
+  display: none;
+}
+
+.guru-request-modal {
+  --background: transparent;
+  --box-shadow: none;
+  --height: auto;
+  padding: 20px;
+}
+
+img[src$='#custom_marker'] {
+  border: 10px solid var(--cyrano-pink-shade-1) !important;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+}
+
+img[src$='#custom_pin_maps'] {
+  border: 5px solid var(--cyrano-pink-shade-1) !important;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  height: 50px !important;
+  width: 50px !important;
+  margin-left: 9px !important;
+  margin-top: 8px !important;
+  box-shadow: inset 0px 0px 0px 2px var(--cyrano-pink-shade-3);
+}
+
+img[src$='#custom_pin_maps_selected'] {
+  border: 5px solid var(--cyrano-pink-shade-1) !important;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  height: 50px !important;
+  width: 50px !important;
+  margin-left: 9px !important;
+  margin-top: 8px !important;
+  box-shadow: 1px -1px 5px 5px var(--cyrano-pink-shade-1), inset 0px 0px 0px 2px var(--cyrano-pink-shade-3);
+  outline: 3.5px solid var(--ion-text-color);
+}
+
+button[title='Undo last edit'] {
+  display: none !important;
+}
+
+google-map {
+  .map-container {
+    height: 100% !important;
+  }
+}
+
+.popover-datetime .popover-container {
+  padding: 0px !important;
+}
+
+input {
+  &.country-search {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 9;
+  }
+}
+ion-progress-bar {
+  --buffer-background: #222;
+  --progress-background: var(--cyrano-pink-shade-1);
+}
+
+.terms-services {
+  font-size: 14px;
+  color: var(--text-highlight-color);
+}
+
+.ion-color-light {
+  --ion-color-base: var(--ion-background-color-no-gradient) !important;
+  --ion-color-contrast: var(--ion-text-color) !important;
+}
+/* SKELETON */
+
+.p-component,
+.p-component *,
+.p-skeleton,
+.skeleton * {
+  box-sizing: border-box;
+}
+
+.p-skeleton {
+  background: var(--cyrano-dark-color);
+  box-shadow: var(--cyrano-box-inset-shadow);
+}
+
+.p-skeleton:after {
+  background: linear-gradient(90deg, rgba(254, 60, 114, 0), rgba(254, 60, 114, 0.2), rgba(254, 60, 114, 0));
+}
+
+.mat-snack-bar-container {
+  &.wrapper-location-bar {
+    max-width: 700px;
+    margin: 10px auto;
+    background: var(--ion-color-danger);
+    width: auto;
+    height: auto;
+    border-style: none;
+    font-size: 14px;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    line-height: 20px;
+    color: var(--ion-text-color);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  }
+  .title-snackbar {
+    font-weight: 500;
+  }
+  .dismiss {
+    padding: 10px 18px;
+    margin: 10px 10px 10px 20px;
+    font-weight: 500;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.08);
+    }
+  }
+}
+
+app-implicit-swipes app-circular-progress .progress-circle-prog {
+  transition: none;
+}
+
+.z-index-top {
+  z-index: 999999;
+}
+
+// Overwrite font-size for phone number component
+.tel-field-error {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.iti {
+  display: block !important;
+  margin-bottom: 40px;
+}
+
+
+//------- customized angular material dialog ----------
+.cdk-overlay-pane, .mat-dialog-container{
+  background: var(--ion-background-color);
+  color: var(--ion-text-color);
+  @extend .secondary-text;
+  max-width: 100vw !important;
+}
+.custom-mat-dialog{
+  .mat-dialog-container{
+    padding: 0;
+    overflow-x: hidden;
+  }
+}

@@ -1,0 +1,37 @@
+<div
+  #card
+  [@cardAnimator]="animationState"
+  (@cardAnimator.done)="resetAnimationState()"
+  (swipeleft)="animationState = 'swipeleft'"
+  (swiperight)="animationState = 'swiperight'"
+  class="card-wrapper"
+>
+  <ng-container *ngIf="profile">
+    <div class="inner-wrapper">
+      <img (click)="switchImage($event)" [src]="profile.images[selectedPhotoIndex]" class="rounded-corner" />
+      <div class="info" (click)="switchImage($event)">
+        <div class="text-part">
+          <span class="title f-calistoga f-w-400 f-3xl h-160 f-white">
+            <div class="name">{{ profile.name }}</div>
+            <div>{{ ', ' + profile.age }}</div>
+          </span>
+          <span class="profession f-lato f-w-400 f-md h-160 f-white"><img [src]="icons.profession" /> {{ profile.profession }}</span>
+        </div>
+        <div class="match-percentage">
+          <app-circular-progress [percent]="profile.matchingPercentage"></app-circular-progress>
+          <span class="f-lato f-w-400 f-sm f-light-gray">{{ 'UNMATCHED_USER.MATCHES' | translate }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="lower-part">
+      <div class="icon-text f-lato f-w-500 f-lg h-160 f-white">
+        <ion-icon [src]="icons.star"></ion-icon>
+        <span>{{ 'UNMATCHED_USER.INTERESTS' | translate }}</span>
+      </div>
+
+      <div class="interests">
+        <ion-button class="f-w-400 f-md h-160" *ngFor="let interest of profile.interests">{{ interest }} </ion-button>
+      </div>
+    </div>
+  </ng-container>
+</div>

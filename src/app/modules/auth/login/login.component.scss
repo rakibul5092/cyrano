@@ -1,0 +1,127 @@
+@import '../auth.shared.scss';
+
+.remember-me-container {
+  margin: 10px 0;
+}
+.remember-me ion-label {
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Gilroy-Regular', serif;
+}
+
+.auth-container {
+  height: 100%;
+}
+.secondary-text {
+  margin-top: 15px;
+}
+
+ion-row {
+  max-width: 500px;
+  width: 100%;
+
+  ion-col {
+    padding-inline-start: unset;
+    padding-inline-end: unset;
+  }
+}
+
+.top-space {
+  margin-top: 20px;
+}
+
+.mat-button.forgot-password-btn {
+  padding: 0 5px;
+  font-family: 'Gilroy-Regular', serif;
+  font-style: normal;
+}
+
+ion-item {
+  --background: unset;
+  --inner-border-width: 0px 0px 0px 0px;
+  --padding-start: 5px;
+  --background-activated: unset;
+  --background-hover: unset;
+  --min-height: unset;
+  --inner-padding-end: unset;
+
+  ion-checkbox {
+    --size: 18px;
+    --background-checked: var(--ion-color-danger);
+    --border-color-checked: var(--ion-color-danger);
+    --background: transparent;
+    margin-right: 5px;
+    font-family: 'Gilroy-Regular', serif;
+  }
+
+  ion-checkbox::part(container) {
+    border-radius: 4px;
+    border: 2px solid var(--ion-color-danger);
+  }
+
+  ion-label {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Calistoga';
+    margin-inline: unset;
+  }
+}
+
+ion-item::part(native) {
+  background: unset;
+}
+
+mat-icon {
+  z-index: 99;
+}
+
+.custom-input {
+  margin: 20px 15px 15px 15px;
+}
+
+@media screen and (max-width: 365px) {
+  ion-item {
+    ion-checkbox {
+      --size: 15px;
+    }
+
+    ion-label {
+      font-size: 12px;
+    }
+  }
+
+  .forgot-password {
+    .forgot-password-btn {
+      font-size: 12px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  ion-item {
+    ion-checkbox {
+      --size: 15px;
+    }
+
+    ion-label {
+      font-size: 10px;
+    }
+  }
+
+  .forgot-password {
+    .forgot-password-btn {
+      font-size: 10px !important;
+    }
+  }
+
+  .create-account-text,
+  .secondary-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  form {
+    height: 100%;
+  }
+}

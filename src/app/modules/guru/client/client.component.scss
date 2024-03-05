@@ -1,0 +1,68 @@
+@import '../guru.global.scss';
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .client-relation {
+    margin-bottom: 45px;
+    display: grid;
+    justify-content: center;
+
+    .bottom-border {
+      background: var(--ion-text-color-secondary);
+      border-top: var(--border);
+      width: 60px;
+      height: 0px;
+      margin-top: 13px;
+      margin-left: 15.5px;
+      margin-right: 15.5px;
+    }
+  }
+
+  .app-primary-button {
+    margin: unset;
+    margin-bottom: 43px;
+    height: 46px;
+    --padding-start: 2em;
+    --padding-end: 2em;
+  }
+
+  @media screen and (max-width: 320px) {
+    .app-primary-button {
+      font-size: 14px;
+      height: 40px;
+    }
+  }
+
+  .box-container {
+    margin-bottom: 43px;
+    margin-top: 0px;
+    margin-inline: unset;
+  }
+
+  .info-container {
+    display: grid;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+
+    .item {
+      margin-bottom: 23px;
+      display: flex;
+
+      span {
+        justify-content: left;
+        width: 80%;
+      }
+
+      .value {
+        width: 20%;
+        text-align: end;
+      }
+    }
+  }
+}

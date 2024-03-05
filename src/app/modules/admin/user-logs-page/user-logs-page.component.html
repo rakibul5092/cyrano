@@ -1,0 +1,28 @@
+<app-header></app-header>
+<ion-content fullscreen>
+  <div class="logs-page">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="profile.photo"
+      [name]="profile.name"
+      [leftIcon]="commonServices.icons.hash"
+      [leftText]="profile.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+      [rightIcon]="commonServices.icons.location"
+      [rightText]="profile.address"
+    ></lib-profile-header>
+
+    <!-- Surfing, Tennis and Fiction buttons -->
+    <div class="multi-colored-buttons">
+      <ion-button class="f-lato light-green">{{ 'GURU.SURFING' | translate }}</ion-button>
+      <ion-button class="f-lato light-blue">{{ 'GURU.TENNIS' | translate }}</ion-button>
+      <ion-button class="f-lato light-purple">{{ 'GURU.FICTION' | translate }}</ion-button>
+    </div>
+
+    <app-user-logs></app-user-logs>
+
+    <div class="button-group">
+      <ion-button class="app-primary-button"> <span class="cyrano cyrano-Lock"></span>{{ 'ADMIN.LOG_IN_AS' | translate }} Eric</ion-button>
+    </div>
+  </div>
+</ion-content>

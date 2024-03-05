@@ -1,0 +1,42 @@
+<div class="loader" *ngIf="!mapLoaded">
+  <ion-progress-bar class="pr-bar" type="indeterminate"></ion-progress-bar>
+</div>
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'maps'">
+    <span class="message f-calistoga f-w-400 h-160 f-white heading-location">{{ 'UNMATCHED_USER.FAMILIAR_PLACES' | translate }}</span>
+    <div class="page-body">
+      <div class="page-inner-body">
+        <div class="requests-map" [ngClass]="{ 'map-container-no-location': !initialLocation && !loadingLocation }">
+          <app-map
+            *ngIf="initialLocation"
+            [showSearchBar]="true"
+            [markers]="requestsMarkers"
+            [mapType]="mapType"
+            [locations]="locations"
+            [initialLocation]="initialLocation"
+            [loadLocations]="loadLocations"
+            [footerState]="!hideContinue"
+            (mapLoaded)="onMapLoaded($event)"
+          >
+          </app-map>
+          <div class="location-permission-error" *ngIf="!initialLocation && !loadingLocation">
+            <img [src]="'assets/svg/enable_location.svg'" alt="location" />
+            <p>{{ 'ENABLE_LOCATION.ERROR_MESSAGE' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ng-template cdkPortal #myTemplate="cdkPortal">
+  <div class="button-container-maps" *ngIf="!hideContinue && mapLoaded">
+    <ion-button
+      (click)="onContinue()"
+      [attr.disabled]="false"
+      *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+      class="continue-button-floating f-gilroy-regular f-w-400 f-xl h-160"
+    >
+      {{ 'UNMATCHED_USER.CONTINUE' | translate }}
+    </ion-button>
+  </div>
+</ng-template>

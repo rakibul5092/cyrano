@@ -1,0 +1,43 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="account.photo"
+      [name]="account.name"
+      [leftIcon]="commonService.icons.hash"
+      [leftText]="account.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+      [rightIcon]="commonService.icons.location"
+      [rightText]="account.address"
+    ></lib-profile-header>
+
+    <!-- Surfing, Tennis and Fiction buttons -->
+    <div class="multi-colored-buttons">
+      <ion-button class="margin-right f-lato light-green">{{ 'GURU.SURFING' | translate }}</ion-button>
+      <ion-button class="margin-right f-lato light-blue">{{ 'GURU.TENNIS' | translate }}</ion-button>
+      <ion-button class="margin-right f-lato light-purple">{{ 'GURU.FICTION' | translate }}</ion-button>
+    </div>
+
+    <!-- About me -->
+    <ion-card mode="ios" class="box-container">
+      <span class="card-header">{{ 'UNMATCHED.ABOUT_ME' | translate }}</span>
+      <span class="information"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span>
+    </ion-card>
+
+    <!-- My photos section -->
+    <ion-card class="box-container">
+      <div class="card-header with-photo">
+        {{ 'GURU.MY_PHOTOS' | translate }}
+      </div>
+      <swiper [config]="config">
+        <ng-template swiperSlide *ngFor="let photo of account.myPhotos">
+          <img [src]="photo" alt="Cinque Terre" />
+        </ng-template>
+      </swiper>
+    </ion-card>
+
+    <ion-button [routerLink]="'/unmatched/potential-dates/confirm-date'" class="app-black-button get-date-with-her"
+      ><span class="f-calistoga f-w-400 f-lg h-160">{{ 'UNMATCHED.GET_A_DATE_WITH_HER' | translate }}</span></ion-button
+    >
+  </div>
+</ion-content>

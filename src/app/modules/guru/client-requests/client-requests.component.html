@@ -1,0 +1,27 @@
+<ion-card *ngFor="let request of requests">
+  <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+  <lib-profile-header
+    [orientation]="orientation"
+    [photo]="request.photo"
+    [name]="request.name"
+    [leftIcon]="commonUtilService.icons.hash"
+    [leftText]="request.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+    [rightIcon]="commonUtilService.icons.location"
+    [rightText]="request.address"
+    [routerLink]="['/guru/client-request', request.id]"
+  ></lib-profile-header>
+
+  <!-- Type -->
+  <div class="type f-lato f-w-400 f-sm h-180">
+    <span class="text text-left">{{
+      ((request.status.key === 'Type' ? 'GURU.TYPE' : 'GURU.LOOKING_FOR_A_DATE_WITH') | translate) + (request.status.key === 'Type' ? ' :' : '')
+    }}</span>
+    <span class="text text-right">{{ request.status.value }}</span>
+  </div>
+
+  <!-- Delete and Accept request button -->
+  <div class="buttons" mode="md">
+    <ion-button class="button dark">{{ 'GURU.DELETE' | translate }}</ion-button>
+    <ion-button class="button pink">{{ 'GURU.ACCEPT_REQUEST' | translate }}</ion-button>
+  </div>
+</ion-card>

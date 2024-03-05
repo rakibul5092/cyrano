@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <input
+    type="main-input"
+    (keydown)="keyDown($event)"
+    (input)="onInput($event)"
+    (change)="isValidCardNumber(value)"
+    (paste)="onPaste($event)"
+    [placeholder]="placeholder"
+    #inputElem
+    [disabled]="disabled"
+    inputmode="numeric"
+  />
+  <img [src]="icons.paymentCard[cardType]" alt="" class="card-type" />
+</div>

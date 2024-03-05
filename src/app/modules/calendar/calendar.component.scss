@@ -1,0 +1,101 @@
+.grid-content {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  padding: 10px 0 10px 60px;
+  background: #232027;
+  position: relative;
+  overflow: hidden;
+}
+
+ion-content {
+  --overflow: hidden;
+}
+
+.calender-container {
+  position: relative;
+  display: block;
+  height: calc(100vh - 130px);
+  overflow: auto;
+  margin-top: 20px;
+
+  mwl-calendar-week-view,
+  mwl-calendar-day-view {
+    margin-top: 5px;
+    position: relative;
+    display: block;
+    min-width: 500px;
+  }
+
+  .custom-header {
+    @extend .grid-content;
+    position: sticky;
+    top: 0;
+    z-index: 999999999;
+    min-width: 500px;
+
+    .week-day {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+      text-align: center;
+      letter-spacing: -0.011em;
+      text-transform: uppercase;
+      div {
+        position: relative;
+        display: block;
+        width: 100%;
+        transition: all 0.3s;
+
+        &:nth-child(2) {
+          margin-top: 10px;
+          color: #858585;
+        }
+        &.today:nth-child(1) {
+          margin: -4px auto;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          padding-top: 5px;
+          font-weight: bold;
+          color: #fff;
+          background-image: linear-gradient(191.18deg, rgba(20, 115, 172, 0.2) 61.33%, #59a7d7 101.43%);
+          background-color: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(1px);
+        }
+      }
+    }
+
+    .custom-header-pagination {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-bottom: 15px;
+      .mat-icon-button.next-btn {
+        margin-left: -10px;
+      }
+      .currentDate {
+        text-align: center;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px 16px;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 84.37%);
+
+  .continue-button {
+    --color: var(--ion-text-color);
+    --box-shadow: var(--cyrano-box-shadow);
+    --background: var(--footer-tab-label) !important;
+    width: 220px;
+  }
+}

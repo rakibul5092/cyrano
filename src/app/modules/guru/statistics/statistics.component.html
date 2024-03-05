@@ -1,0 +1,44 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <div class="top-container">
+      <!-- Top statistics title -->
+      <ion-text class="header-title f-calistoga f-w-400 f-lg h-160 f-dark">{{ 'GURU.YOUR_LAST_MONTH’S_STATISTICS' | translate }}</ion-text>
+      <!-- Circular progress statistics -->
+      <div class="circle-container">
+        <lib-circle-progress
+          [value]="item.value"
+          [max]="item.maxValue"
+          [prefix]="item.unit"
+          width="101px"
+          height="102px"
+          [type]="item.type | translate"
+          *ngFor="let item of statistics"
+        ></lib-circle-progress>
+      </div>
+    </div>
+
+    <!-- Breakdown type name  -->
+    <div class="statistic-mid">
+      <lib-multi-colored-text
+        class="f-calistoga f-w-400 f-xl h-160 f-white"
+        [text]="(selectedComponent === 1 ? 'GURU.MONTHLY_BREAKDOWN' : 'GURU.CLIENTS_BREAKDOWN') | translate"
+      ></lib-multi-colored-text>
+      <span class="f-lato f-w-400 f-sm h-160 f-gray">{{
+        (selectedComponent === 1 ? 'GURU.YOUR_EACH_MONTHS_EARNINGS' : 'GURU.THE_CLIENTS_THAT_YOU_ARE_WORKING_WITH') | translate
+      }}</span>
+    </div>
+    <!-- Breakdown statistics components-->
+    <div class="bottom-statistics" [ngSwitch]="selectedComponent">
+      <app-monthly-breakdown *ngSwitchCase="1"></app-monthly-breakdown>
+      <app-clients-breakdown *ngSwitchCase="2"></app-clients-breakdown>
+    </div>
+
+    <!-- Statisctics type change button -->
+    <ion-button mode="md" (click)="changeStatistics()" class="bottom-button app-outline-button f-lato f-w-600 f-md h-160 f-dark" style="width: unset">{{
+      (selectedComponent === 1 ? 'GURU.SEE_CLIENT_$_BREAKDOWN' : 'GURU.SEE_MONTHLY_BREAKDOWN') | translate
+    }}</ion-button>
+  </div>
+
+  <!-- Background image -->
+  <img [src]="'assets/images/Vector 2.png'" alt="vector" class="vector" />
+</ion-content>

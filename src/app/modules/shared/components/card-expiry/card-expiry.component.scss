@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  --color: #000;
+
+  &.ng-invalid {
+    input {
+      color: red;
+    }
+  }
+}
+
+input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  letter-spacing: 1.5px;
+  outline: none;
+  border: none;
+  color: var(--color);
+}

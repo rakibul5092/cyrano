@@ -1,0 +1,122 @@
+:host {
+  background: var(--ion-background-color);
+  position: relative;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  color: var(--ion-text-color);
+
+  span {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    text-align: center;
+  }
+}
+
+.btn-close-dialog {
+  background: transparent;
+  outline: none;
+  color: var(--cyrano-pink-shade-1);
+  z-index: 11;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+div.main-wrapper {
+  width: 390px;
+  max-width: 100%;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+
+  h2 {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: var(--ion-text-color);
+  }
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+
+  input {
+    width: calc(50% - 4px);
+    height: auto;
+    padding: 11px 19px;
+    color: #fff;
+
+    &.full-width {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  app-card-input,
+  app-card-expiry {
+    padding: 11px 19px;
+    --color: #fff;
+  }
+
+  app-card-expiry {
+    width: calc(50% - 4px);
+  }
+}
+
+label {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 32px auto 0 auto;
+  color: var(--ion-text-color);
+
+  app-dashed-checkbox {
+    min-width: 32px;
+  }
+}
+
+.action-buttons {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 18px 0;
+
+  .btn-add {
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  div.main-wrapper {
+    padding: 24px 8px;
+  }
+
+  form {
+    input {
+      padding: 12px;
+    }
+
+    app-card-input,
+    app-card-expiry {
+      padding: 12px;
+    }
+  }
+}

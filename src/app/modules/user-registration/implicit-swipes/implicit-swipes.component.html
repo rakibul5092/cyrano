@@ -1,0 +1,41 @@
+<ion-content mode="md" [fullscreen]="true" [scrollY]="false">
+  <ng-container *ngIf="!profileDetails?.length || lastIndexReached">
+    <div class="loader">
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="main-wrapper" *ngIf="profiles$ | async as profiles">
+      <div class="upper-part">
+        <app-swipe-card
+          (skip)="handleSwipeCardSkip()"
+          [profile]="profiles[firstCardSwipableIndex]"
+          (swiped)="onSwiped($event, true)"
+          [swipeOnClickSubject]="swipeOnClickSubject"
+          [style.z-index]="profiles.length - firstCardSwipableIndex"
+        >
+        </app-swipe-card>
+        <app-swipe-card
+          [profile]="profiles[secondCardSwipableIndex]"
+          (swiped)="onSwiped($event, false)"
+          [swipeOnClickSubject]="swipeOnClickSubject"
+          [style.z-index]="profiles.length - secondCardSwipableIndex"
+        >
+        </app-swipe-card>
+        <button (click)="openSkipModal()" [disabled]="swipableIndex < 20 || null" [attr.disabled]="swipableIndex < 20 || null" class="count">
+          <div *ngIf="!skipLoadingSpinner" class="skip-text">{{ 'UNMATCHED_USER.SKIP' | translate }}</div>
+          <div *ngIf="!skipLoadingSpinner">{{ swipableIndex + '/' + 20 }}</div>
+          <ion-spinner *ngIf="skipLoadingSpinner" class="skip-spinner z-index-top" name="crescent"></ion-spinner>
+        </button>
+      </div>
+      <div class="react-buttons">
+        <ion-button (click)="onDislike()" class="app-round-button box-shadow-button">
+          <img [src]="icons.close" />
+        </ion-button>
+        <ion-button (click)="onLike()" class="app-round-button box-shadow-button primary">
+          <img [src]="icons.love" />
+        </ion-button>
+      </div>
+    </div>
+  </ng-container>
+</ion-content>

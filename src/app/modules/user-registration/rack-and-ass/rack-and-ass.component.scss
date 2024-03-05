@@ -1,0 +1,28 @@
+@import '../face-and-ethnicity/face-and-ethnicity.component.scss';
+
+.top-text {
+  display: flex;
+
+  .emojis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-icon {
+      width: 28.27px;
+      height: 28.27px;
+    }
+
+    :nth-child(1) {
+      margin-left: 11.98px;
+    }
+
+    :nth-child(2) {
+      margin-left: 5.98px;
+    }
+  }
+}
+
+.btn-selectable {
+  margin: 5px 5px 5px 16px;
+}

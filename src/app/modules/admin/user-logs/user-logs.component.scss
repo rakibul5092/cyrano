@@ -1,0 +1,65 @@
+.table-head {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin-bottom: 1rem;
+}
+
+.table-data {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin-bottom: 10px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table-head p {
+  color: #e15561;
+}
+
+.log-data,
+.timestamp,
+.timestamp-header {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+section {
+  margin-top: 20px;
+}
+
+.inner-container {
+  width: 100%;
+}
+
+.table-data-container {
+  height: 10rem;
+  overflow-y: scroll;
+}
+
+p {
+  margin: 0;
+}
+
+.table-head p:last-of-type,
+.table-data p:last-of-type {
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  height: 3px;
+}
+
+@media screen and (max-width: 300px) {
+  .log-data,
+  .timestamp-header {
+    font-size: 12px;
+  }
+}

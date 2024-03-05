@@ -1,0 +1,43 @@
+<app-user-registration-header [progress]="0"></app-user-registration-header>
+<ion-content [fullscreen]="true">
+  <div class="page-body" appSubmitOnEnter (enter)="onSubmit()" [route]="'accountType'">
+    <div class="page-container">
+      <div class="account-type-container">
+        <h2 class="page-title">{{ 'WHAT_DO_YOU_WISH' | translate }}</h2>
+        <form [formGroup]="accountFormGroup" (ngSubmit)="onSubmit()">
+          <ion-radio-group mode="md" [formControlName]="'accountType'">
+            <ion-item class="no-shadow">
+              <ion-label class="ion-text-wrap">
+                {{ 'TAKE_DATES_NEXT_LEVEL' | translate }}
+              </ion-label>
+              <ion-radio class="app-ion-radio" slot="start" [value]="accountTypes.unmatched"></ion-radio>
+            </ion-item>
+            <ion-item class="no-shadow">
+              <ion-label class="ion-text-wrap">
+                {{ 'WORK_AS_EXPERT' | translate }}
+              </ion-label>
+              <ion-radio class="app-ion-radio" slot="start" [value]="accountTypes.matcher"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+
+          <label class="terms-item">
+            <lib-dashed-checkbox
+              class="app-ion-checkbox"
+              [ngClass]="{ accepted: accountFormGroup.controls['acceptTerms'].value }"
+              formControlName="acceptTerms"
+            ></lib-dashed-checkbox>
+            <p class="terms" (click)="onlyTextClickable($event)">
+              <span>{{ 'FIELDS.READ_POLICY' | translate }} </span>
+              <a routerLink="/privacy-term/conditions" class="primary-link">{{ 'FIELDS.TERM_OF_USE' | translate }}</a>
+              <span> {{ 'FIELDS.AND_ACKNOWLEDGE_THAT' | translate }} </span>
+              <a routerLink="/privacy-term/policy" class="primary-link">{{ 'FIELDS.PRIVACY_POLICY' | translate }}</a>
+            </p>
+          </label>
+          <button mat-raised-button type="submit" [disabled]="accountFormGroup.invalid" class="continue fixed-bottom">
+            <span>{{ 'GET_STARTED' | translate }}</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,36 @@
+<div class="main-wrapper" appSubmitOnEnter (enter)="navigateToVerify()" [route]="'signup'">
+  <form [formGroup]="signupForm">
+    <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.MY_PHONE_NUMBER_IS' | translate }}</span>
+    <lib-tel-input
+      #phoneNumberComponent
+      [cssClass]="'custom'"
+      [enablePlaceholder]="true"
+      [customPlaceholder]="'FIELDS.PHONE_NUMBER' | translate"
+      [searchCountryFlag]="false"
+      [selectFirstCountry]="false"
+      [showDropDownArrow]="true"
+      [maxLength]="15"
+      [phoneValidation]="true"
+      [separateDialCode]="false"
+      name="phone"
+      formControlName="phone"
+    >
+    </lib-tel-input>
+
+    <span class="info f-w-400 f-md h-150 f-light-gray">
+      {{ 'UNMATCHED_USER.VERIFICATION_MESSAGE' | translate }}
+    </span>
+
+    <div class="button-container">
+      <ion-button
+        (click)="navigateToVerify()"
+        *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+        [disabled]="(!signupForm.valid && !phoneNumberComponent.freeInputMode) || !signupForm.controls.phone.value"
+        [attr.disabled]="(!signupForm.valid && !phoneNumberComponent.freeInputMode) || !signupForm.controls.phone.value"
+        class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+        >{{ 'UNMATCHED_USER.CONTINUE' | translate }}</ion-button
+      >
+      <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+    </div>
+  </form>
+</div>

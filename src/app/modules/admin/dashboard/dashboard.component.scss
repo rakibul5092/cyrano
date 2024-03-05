@@ -1,0 +1,149 @@
+@import '../admin.scss';
+$sm: 320px;
+$md: 380px;
+
+input {
+  margin: unset;
+}
+
+ion-segment-button {
+  --color: var(--ion-text-color-secondary);
+  --color-checked: var(--ion-text-color);
+  text-transform: capitalize;
+  width: calc(50% - 24px);
+}
+
+lib-profile-header {
+  --image-width: 56px;
+  --image-height: 56px;
+}
+
+@media screen and (max-width: $md) {
+  ion-segment-button {
+    width: calc(50% - 14px);
+  }
+}
+
+@media screen and (max-width: $sm) {
+  ion-segment-button {
+    width: calc(50% - 10px);
+  }
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 390px;
+  padding-top: 47px;
+}
+
+h2 {
+  margin: 0 0 0.18755rem 0;
+  font-family: 'Calistoga';
+}
+
+.users-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.padding-box {
+  height: 300px;
+  width: 100%;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 100px;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+
+  .mat-icon-button {
+    position: absolute;
+    color: var(--ion-text-color-secondary);
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    padding: 1.063rem 2.422rem;
+  }
+
+  input {
+    background: transparent !important;
+    border: none;
+    outline: none !important;
+    width: 100%;
+    padding: 0.875rem 1.567rem 0.875rem 4.567rem;
+  }
+}
+
+.search-icon {
+  opacity: 0.5;
+}
+
+.search-button {
+  padding: 0.5rem 0.75rem;
+}
+
+.user-component {
+  display: flex;
+  max-width: 390px;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.user-component p {
+  font-size: 0.75rem;
+}
+
+.user-component h2 {
+  font-size: 1.125rem;
+}
+
+.to-profile-button {
+  display: flex;
+  border-radius: 50%;
+  width: 2.875rem;
+  height: 2.875rem;
+  align-items: center;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.all-users-list {
+  padding-top: 0;
+}
+
+.data-icon {
+  margin-right: 0.125rem !important;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+button span {
+  color: var(--ion-text-color);
+}
+
+.user-component button {
+  background: var(--ion-background-color);
+  border-radius: 6.25rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 400;
+  min-width: 2.875rem;
+}
+
+span p {
+  opacity: 0.6;
+}

@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <div class="modal-header-left" *ngIf="leftContent">
+    <ng-container *ngTemplateOutlet="leftContent"></ng-container>
+  </div>
+  <span class="modal-title">{{ modalTitle | translate }}</span>
+  <div class="modal-header-right">
+    <button (click)="onSave()" [disabled]="loading" mat-ripple>
+      {{ saveButtonTitle | translate }}
+    </button>
+  </div>
+</div>

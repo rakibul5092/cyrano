@@ -1,0 +1,94 @@
+@import '../admin.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 390px;
+}
+
+.table-container {
+  margin-top: -8px;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.table-head {
+  display: flex;
+  color: #e15561;
+}
+
+.orders {
+  width: 59.195%;
+}
+
+.price {
+  width: 14.511%;
+
+  &-data {
+    padding-left: 4px;
+  }
+}
+
+.timestamp,
+.timestamp-header {
+  width: 26.293%;
+}
+
+.timestamp,
+.orders {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.table-head p:last-of-type {
+  text-align: center;
+}
+
+.table-data-container {
+  height: 14.75rem;
+  overflow-y: scroll;
+  margin-top: 1.5rem;
+}
+
+.table-data {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.table-data p:last-of-type {
+  text-align: end;
+}
+
+p {
+  margin: 0;
+}
+
+.box-container {
+  margin: 0px 0px;
+  margin-bottom: 40px;
+  margin-inline: unset;
+  .with-photo {
+    margin-bottom: 20px;
+  }
+}
+
+::-webkit-scrollbar {
+  height: 3px;
+}
+
+@media screen and (max-width: 300px) {
+  .orders,
+  .price,
+  .timestamp-header {
+    font-size: 12px;
+  }
+
+  .table-container {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

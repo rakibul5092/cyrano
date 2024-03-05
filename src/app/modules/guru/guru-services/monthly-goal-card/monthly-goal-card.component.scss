@@ -1,0 +1,25 @@
+.earnings {
+  font-family: 'Gilroy-Regular';
+  font-style: normal;
+  margin-top: 25px;
+  .earnings-achieved {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    color: var(--cyrano-pink-shade-1);
+  }
+  .earnings-target {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #bdbdbd;
+  }
+  .earnings-currency {
+    color: var(--cyrano-pink-shade-1);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    top: -10px;
+    position: relative;
+  }
+}

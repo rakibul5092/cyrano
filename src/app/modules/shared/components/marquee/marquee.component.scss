@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  overflow: hidden;
+  max-width: fit-content;
+}
+
+.title-content {
+  white-space: pre;
+  text-align: left;
+  font-display: block;
+  font-size: inherit;
+  margin: 0;
+}
+
+.marque {
+  position: relative;
+  animation: marque 20s -10s infinite linear;
+}
+
+@keyframes marque {
+  from {
+    transform: translateX(var(--marque-wrapper-width));
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}

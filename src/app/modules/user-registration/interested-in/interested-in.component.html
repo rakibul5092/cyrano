@@ -1,0 +1,24 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'interestedGender'">
+    <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.INTERESTED_IN' | translate }}</span>
+
+    <ion-button
+      *ngFor="let interest of interests"
+      (click)="onChange(interest)"
+      [class]="'gender-btn h-160 ' + (selectedInterest.value === interest.value ? 'f-white app-black-button' : 'f-dark unselected')"
+      >{{ interest.label | translate }}</ion-button
+    >
+
+    <div class="button-container">
+      <ion-button
+        (click)="onContinue()"
+        [attr.disabled]="false"
+        *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+        class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+      >
+        {{ 'UNMATCHED_USER.CONTINUE' | translate }}
+      </ion-button>
+      <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+    </div>
+  </div>
+</ion-content>

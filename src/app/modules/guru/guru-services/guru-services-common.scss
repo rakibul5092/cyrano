@@ -1,0 +1,156 @@
+$sm: 358px;
+
+.page-inner-body {
+  position: relative;
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.title-text {
+  font-family: 'Calistoga';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 160%;
+  text-transform: capitalize;
+}
+
+.normal-text {
+  font-family: 'Gilroy-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.011em;
+  color: var(--ion-text-color);
+  opacity: 0.7;
+}
+
+.section-title {
+  @extend .normal-text;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.page-body {
+  padding: 20px 15px 20px 20px;
+}
+
+.client-card-header {
+  display: flex;
+  img.user-photo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    &.profile-photo {
+      height: 74px;
+      width: 74px;
+    }
+    &.profile-photo2 {
+      height: 78px;
+      width: 78px;
+    }
+  }
+  .client-card-header-user {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: -0.011em;
+    &.profile-header {
+      margin-top: 15px;
+    }
+    h4 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 18px;
+      font-weight: 600;
+      img {
+        margin-left: 10px;
+      }
+      .rate {
+        font-weight: 400;
+        font-size: 12px;
+        opacity: 0.7;
+        margin-left: 4px;
+      }
+    }
+    p {
+      font-size: 14px;
+      opacity: 0.7;
+      margin: 4px 0;
+    }
+  }
+}
+
+.account-btn {
+  border-radius: 34px;
+  margin: 30px 10px 0 0;
+  background: #222;
+  box-shadow: inset -3px -3px 4px rgba(255, 255, 255, 0.1), inset 5px 5px 10px rgba(0, 0, 0, 0.32);
+  padding: 4px;
+  overflow: hidden;
+  div {
+    background: #fff;
+    border-radius: 34px;
+    padding: 13px 11px 12px 11px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+.accounts {
+  &.accounts-vertical {
+    display: flex;
+  }
+  .mat-raised-button {
+    border-radius: 34px;
+    margin: 30px 10px 0 0;
+    background: #222;
+    box-shadow: inset -3px -3px 4px rgba(255, 255, 255, 0.1), inset 5px 5px 10px rgba(0, 0, 0, 0.32);
+    padding: 4px;
+    overflow: hidden;
+    div {
+      background: #fff;
+      border-radius: 34px;
+      padding: 13px 11px 12px 11px;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+    }
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  margin-bottom: 12px;
+}
+
+@media screen and (max-width: $sm) {
+  .accounts {
+    .mat-raised-button {
+      margin: 30px 5px 0 0;
+      padding: 0;
+      min-width: 30px;
+      img {
+        width: 70%;
+        height: auto;
+      }
+    }
+  }
+}

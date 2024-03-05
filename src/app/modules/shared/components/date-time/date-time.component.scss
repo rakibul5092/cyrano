@@ -1,0 +1,15 @@
+ion-datetime {
+  --background: var(--ion-background-color-no-gradient);
+  box-shadow: none;
+  position: relative;
+  min-width: 100%;
+  width: 100%;
+}
+.custom-style-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+:host .picker-highlight,
+.picker-highlight {
+  background: none;
+}

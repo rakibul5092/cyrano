@@ -1,0 +1,56 @@
+<ion-content>
+  <div class="auth-container">
+    <app-auth-header></app-auth-header>
+    <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()" autocomplete="off" appFocusInvalidInput *ngIf="loginFormGroup">
+      <div class="center-contents-column">
+        <img [src]="commonUtilService.icons.logo" class="cyrano-logo" width="170" height="80" alt="" />
+        <p class="form-title primary-text">
+          {{ 'AUTH.LOGIN_MESSAGE' | translate }}
+        </p>
+        <div class="custom-input">
+          <lib-input-field type="text" [readonly]="loading" formControlName="username" [label]="'FIELDS.EMAIL_PHONE' | translate"></lib-input-field>
+        </div>
+        <app-error-message class="input-error" [control]="loginFormGroup.controls['username']"></app-error-message>
+
+        <div class="top-space custom-input">
+          <lib-input-field [readonly]="loading" formControlName="password" [type]="hide ? 'password' : 'text'" [label]="'FIELDS.PASSWORD' | translate"></lib-input-field>
+          <button mat-icon-button type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </div>
+        <app-error-message class="input-error" [control]="loginFormGroup.controls['password']"> </app-error-message>
+
+        <ion-row class="remember-me-container">
+          <ion-col class="remember-me">
+            <ion-item mode="ios">
+              <ion-checkbox formControlName="remember" slot="start" mode="md"></ion-checkbox>
+              <ion-label>{{ 'AUTH.REMEMBER_ME' | translate }}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col class="forgot-password">
+            <button mat-button type="button" (click)="commonUtilService.navigate('../forgot-password')" class="forgot-password-btn primary-link">
+              {{ 'AUTH.FORGOT_PASSWORD' | translate }}?
+            </button>
+          </ion-col>
+        </ion-row>
+
+        <button mat-raised-button class="primary-button normal-text login-btn" aria-label="login-btn" type="submit" [disabled]="loading">
+          <ion-spinner color="danger" *ngIf="loading" name="dots"></ion-spinner>
+          <span *ngIf="!loading || loginFormGroup.invalid">{{ 'AUTH.LOGIN' | translate }}</span>
+        </button>
+
+        <p class="secondary-text">{{ 'AUTH.OR_LOGIN' | translate }}</p>
+        <app-auth-social></app-auth-social>
+        <div class="center-contents-column create-account-section">
+          <div class="center-contents-row">
+            <span class="secondary-text create-account-text">{{ 'AUTH.OR_CREATE_ACCOUNT' | translate }}</span>
+            <span class="spacer"></span>
+            <button mat-raised-button (click)="commonUtilService.navigate('../register')" class="primary-button normal-text login-btn" aria-label="createBtn" type="button">
+              {{ 'BUTTONS.REGISTER' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+@import '../guru-services-common';
+
+.page-body {
+  padding: 20px 0;
+}
+
+.services-header {
+  padding: 0 15px 0 20px;
+}
+
+.requests-map {
+  margin-top: 20px;
+  height: 83vh;
+  &.map-container-no-location {
+    height: 74vh;
+  }
+}
+
+.location-permission-error {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 88%;
+  img {
+    position: relative;
+    display: block;
+    margin-bottom: 0;
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+  }
+  h2 {
+    @extend .title-text;
+  }
+  p {
+    @extend .normal-text;
+    font-size: 16px;
+    text-align: center;
+    padding: 0 20px;
+  }
+  button {
+    margin: 20px auto;
+  }
+}

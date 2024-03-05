@@ -1,0 +1,83 @@
+@import '../../guru-services-common';
+$sm: 358px;
+
+.request-card {
+  padding: 20px 20px 5px 20px;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  min-width: 100%;
+
+  .client-card-header {
+    margin-bottom: 30px;
+  }
+
+  .dating-request-progress {
+    position: relative;
+    margin-top: -42px;
+  }
+
+  .client-card-body {
+    margin-top: -20px;
+    h4 {
+      @extend .normal-text;
+      font-weight: 600;
+      font-size: 16px;
+      opacity: 1;
+    }
+
+    .accounts {
+      .mat-raised-button {
+        margin: 10px 10px 0 0;
+        box-shadow: 8px 8px 19px -2px rgba(26, 25, 28, 0.6), -5px -5px 16px -6px rgba(203, 199, 209, 0.25);
+      }
+    }
+    .accounts-types {
+      margin: 20px 0;
+      .account-info-item {
+        div {
+          @extend .normal-text;
+          color: var(--text-highlight-color);
+          opacity: 1;
+          &.item-title {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--ion-text-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+.request-card-footer {
+  background: transparent;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 24px;
+  .mat-mini-fab {
+    background: var(--button-background);
+    text-shadow: 0 0 6px #fff;
+    color: var(--ion-text-color);
+    box-shadow: 11px 10px 27px 2.5px rgba(17, 16, 20, 0.65), -5px -5px 16px -3px rgba(203, 199, 209, 0.25);
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .request-card {
+    .dating-request-progress {
+      margin-top: -20px;
+    }
+  }
+  .primary-button {
+    padding: 10px 10px;
+  }
+}

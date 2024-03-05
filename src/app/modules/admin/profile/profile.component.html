@@ -1,0 +1,68 @@
+<app-header></app-header>
+<ion-content fullscreen>
+  <div class="container">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="profile.photo"
+      [name]="profile.name"
+      [leftIcon]="commonServices.icons.hash"
+      [leftText]="profile.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+      [rightIcon]="commonServices.icons.location"
+      [rightText]="profile.address"
+    ></lib-profile-header>
+
+    <!-- Surfing, Tennis and Fiction buttons -->
+    <div class="multi-colored-buttons">
+      <ion-button class="f-lato light-green">{{ 'GURU.SURFING' | translate }}</ion-button>
+      <ion-button class="f-lato light-blue">{{ 'GURU.TENNIS' | translate }}</ion-button>
+      <ion-button class="f-lato light-purple">{{ 'GURU.FICTION' | translate }}</ion-button>
+    </div>
+
+    <!-- About me -->
+    <ion-card class="box-container">
+      <span class="card-header">{{ 'UNMATCHED.ABOUT_ME' | translate }}</span>
+      <span class="information"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span>
+    </ion-card>
+
+    <!-- My photos section -->
+    <ion-card class="box-container">
+      <div class="card-header with-photo">
+        {{ 'GURU.MY_PHOTOS' | translate }}
+      </div>
+      <swiper [config]="config">
+        <ng-template swiperSlide *ngFor="let photo of profile.myPhotos">
+          <img [src]="photo" alt="Cinque Terre" />
+        </ng-template>
+      </swiper>
+    </ion-card>
+
+    <!-- Meta information -->
+    <ion-card class="box-container">
+      <span class="card-header">{{ 'UNMATCHED.ACCOUNT_META' | translate }}</span>
+      <span class="information"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span>
+    </ion-card>
+
+    <div class="table-container">
+      <div class="table-head f-lato f-w-600 f-md h-160">
+        <p class="orders">{{ 'ADMIN.ORDERS' | translate }}</p>
+        <p class="price">{{ 'ADMIN.PRICE' | translate }}</p>
+        <p class="timestamp-header">
+          {{ 'ADMIN.TIMESTAMP' | translate }}
+        </p>
+      </div>
+      <div class="table-data-container">
+        <div class="table-data f-lato f-w-400 f-md h-160" *ngFor="let item of ordersDataArray">
+          <p class="orders">Message for Jessica @ opener</p>
+          <p class="price price-data">$28</p>
+          <p class="timestamp f-w-400 f-xs">12 Jan 2022 13:49</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <ion-button (click)="gotoLogs()" class="app-black-button">{{ 'ADMIN.VIEW_LOG' | translate }}</ion-button>
+      <ion-button class="app-primary-button"> <span class="cyrano cyrano-Lock"></span>{{ 'ADMIN.LOG_IN_AS' | translate }} Eric</ion-button>
+    </div>
+  </div>
+</ion-content>

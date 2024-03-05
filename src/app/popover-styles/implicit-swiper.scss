@@ -1,0 +1,37 @@
+.cyrano-modal {
+  --background: #28252d;
+  --backdrop-opacity: 0.6;
+  --box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 16px rgba(0, 0, 0, 0.32);
+}
+
+.implicit-swipe-modal {
+  @extend .cyrano-modal;
+  --width: 326px;
+  --height: 308px;
+}
+
+.implicit-swipe-modal-skip {
+  @extend .cyrano-modal;
+  --width: 326px;
+  --height: 366px;
+}
+
+@media screen and (max-width: 325px) {
+  .implicit-swipe-modal {
+    --width: 240px;
+  }
+
+  .implicit-swipe-modal-skip {
+    --width: 250px;
+  }
+}
+
+.implicit-swipe-modal::part(backdrop) {
+  background: #000000;
+  opacity: 0.6;
+}
+
+.implicit-swipe-modal-skip::part(backdrop) {
+  background: #000000;
+  opacity: 0.6;
+}

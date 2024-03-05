@@ -1,0 +1,38 @@
+div.guru-services-header {
+  display: flex;
+  .title {
+    font-family: 'Calistoga';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 160%;
+    text-transform: capitalize;
+  }
+
+  button {
+    float: right;
+    position: relative;
+    right: -10px;
+  }
+
+  .back {
+    margin-bottom: 45px;
+    display: flex;
+    span {
+      position: relative;
+      bottom: -10px;
+      left: 0;
+      font-family: 'Gilroy';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+    }
+    .mat-icon-button {
+      position: relative;
+      left: -10px;
+      box-shadow: 11px 10px 27px 2.5px rgba(17, 16, 20, 0.5), -3px -3px 10px -3px rgba(203, 199, 209, 0.25);
+      border-radius: 7px;
+    }
+  }
+}

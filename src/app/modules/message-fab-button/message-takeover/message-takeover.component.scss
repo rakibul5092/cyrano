@@ -1,0 +1,35 @@
+:host {
+  position: fixed;
+}
+
+.fab-horizontal-end {
+  right: calc(25px + var(--ion-safe-area-right, 0px));
+}
+
+ion-fab {
+  box-shadow: var(--box-shadow);
+  border-radius: 100px;
+}
+
+ion-fab .fab-list-active .fab-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--fab-backdrop);
+  opacity: 0.5;
+}
+
+ion-fab-button {
+  width: 46px;
+  height: 46px;
+  --background: var(--ion-text-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 100px;
+
+  ion-icon {
+    width: 20.8px;
+    height: 18.09px;
+  }
+}

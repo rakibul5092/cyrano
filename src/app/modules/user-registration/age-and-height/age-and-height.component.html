@@ -1,0 +1,22 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'ageHeight'">
+    <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.AGE_&_HEIGHT' | translate }}</span>
+    <div class="range-container f-gilroy-medium f-w-700 f-lg h-160 f-white">
+      <div class="range-title">
+        <span class="f-w-700">{{ 'UNMATCHED_USER.AGE_RANGE' | translate }}</span>
+        <span class="f-w-400"
+          >{{ ageRange.lower + ' - ' + ageRange.upper }}<span class="pl-10">{{ 'UNMATCHED_USER.YEARS' | translate }}</span></span
+        >
+      </div>
+      <ion-range min="{{ htmlAgeRange.min }}" max="{{ htmlAgeRange.max }}" [dualKnobs]="true" [(ngModel)]="ageRange" (ionChange)="calculatePercentage()"></ion-range>
+    </div>
+    <div class="range-container f-gilroy-medium f-lg h-160 f-white">
+      <div class="range-title">
+        <span class="f-w-700">{{ 'UNMATCHED_USER.HEIGHT_RANGE' | translate }}</span>
+        <span class="f-w-400">{{ heightRange | heightRangeFormatter }}</span>
+      </div>
+      <ion-range min="4" max="7" step="0.1" [dualKnobs]="true" [(ngModel)]="heightRange" (ionChange)="calculatePercentage()"></ion-range>
+    </div>
+  </div>
+  <app-range-meter [percentage]="percentage" [loading$]="loading$" (next)="onContinue()"></app-range-meter>
+</ion-content>

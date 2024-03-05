@@ -1,0 +1,42 @@
+.modal-text {
+  font-family: 'Calistoga', serif;
+  font-style: normal;
+  line-height: 160%;
+  font-weight: 400;
+}
+
+.modal-header-section {
+  position: absolute;
+  top: 20px;
+}
+
+.modal-header {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px 15px;
+
+  .modal-title {
+    @extend .modal-text;
+    font-size: 15px;
+  }
+
+  .modal-header-left {
+    @extend .modal-header-section;
+    left: 15px;
+  }
+
+  .modal-header-right {
+    @extend .modal-header-section;
+    right: 15px;
+    button {
+      @extend .modal-text;
+      font-size: 14px;
+      color: var(--cyrano-pink-shade-1);
+      background: transparent;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

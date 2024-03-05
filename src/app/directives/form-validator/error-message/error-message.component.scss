@@ -1,0 +1,17 @@
+.error-messages {
+  min-height: 5px;
+  p.error {
+    text-align: left;
+    text-transform: capitalize;
+    width: auto;
+    margin: 0;
+    padding-left: 10px;
+    color: var(--cyrano-pink-shade-1);
+    font-family: 'Gilroy-Regular', serif;
+    font-size: 12px;
+    &.free-content {
+      position: relative;
+    }
+    position: absolute;
+  }
+}

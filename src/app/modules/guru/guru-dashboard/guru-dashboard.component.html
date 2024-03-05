@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-container">
+      <div class="guru-dashboard-container">
+        <div class="center-contents-column screen-content">
+          <div class="statistics-container">
+            <p class="title">{{ 'GURU.LAST_MONTH_STATISTICS' | translate }}</p>
+            <div class="center-contents-row statistics">
+              <div class="statistics-item" *ngFor="let item of statistics">
+                <lib-circle-progress [height]="'101px'" [width]="'101px'" [type]="item.title | translate" [prefix]="item.unit" [value]="item.value"> </lib-circle-progress>
+              </div>
+            </div>
+          </div>
+          <div class="clients-container">
+            <h2>{{ 'GURU.PRESENT_CLIENTS' | translate }}</h2>
+            <p class="normal-paragraph">{{ 'GURU.PRESENT_CLIENTS_DESCRIPTION' | translate }}</p>
+            <swiper [config]="clientsSwipperOptions" class="clients-swiper" *ngIf="presentClients && presentClients.length > 0; else emptyClients">
+              <ng-template swiperSlide *ngFor="let client of presentClients">
+                <lib-profile-card [profile]="client" class="profile-card"></lib-profile-card>
+              </ng-template>
+            </swiper>
+            <ng-template #emptyClients>
+              <div class="empty-clients">
+                <img [src]="'assets/images/pink coffee cup.png'" alt="" />
+                <p class="normal-paragraph">{{ 'GURU.CLIENTS_EMPTY' | translate }}</p>
+              </div>
+            </ng-template>
+          </div>
+          <button (click)="navigateToClients()" mat-raised-button class="search-clients-btn primary-btn" aria-label="search-clients-btn" type="button">
+            {{ 'GURU.SEARCH_CLIENTS' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

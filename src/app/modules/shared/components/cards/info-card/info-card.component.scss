@@ -1,0 +1,39 @@
+@import '../common-card';
+
+.spacer {
+  flex: 1 1 auto;
+}
+.info-card {
+  box-shadow: var(--box-shadow);
+  background: var(--ion-background-color-no-gradient);
+  border-radius: 8px;
+  padding: 30px 30px 20px 30px;
+  margin-top: 30px;
+  .info-card-header {
+    width: 100%;
+    div {
+      position: relative;
+      display: block;
+      overflow: visible;
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      color: var(--ion-text-color);
+      padding-right: 40px;
+    }
+    .quote {
+      color: var(--ion-text-color-secondary2);
+      position: absolute;
+      top: -18px;
+      right: 0;
+      font-family: 'Calistoga';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 46.4389px !important;
+      line-height: 160%;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+  }
+}

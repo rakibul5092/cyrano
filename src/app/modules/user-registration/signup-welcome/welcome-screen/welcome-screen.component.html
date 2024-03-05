@@ -1,0 +1,45 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onAgree()" [route]="'welcome'">
+    <div class="img-container">
+      <img src="assets/images/unmatched-logo.svg" />
+    </div>
+    <div class="top-text">
+      <span class="welcome f-calistoga f-w-400 f-3xl h-160 f-white">{{ 'UNMATCHED_USER.WELCOME_TO_CYRANO' | translate }}</span>
+      <span class="rules f-gilroy-medium f-w-400 f-md h-150 f-light-gray spacing">{{ 'UNMATCHED_USER.FOLLOW_RULES' | translate }}</span>
+    </div>
+
+    <div class="policy-container">
+      <div class="policies" *ngFor="let policy of policies">
+        <div class="icon">
+          <ion-icon src="assets\icon\checkbox-tick.svg"></ion-icon>
+        </div>
+        <div class="text-container f-gilroy-medium h-160">
+          <span class="f-w-500 f-lg f-white">{{ policy.title | translate }}</span>
+          <span class="f-w-400 f-sm f-light-gray">{{ policy.subTitle | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <form [formGroup]="termsAndConditionForm">
+        <label class="checkbox-container">
+          <div class="check-container">
+            <input type="checkbox" formControlName="terms" />
+            <span class="checkbox"></span>
+          </div>
+          <div class="checkbox-label f-gilroy-medium f-w-500 f-md h-150">
+            {{ 'UNMATCHED_USER.TERMS_AND_CONDITIONS' | translate }}
+          </div>
+        </label>
+      </form>
+
+      <ion-button
+        (click)="onAgree()"
+        [disabled]="!termsAndConditionForm.valid"
+        [attr.disabled]="!termsAndConditionForm.valid"
+        class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+        >{{ 'UNMATCHED_USER.I_AGREE' | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

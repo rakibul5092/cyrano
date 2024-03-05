@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-container">
+      <div class="center-contents-column">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
+          <div class="center-contents-column">
+            <p class="form-paragraph">{{ 'UNMATCHED.ACCOUNT_INFO' | translate }}</p>
+
+            <div class="ships-input">
+              <mat-chip-list #chipList aria-label="Fruit selection">
+                <mat-chip *ngFor="let item of hobbies" (removed)="removeHobbies(item)">
+                  {{ item }}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+
+                <div class="custom-input custom-input-sips">
+                  <input
+                    type="text"
+                    #hobbiesInput
+                    [readonly]="loading"
+                    [matAutocomplete]="auto"
+                    [matChipInputFor]="chipList"
+                    [formControl]="hobbiesCtrl"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="addHobbies($event)"
+                    placeholder="{{ 'UNMATCHED.HOBBIES' | translate }}"
+                  />
+                </div>
+              </mat-chip-list>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let item of filteredHobbies | async" [value]="item">
+                  {{ item }}
+                </mat-option>
+              </mat-autocomplete>
+
+              <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'hobbies', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+            </div>
+
+            <div class="custom-input">
+              <input type="text" [readonly]="loading" formControlName="favoriteRestaurant" placeholder="{{ 'UNMATCHED.FAVORITES_RESTAURANTS' | translate }}" />
+            </div>
+            <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'favoriteRestaurant', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+
+            <div class="custom-input">
+              <input type="text" [readonly]="loading" formControlName="favoriteOuting" placeholder="{{ 'UNMATCHED.FAVORITES_OUTING' | translate }}" />
+            </div>
+            <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'favoriteOuting', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+
+            <div class="custom-input custom-text-area">
+              <textarea [readonly]="loading" formControlName="idealPartnerDescription" placeholder="{{ 'UNMATCHED.PARTNER_DESCRIPTION' | translate }}"> </textarea>
+            </div>
+            <p class="error" *ngIf="commonUtilService.onFormControlError(formGroup, 'idealPartnerDescription', 'required')">*{{ 'VALIDATIONS.REQUIRED' | translate }}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

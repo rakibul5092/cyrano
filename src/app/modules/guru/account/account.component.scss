@@ -1,0 +1,102 @@
+@import '../guru.global.scss';
+.input-style {
+  box-shadow: none !important;
+}
+
+.main-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+
+  .search-container {
+    border-radius: 100px;
+    height: 48px;
+    width: 100%;
+    margin-top: 27px;
+    max-width: 470px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    ion-icon {
+      width: 17.7px;
+      height: 16px;
+      color: var(--ion-text-color-secondary);
+      position: absolute;
+      top: 17px;
+      left: 38.75px;
+    }
+
+    ion-input {
+      width: 100%;
+      font-weight: 500;
+      color: var(--ion-text-color-secondary);
+      --padding-bottom: 15px !important;
+      --padding-top: 17px !important;
+      --padding-end: 20px !important;
+      --padding-start: 73.07px !important;
+    }
+  }
+
+  .circle-container {
+    margin-bottom: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 360px;
+    overflow-x: auto;
+  }
+
+  .bottom-buttons {
+    display: grid;
+    padding-left: 27px;
+    margin-top: 32px;
+    padding-right: 45px;
+
+    .info {
+      margin-bottom: 35px;
+      cursor: pointer;
+    }
+
+    .border {
+      background: var(--ion-text-color-secondary);
+      height: 1px;
+      width: 100%;
+      margin-bottom: 29px;
+    }
+
+    .works {
+      margin-bottom: 26px;
+    }
+
+    .settings {
+      margin-bottom: 52px;
+    }
+  }
+
+  .bottom-button {
+    text-transform: none;
+    width: 100%;
+    height: 46px;
+    margin: 0px auto;
+    --background: var(--fab-text-color);
+    display: grid;
+    --box-shadow: 11px 10px 27px 2.5px rgba(17, 16, 20, 0.65), -5px -5px 16px -3px rgba(203, 199, 209, 0.25);
+  }
+
+  ion-card {
+    .card-header {
+      ion-icon {
+        margin-left: 18px;
+        width: 14.34px;
+        height: 14.24px;
+        cursor: pointer;
+        margin-bottom: -2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<ng-container>
+  <header *ngIf="title" class="itinerary-title" style="width: 100%">
+    <span class="f-gilroy-semibold f-lg h-160">Itinerary title</span>
+    <button class="head-btn-edit cyrano cyrano-Pen" (click)="onEdit()"></button>
+  </header>
+  <div class="location-card">
+    <div class="map-box">
+      <img class="map-image" alt="map" src="/assets/images/map.svg" />
+    </div>
+    <div class="location-info d-flex flex-column">
+      <div class="d-flex flex-column" *ngIf="name || description">
+        <p *ngIf="name" class="bold name">name</p>
+        <label *ngIf="description" class="description">description</label>
+      </div>
+      <div class="location-shop" *ngIf="mainPlace">
+        <i [className]="'cyrano ' + mainPlace.icon"></i>
+        <p class="icon-desc f-gilroy-regular f-md">{{ mainPlace.name }}</p>
+      </div>
+      <div></div>
+      <div class="location-features">
+        <div class="place" *ngFor="let place of places; let last = last">
+          <i [className]="'cyrano ' + place.icon"></i>
+          <p class="icon-desc f-gilroy-regular f-md">{{ place.name }}</p>
+          <div *ngIf="!last" class="dot"></div>
+        </div>
+      </div>
+      <div class="m-auto" *ngIf="dateTime">
+        <i class="cyrano cyrano-Calendar"></i>
+        <p class="time icon-desc f-gilroy-regular f-md">{{ timeFormat }}</p>
+      </div>
+    </div>
+    <div *ngIf="name || description" class="btn-edit" (click)="onEdit()">
+      <i class="cyrano cyrano-Pen edit-icon"></i>
+    </div>
+  </div>
+</ng-container>

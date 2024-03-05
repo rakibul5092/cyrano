@@ -1,0 +1,36 @@
+<ion-content>
+  <div class="page-body">
+    <div class="page-container">
+      <lib-profile-header
+        (click)="onCourseClick()"
+        [photo]="'https://semantic-ui.com/images/avatar2/large/matthew.png'"
+        [name]="'Project Masculinity'"
+        [leftIcon]="commonUtilService.icons.star"
+        [leftText]="'5 ' + ('COURSES.STARTS' | translate)"
+        [rightIcon]="commonUtilService.icons.hash"
+        [orientation]="orientation"
+        [rightText]="'2 ' + ('COURSES.REVIEWS' | translate)"
+      >
+      </lib-profile-header>
+      <br />
+
+      <app-info-card
+        [title]="'COURSES.ABOUT_COURSE' | translate"
+        class="app-info-card"
+        [description]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.'"
+      >
+      </app-info-card>
+      <app-info-card
+        [title]="'COURSES.REVIEWS' | translate"
+        class="app-info-card"
+        [isQuote]="true"
+        [description]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.'"
+      >
+      </app-info-card>
+
+      <button mat-raised-button color="danger" class="primary-btn purchase-btn" type="button">
+        {{ 'COURSES.PURCHASE_COURSE' | translate }}
+      </button>
+    </div>
+  </div>
+</ion-content>

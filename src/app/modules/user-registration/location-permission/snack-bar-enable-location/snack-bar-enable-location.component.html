@@ -1,0 +1,13 @@
+<div class="flex" style="padding-top: 5px" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <div>
+    <div class="title-snackbar">{{ 'LOCATION.TITLE' | translate }}</div>
+    {{ 'LOCATION.DENIED' | translate }}
+    <a href="https://docs.buddypunch.com/en/articles/919258-how-to-enable-location-services-for-chrome-safari-edge-and-android-ios-devices-gps-setting" target="_blank">{{
+      'LOCATION.CLICKHERE' | translate
+    }}</a>
+    {{ 'LOCATION.FORDETAILS' | translate }}
+  </div>
+  <div class="dismiss">
+    <span (click)="close()">OK</span>
+  </div>
+</div>

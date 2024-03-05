@@ -1,0 +1,55 @@
+<ion-content>
+  <div class="container">
+    <div class="scroll">
+      <ng-container *ngIf="dashboardVersion === 1">
+        <lib-multi-colored-text [text]="'UNMATCHED.UPCOMING_DATES' | translate"> </lib-multi-colored-text>
+        <app-upcoming-dates></app-upcoming-dates>
+      </ng-container>
+
+      <ng-container *ngIf="dashboardVersion === 2">
+        <lib-multi-colored-text [text]="'UNMATCHED.UPCOMING_DATES' | translate" class="dashboard-2"> </lib-multi-colored-text>
+        <app-no-date></app-no-date>
+      </ng-container>
+
+      <ng-container *ngIf="dashboardVersion === 3">
+        <div class="flex dashboard-3">
+          <div class="half-width">
+            <app-no-date [title]="'UNMATCHED.UPCOMING_DATES' | translate"> </app-no-date>
+          </div>
+          <div class="half-width">
+            <app-no-date [title]="'UNMATCHED.YOUR_DATES_PROGRESS' | translate"> </app-no-date>
+          </div>
+        </div>
+        <ion-button class="explore-button" fill="clear" expand="block">
+          {{ 'BUTTONS.EXPLORE_POTENTIALS_DATES' | translate }}
+        </ion-button>
+      </ng-container>
+
+      <ng-container *ngIf="dashboardVersion === 1 || dashboardVersion === 2">
+        <div class="date-progress">
+          <lib-multi-colored-text [text]="'UNMATCHED.YOUR_DATES_PROGRESS' | translate"> </lib-multi-colored-text>
+          <div class="wrapper horizontal-scroll">
+            <app-date-progress [percentage]="35"></app-date-progress>
+            <app-date-progress [percentage]="80"></app-date-progress>
+            <app-date-progress [percentage]="73"></app-date-progress>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="dashboardVersion !== 4">
+        <div [ngClass]="{ 'potential-dates-wrapper': true, 'dashboard-3': dashboardVersion === 3 }">
+          <lib-multi-colored-text [text]="'UNMATCHED.POTENTIAL_DATES' | translate"> </lib-multi-colored-text>
+          <div class="potential-dates-container horizontal-scroll">
+            <app-potential-dates></app-potential-dates>
+            <app-potential-dates></app-potential-dates>
+            <app-potential-dates></app-potential-dates>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="dashboardVersion === 4">
+        <app-update-info-page></app-update-info-page>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>

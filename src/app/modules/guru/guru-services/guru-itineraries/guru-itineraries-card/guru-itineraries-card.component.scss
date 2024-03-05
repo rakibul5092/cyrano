@@ -1,0 +1,68 @@
+@import '../../guru-services-common';
+$sm: 358px;
+
+.itinerary-container {
+  margin-top: 20px;
+  padding: 10px;
+
+  .itinerary {
+    display: flex;
+    .itinerary-info {
+      padding-bottom: 0;
+      margin-bottom: -15px;
+      h4 {
+        margin: 0;
+        @extend .normal-text;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 18px;
+        opacity: 1;
+      }
+      p.itinerary-data {
+        @extend .normal-text;
+        opacity: 1;
+        margin-top: 8px;
+        font-size: 12px;
+        span {
+          &.distance {
+            opacity: 0.7;
+            margin-left: 5px;
+          }
+          &.divider {
+            margin: 0 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.itinerary-date {
+  margin-top: 47px;
+  opacity: 0.7;
+  @extend .normal-text;
+  font-size: 12px;
+}
+
+.itinerary-icon {
+  position: relative;
+  bottom: -2px;
+}
+img.itinerary-img {
+  width: 104px;
+  margin-right: 10px;
+}
+@media screen and (max-width: $sm) {
+  .itinerary {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    img.itinerary-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .itinerary-date {
+      margin: 10px 0 15px 0;
+    }
+  }
+}

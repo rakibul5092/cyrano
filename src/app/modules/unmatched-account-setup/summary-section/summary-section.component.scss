@@ -1,0 +1,60 @@
+@import '../../user-registration/user-registration.component.scss';
+
+ion-icon {
+  width: 136px;
+  height: 136px;
+}
+
+.title {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  margin-bottom: 24px;
+  line-height: 18px;
+
+  span {
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+}
+
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 26px 0px 26px 0px;
+  height: 100%;
+}
+
+ion-content {
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+}
+
+@media screen and (max-width: 320px) {
+  ion-icon {
+    height: 120px;
+    width: 120px;
+  }
+
+  .title {
+    margin-top: 20px;
+    font-size: 22px;
+  }
+
+  .subtitle {
+    gap: 16px;
+  }
+
+  .app-primary-button {
+    font-size: 14px;
+    height: 40px;
+    max-width: 220px;
+  }
+}

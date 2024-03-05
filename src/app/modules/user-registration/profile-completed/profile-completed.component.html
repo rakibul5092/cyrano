@@ -1,0 +1,20 @@
+<ion-content mode="md">
+  <div class="main-wrapper">
+    <div class="container">
+      <div class="img-container">
+        <img src="assets/icon/unmatched-registration/completed.svg" />
+      </div>
+      <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.PROFILE_COMPLETED' | translate }}</span>
+
+      <span class="info f-w-400 f-md h-150 f-light-gray">
+        {{ 'UNMATCHED_USER.PROFILE_COMPLETED_MESSAGE' | translate }}
+      </span>
+
+      <div class="bottom-container">
+        <ion-button (click)="onContinue()" [attr.disabled]="false" class="continue-button f-gilroy-regular f-w-400 f-xl h-160">{{
+          'UNMATCHED_USER.SETUP_DATING_PREFERENCES' | translate
+        }}</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

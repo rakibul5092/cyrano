@@ -1,0 +1,21 @@
+<div class="context-container">
+  <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+  <lib-profile-header
+    [orientation]="orientation"
+    [photo]="client.photo"
+    [name]="client.name"
+    [leftIcon]="commonService.icons.hash"
+    [leftText]="client.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+    [rightIcon]="commonService.icons.location"
+    [rightText]="client.address"
+  ></lib-profile-header>
+
+  <!-- Conversation Previews -->
+  <ion-row>
+    <ion-col class="ion-text-center" *ngFor="let preview of previews" size="4">
+      <ion-card>
+        <img [src]="preview" />
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</div>

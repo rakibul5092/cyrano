@@ -1,0 +1,39 @@
+<ion-content fullscreen>
+  <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+  <lib-profile-header
+    [orientation]="orientation"
+    [photo]="account.photo"
+    [name]="account.name"
+    [leftIcon]="commonService.icons.hash"
+    [leftText]="account.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+    [rightIcon]="commonService.icons.location"
+    [rightText]="account.address"
+  ></lib-profile-header>
+  <div class="page">
+    <div *ngFor="let item of datelocationsArray" class="location-card">
+      <div>
+        <img class="map-image" alt="map" src="../../../../assets/images/map.svg" />
+      </div>
+      <div class="location-info f-lato f-w-400 f-md f-white">
+        <div class="location-shop">
+          <span class="cyrano cyrano-Coffee-Cup icon-color"></span>
+          <p class="">Coffe Cafe</p>
+        </div>
+        <div class="location-features">
+          <span class="cyrano cyrano-Temple icon-color"></span>
+          <p class="">Temple</p>
+          <div class="dot f-lg">.</div>
+          <span class="cyrano cyrano-Palace icon-color"></span>
+          <p class="">Palace</p>
+        </div>
+        <div>
+          <span class="cyrano cyrano-Calendar f-sm icon-color"></span>
+          <p class="time f-gray">23 January - 9 A.M</p>
+        </div>
+      </div>
+      <div>
+        <span class="cyrano cyrano-Pen"></span>
+      </div>
+    </div>
+  </div>
+</ion-content>

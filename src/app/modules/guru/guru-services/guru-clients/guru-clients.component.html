@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-inner-body">
+      <app-guru-services-header [title]="'GURU.CLIENTS' | translate"></app-guru-services-header>
+      <div *ngIf="clients && clients.length > 0; else emptyClients" class="guru-clients">
+        <p class="clients-sub-title">{{ clients.length }} {{ 'GURU.TOTAL_CLIENTS' | translate }}</p>
+        <app-guru-client-card *ngFor="let client of clients" [client]="client"> </app-guru-client-card>
+      </div>
+      <ng-template #emptyClients>
+        <div class="empty-clients">
+          <img src="assets/images/Chat.png" alt="no clients" />
+          <h2>{{ 'GURU.NO_CLIENTS_YET' | translate }}</h2>
+          <p [innerHTML]="'GURU.NO_CLIENTS_YET_MSG' | translate"></p>
+          <button class="primary-button" matRipple>{{ 'GURU.GO_TO_REQUESTS' | translate }}</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</ion-content>

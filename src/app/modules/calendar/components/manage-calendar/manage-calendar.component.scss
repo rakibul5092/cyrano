@@ -1,0 +1,28 @@
+.select-all {
+  display: flex;
+  box-shadow: none;
+}
+ion-item {
+  font-family: 'Gilroy-Regular', serif;
+  ion-label h2 {
+    font-size: 14px;
+    &.link {
+      color: var(--link);
+    }
+  }
+}
+ion-list {
+  padding-bottom: 30px;
+}
+ion-content {
+  height: 100%;
+}
+.cyrano-account {
+  color: #59a7d7;
+}
+
+lib-dashed-checkbox {
+  --size: 24px;
+  --color: var(--cyrano-pink-shade-1);
+  cursor: pointer;
+}

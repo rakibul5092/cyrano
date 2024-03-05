@@ -1,0 +1,88 @@
+.message {
+  margin-block: 1.625rem;
+  text-align: center;
+}
+
+.page {
+  .status-text {
+    display: grid;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-top: 21px;
+    justify-content: center;
+    span {
+      width: 209px;
+    }
+  }
+}
+
+.explore-dates-button {
+  margin-top: 105px;
+}
+
+ion-button {
+  margin: unset;
+  margin-bottom: 48px;
+  text-transform: none;
+}
+
+.button-group {
+  display: grid;
+  justify-content: center;
+}
+
+.button-group-select {
+  margin-top: 105px;
+  display: grid;
+  justify-content: center;
+}
+
+.primary {
+  height: 48px;
+  width: 242px;
+  max-width: 242px;
+  font-size: 18px;
+  margin-inline: 0px;
+}
+
+.dark {
+  height: 46px;
+  width: 245px;
+  margin-inline: 0px;
+  max-width: 245px;
+  font-size: 16px;
+}
+
+.selected-guru {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ion-background-color);
+  border-radius: 10rem;
+  padding: 0.5rem;
+  margin: auto;
+  width: 8rem;
+  box-shadow: inset 14.8235px 13.5882px 36.6882px 3.39706px rgba(17, 16, 20, 0.65), inset -6.79412px -6.79412px 21.7412px -5.43529px rgba(203, 199, 209, 0.25);
+  border: 1px solid #f7f5dd;
+}
+
+.selected-guru p {
+  margin: 0;
+}
+
+.selected-guru img {
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-right: 0.25rem;
+  border-radius: 50%;
+}
+
+.guru-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+button {
+  text-transform: lowercase;
+}

@@ -1,0 +1,129 @@
+ion-toolbar {
+  --background: var(--fab-text-color);
+  --border-color: unset;
+  --border-width: 0px;
+  --border-style: unset;
+  --padding-start: 0px;
+  height: 76px;
+  display: flex;
+}
+
+.header-title {
+  padding-inline: 8px;
+}
+
+.progress {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: var(--cyrano-dark-color);
+  height: 5px;
+  width: 100%;
+  box-shadow: var(--cyrano-box-inset-shadow);
+  border-radius: 0px 100px 100px 100px;
+  z-index: 999;
+
+  div {
+    border: 2px solid #ff347d;
+    filter: blur(1px);
+    height: 5px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .glow {
+    position: absolute;
+    top: 1.5px;
+    left: 2px;
+    width: calc(33% - 4px);
+    height: 2px;
+    background: var(--ion-text-color);
+    border-radius: 10px 10px 10px 10px;
+    z-index: 9999;
+  }
+}
+
+ion-button {
+  height: 34px;
+  width: 35px;
+  box-shadow: var(--header-button-shadow);
+  border-radius: 7px;
+
+  ion-icon {
+    color: var(--ion-text-color);
+  }
+}
+
+.back-button {
+  margin-left: 24px;
+}
+
+@media screen and (max-width: 320px) {
+  .back-button {
+    margin-left: 14px;
+  }
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin-right: 23px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+
+    ion-icon {
+      height: 20px;
+      margin-right: 4px;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.right-text-button {
+  margin-right: 17px;
+
+  ion-button {
+    box-shadow: none;
+    background: none;
+    width: unset;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.cp {
+  width: 17px;
+}
+
+.ip {
+  width: 20px;
+}
+
+@media screen and (max-width: 360px) {
+  ion-button {
+    margin-left: 20px;
+  }
+
+  .right-text-button {
+    margin-right: 13px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  ion-button.back-button::part(native) {
+    background: var(--cyrano-maps-background);
+    box-shadow: var(--cyrano-maps-shadow-back);
+  }
+  .back-button {
+    --border-radius: 30px !important;
+    box-shadow: unset;
+  }
+}

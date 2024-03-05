@@ -1,0 +1,58 @@
+@import '../guru.global.scss';
+
+.main-wrapper {
+  max-width: 570px;
+
+  ion-row {
+    margin-bottom: 45px;
+    ion-segment-button {
+      --color: var(--ion-text-color-secondary);
+      --color-checked: var(--ion-text-color);
+      text-transform: capitalize;
+      width: calc(50% - 26px);
+      white-space: unset;
+      letter-spacing: 0.03em;
+    }
+    ion-segment-button:nth-of-type(1) {
+      margin-right: 2px;
+    }
+    ion-segment-button:nth-of-type(2) {
+      margin-left: 2px;
+    }
+    ion-segment-button::part(native) {
+      padding-inline-start: unset;
+      padding-inline-end: unset;
+    }
+
+    @media screen and (max-width: 300px) {
+      ion-segment-button {
+        white-space: nowrap;
+        letter-spacing: 0rem;
+      }
+    }
+  }
+
+  .list-row {
+    margin-left: -18px;
+    margin-right: -18px;
+    display: flex;
+    justify-content: center;
+
+    lib-profile-card {
+      margin-bottom: 29px;
+      margin-left: 18px;
+      margin-right: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .text {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .text {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,33 @@
+ion-content {
+  height: 100%;
+}
+form {
+  padding: 0 10px;
+}
+ion-item {
+  ion-label {
+    font-family: 'Gilroy-Regular', serif !important;
+  }
+}
+.app-color-input {
+  padding: 0;
+  max-width: 70px;
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.input-error-container {
+  margin: 0 0 0 -10px;
+}
+.selected-account {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-family: 'Gilroy-Regular', serif;
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}

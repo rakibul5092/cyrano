@@ -1,0 +1,37 @@
+@import '../shared.scss';
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  margin-top: 32px;
+  margin-bottom: unset;
+}
+
+.info {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.book {
+  width: 100px;
+  height: 125px;
+}
+
+ion-button {
+  margin-bottom: 19px;
+  min-width: 197px;
+  height: 48px;
+  font-size: 18px;
+  letter-spacing: -0.011px;
+}
+
+@media screen and (max-width: 300px) {
+  ion-button {
+    font-size: 14px;
+  }
+}

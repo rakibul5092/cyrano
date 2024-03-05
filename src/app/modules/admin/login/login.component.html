@@ -1,0 +1,52 @@
+<ion-content>
+  <form [formGroup]="loginFormGroup" (ngSubmit)="gotoAdminDashboard()" autocomplete="off">
+    <div class="center-contents-column">
+      <img [src]="commonUtilService.icons.logo" width="170" height="90" alt="cyrano-logo" />
+      <div class="title-container">
+        <lib-multi-colored-text [class]="'f-calistoga f-w-400 f-3xl h-160'" [text]="'ADMIN.ADMIN_PANEL' | translate"></lib-multi-colored-text>
+
+        <div class="admin-login-sub-title f-lato f-md f-w-600 h-160 f-white">
+          {{ 'AUTH.ADMIN_LOGIN' | translate }}
+        </div>
+      </div>
+      <div class="the-form">
+        <input class="email-input app-input" type="text" [readonly]="loading" formControlName="email" placeholder="{{ 'FIELDS.EMAIL' | translate }}" />
+        <span class="error" *ngIf="commonUtilService.onFormControlError(loginFormGroup, 'email', 'required')">
+          {{ 'VALIDATIONS.REQUIRED' | translate }}
+        </span>
+        <span class="error" *ngIf="commonUtilService.onFormControlError(loginFormGroup, 'email', 'email')">
+          {{ 'VALIDATIONS.NOT_VALID_EMAIL' | translate }}
+        </span>
+
+        <div class="password-container">
+          <input
+            class="user-name app-input"
+            [readonly]="loading"
+            placeholder="{{ 'FIELDS.PASSWORD' | translate }}"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button mat-icon-button type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </div>
+        <span class="error" *ngIf="commonUtilService.onFormControlError(loginFormGroup, 'password', 'required')">
+          {{ 'VALIDATIONS.REQUIRED' | translate }}
+        </span>
+
+        <button
+          mat-raised-button
+          id="auth-btn"
+          aria-label="login-btn"
+          class="login-button"
+          type="button"
+          (click)="gotoAdminDashboard()"
+          [disabled]="loading || loginFormGroup.invalid"
+        >
+          <ion-spinner color="danger" *ngIf="loading" name="dots"></ion-spinner>
+          <span class="f-calistoga f-w-400 f-xl h-160" *ngIf="!loading || loginFormGroup.invalid">{{ 'AUTH.LOGIN' | translate }}</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</ion-content>

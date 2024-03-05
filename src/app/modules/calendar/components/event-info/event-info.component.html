@@ -1,0 +1,32 @@
+<div class="event-info" *ngIf="eventData">
+  <div class="event-info-header">
+    <h2>{{ eventData.title }}</h2>
+    <span class="spacer"></span>
+    <button mat-icon-button type="button" (click)="editEvent()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button type="button" (click)="deleteEvent()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button type="button" (click)="closeModal()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="event-info-body">
+    <div class="data-item">
+      <span> <mat-icon>event</mat-icon> {{ 'CALENDAR.STARTS' | translate }}</span>
+      <span>{{ eventData.startDate | date : 'yyyy-MM-dd' }} - {{ eventData.startTime | date : 'h:mm a' }}</span>
+    </div>
+    <div class="data-item" *ngIf="!eventData.allDay">
+      <span><mat-icon>event</mat-icon> {{ 'CALENDAR.ENDS' | translate }}</span>
+      <span>{{ eventData.endDate | date : 'yyyy-MM-dd' }} - {{ eventData.endTime | date : 'h:mm a' }}</span>
+    </div>
+    <div class="data-item" *ngIf="eventData.allDay">
+      <span><mat-icon class="all-day">done_all</mat-icon> {{ 'CALENDAR.ALL_DAY' | translate }}</span>
+    </div>
+    <div class="data-item" *ngIf="eventData.note">
+      <span>{{ 'FIELDS.NOTE' | translate }}</span>
+      <span [innerHTML]="eventData.note"></span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+@import '../common-card';
+
+ion-card.lesson-card {
+  padding: 0;
+  .img-container {
+    height: 134px;
+  }
+  .card-header {
+    padding: 13px 30px 0 30px;
+    img {
+      margin-right: 5px;
+    }
+  }
+  .card-actions {
+    padding: 5px 30px 30px 30px;
+    .mat-raised-button {
+      color: var(--ion-text-color-secondary);
+      border: 1px solid var(--ion-text-color-secondary);
+      background: transparent;
+      box-shadow: none;
+      width: 100%;
+      max-width: 341px;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      border-radius: 50px !important;
+      text-transform: capitalize;
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  ion-card-content {
+    padding: 10px 30px;
+  }
+}

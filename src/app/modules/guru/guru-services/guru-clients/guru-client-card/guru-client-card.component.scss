@@ -1,0 +1,35 @@
+@import '../../guru-services-common';
+
+.client-card {
+  padding: 20px 20px 5px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  .client-card-body {
+    p {
+      font-family: 'Gilroy-Regular';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      span.dot {
+        font-size: 30px;
+        font-weight: 600;
+        position: relative;
+        top: -3px;
+        padding: 0 6px;
+        opacity: 0.7;
+      }
+      span.dating-date {
+        opacity: 0.7;
+      }
+      span.successful-dates {
+        font-weight: 600;
+        font-size: 15px;
+      }
+      span.no-dates {
+        opacity: 0.7;
+      }
+    }
+  }
+}

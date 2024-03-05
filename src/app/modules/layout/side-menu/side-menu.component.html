@@ -1,0 +1,43 @@
+<div class="backdrop" (click)="closeSideMenu()"></div>
+<ion-content>
+  <div class="side-menu-content-inner">
+    <a [ngClass]="{ 'logo-section': true, 'is-docked': isDocked }">
+      <img src="/assets/images/light/logo.svg" />
+    </a>
+
+    <section class="tabs">
+      <button
+        class="ion-activatable"
+        (click)="onTabClick(tab.path)"
+        [disabled]="tab.path === 'add'"
+        *ngFor="let tab of footerTabs"
+        [ngClass]="['tab-button' + (tab.path === selectedTab ? ' selected-tab' : '')]"
+      >
+        <div style="position: relative">
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+          <i id="tab-icon" [ngClass]="[tab.iconClass]"></i>
+        </div>
+
+        <label>{{ tab.name | translate }}</label>
+      </button>
+
+      <button [ngClass]="{ 'btn-add-tab': true, 'is-docked': isDocked }">
+        <div class="inner-shadow">
+          <i class="cyrano cyrano-add"></i>
+          <label>{{ action | translate }}</label>
+        </div>
+      </button>
+    </section>
+
+    <section [ngClass]="{ 'more-settings': true, 'is-docked': isDocked }">
+      <header>{{ moreOptions | translate }}</header>
+      <ul>
+        <li *ngFor="let setting of dashboardSettings">{{ setting | translate }}</li>
+      </ul>
+    </section>
+  </div>
+</ion-content>
+
+<button class="btn_dock-side-menu" (click)="toggleIsDocked()">
+  <span [ngClass]="{ 'inner-core': true, 'is-docked': isDocked }"></span>
+</button>

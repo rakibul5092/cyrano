@@ -1,0 +1,80 @@
+<ion-content>
+  <div class="main-wrapper" appSubmitOnEnter (enter)="sendRequest()" [route]="'payment'">
+    <h2 class="payment-title">{{ 'PAYMENT.PAYMENT' | translate }}</h2>
+    <form [formGroup]="form" id="payment-form" (ngSubmit)="sendRequest()">
+      <ul formArrayName="platformPayments">
+        <ng-container *ngFor="let platformPayment of form.controls.platformPayments.controls; let i = index">
+          <li [formGroup]="platformPayment">
+            <div>
+              <button
+                type="button"
+                (click)="decreaseQty(i)"
+                [ngClass]="{'cyrano cyrano-trash': isQtyLessThan1(i), 'cyrano cyrano-minus': !isQtyLessThan1(i), 'disabled': platformPayment.controls.unmutable.value}"
+              ></button>
+              <input type="number" min="0" max="99" maxlength="2" size="2" formControlName="qty" />
+              <button type="button" (click)="increaseQty(i)" class="cyrano cyrano-add" [ngClass]="{'disabled': platformPayment.controls.unmutable.value}"></button>
+            </div>
+
+            <span><small>x</small> {{ platformPayment.controls.platform.value }}</span>
+
+            <strong>${{ platformPayment.controls.price.value }}</strong>
+          </li>
+        </ng-container>
+      </ul>
+
+      <svg class="total-divider" viewBox="0 0 342 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line y1="0.5" x2="342" y2="0.5" stroke="white" stroke-opacity="0.25" />
+      </svg>
+
+      <div class="fees">
+        <h3>{{ 'PAYMENT.FEES' | translate }}</h3>
+        <label> $ 5 </label>
+      </div>
+
+      <svg class="total-divider" viewBox="0 0 342 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line y1="0.5" x2="342" y2="0.5" stroke="white" stroke-opacity="0.25" />
+      </svg>
+
+      <div class="total">
+        <h3>{{ 'PAYMENT.TOTAL' | translate }}</h3>
+        <label> ${{ totalPayment }} </label>
+      </div>
+    </form>
+
+    <svg class="payment-divider" viewBox="0 0 342 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 3H342" stroke="url(#paint0_radial_8_1664)" stroke-width="5" />
+      <defs>
+        <radialGradient id="paint0_radial_8_1664" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(171 3.5) rotate(90) scale(0.5 171)">
+          <stop stop-color="#F7F5DD" />
+          <stop offset="1" stop-color="#F7F5DD" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+    </svg>
+
+    <section class="payment-methods">
+      <h2>{{ 'ACCOUNT_TAKEOVER.HEADER_TITLES.PAYMENT_METHOD' | translate }}</h2>
+      <div class="payment-details-wrapper">
+        <div class="payment-details" *ngIf="cardDetails; else noCardWrapper">
+          <img [src]="icons.paymentCard[cardDetails.type]" alt="" class="card" />
+          <div class="card-details">
+            <p class="card-number">{{ getCardNumber(cardDetails?.cardNumber) }}</p>
+            <p class="card-expiry">{{ cardDetails?.expiry?.month }}/{{ cardDetails?.expiry?.year.slice(-2) }}</p>
+          </div>
+        </div>
+        <ng-template #noCardWrapper>
+          <div class="payment-details">
+            <div class="card-details">
+              <p>No Card Added</p>
+            </div>
+          </div>
+        </ng-template>
+        <button class="btn-edit cyrano cyrano-Pen" (click)="editPayment()"></button>
+      </div>
+    </section>
+
+    <section class="action-buttons">
+      <button class="app-black-return-button btn-back" (click)="onBack()">{{ 'BUTTONS.BACK' | translate }}</button>
+      <button class="app-pink-proceed-button btn-proceed" form="payment-form">{{ 'BUTTONS.SEND_REQUEST' | translate }}</button>
+    </section>
+  </div>
+</ion-content>

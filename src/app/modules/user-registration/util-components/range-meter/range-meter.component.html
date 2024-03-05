@@ -1,0 +1,33 @@
+<div class="button-container">
+  <div class="range-items">
+    <ion-icon
+      class="info-icon"
+      src="assets/icon/unmatched-registration/info.svg"
+      [matTooltip]="'UNMATCHED_USER.MATCH_METER_INFO' | translate"
+      [matTooltipPosition]="'above'"
+      #tooltip="matTooltip"
+      (click)="tooltip.toggle()"
+    ></ion-icon>
+    <div class="meter-container">
+      <div class="range-container">
+        <img class="range-image" src="{{ srcPath }}" />
+      </div>
+      <div class="indicator-icon">
+        <ion-icon [style]="'transform: rotate(' + angle + 'deg);'" class="meter-icon" src="assets/icon/unmatched-registration/meter-indicator.svg"></ion-icon>
+      </div>
+    </div>
+    <span class="percent f-inter f-w-700 f-md h-160 f-white">{{ 'UNMATCHED_USER.TOP' | translate }} {{ percentage }}%</span>
+    <span class="preference f-inter f-w-400 f-md h-160 f-light-gray">{{ 'UNMATCHED_USER.RANGE_MESSAGE' | translate }}</span>
+  </div>
+  <div class="continue-overlay">
+    <ion-button
+      (click)="onNext()"
+      [disabled]="disabled"
+      *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+      [attr.disabled]="disabled"
+      class="continue-button f-calistoga f-w-400 f-xl h-160 f-white"
+      >{{ 'INTRO-SCREEN.NEXT' | translate }}
+    </ion-button>
+    <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+  </div>
+</div>

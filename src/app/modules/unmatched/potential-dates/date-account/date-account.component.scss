@@ -1,0 +1,37 @@
+@import '../potential-dates-shared-style.scss';
+
+.main-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45px;
+
+  .multi-colored-buttons {
+    min-width: 0px;
+  }
+
+  .box-container {
+    margin-bottom: 40px;
+    margin-top: 0px;
+    margin-inline: unset;
+    .with-photo {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.get-date-with-her {
+  margin: -8px auto;
+  width: unset;
+  height: 46px;
+  --padding-start: 45.38px;
+  --padding-end: 45.62px;
+  letter-spacing: 0.242px;
+
+  span {
+    background: var(--footer-tab-label);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

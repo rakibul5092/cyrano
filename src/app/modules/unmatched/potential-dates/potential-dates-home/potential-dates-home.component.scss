@@ -1,0 +1,44 @@
+.main-wrapper {
+  padding-top: 28px;
+  max-width: 570px;
+  margin-left: auto;
+  margin-right: auto;
+
+  ion-grid {
+    ion-row {
+      margin-bottom: 45px;
+    }
+
+    .list-row {
+      margin-left: -18px;
+      margin-right: -18px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+$sm: 330px;
+$md: 375px;
+
+lib-profile-card {
+  margin-bottom: 29px;
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+@media screen and (max-width: $md) {
+  lib-profile-card {
+    margin-bottom: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  lib-profile-card {
+    margin-bottom: 15px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}

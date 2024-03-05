@@ -1,0 +1,19 @@
+<ion-content>
+  <form [formGroup]="metaForm" class="main-wrapper">
+    <div class="status f-gilroy-regular f-400 f-sm h-160 f-gray">
+      {{ 'GURU.META_INFORMATION_STATUS' | translate }}
+    </div>
+    <input id="legalName" formControlName="legalName" class="app-input" [placeholder]="'GURU.LEGAL_NAME' | translate" />
+    <input id="occupation" formControlName="occupation" class="app-input" [placeholder]="'GURU.OCCUPATION' | translate" />
+    <input id="availableTime" formControlName="availableTime" class="app-input" [placeholder]="'GURU.AVAILABLE_TIME' | translate" />
+    <textarea id="describe" formControlName="describePartner" class="app-textarea" [placeholder]="'GURU.DESCRIBE_YOUR_PARTNER' | translate"></textarea>
+
+    <!-- Terms and conditions-->
+    <div class="terms">
+      <lib-checkbox [control]="metaForm.controls['termsAndConditions']"></lib-checkbox>
+      <lib-multi-colored-text class="f-lato f-w-400 f-sm h-160 f-dark" [text]="'GURU.TERMS_AND_SERVICES' | translate"></lib-multi-colored-text>
+    </div>
+
+    <ion-button mode="md" [disabled]="!metaForm.valid" class="app-primary-button">{{ 'BUTTONS.UPDATE_INFORMATION' | translate }}</ion-button>
+  </form>
+</ion-content>

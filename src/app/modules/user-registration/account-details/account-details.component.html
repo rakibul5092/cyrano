@@ -1,0 +1,64 @@
+<ion-content fullscreen="true">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'accountDetails'">
+    <div class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.ACCOUNT_DETAILS' | translate }}</div>
+    <form class="form" [formGroup]="accountDetailsForm">
+      <div class="name-section">
+        <div class="name">
+          <lib-input-field type="text" formControlName="firstName" [label]="'FIELDS.FIRST_NAME' | translate"></lib-input-field>
+          <app-error-message [control]="accountDetailsForm.controls.firstName"></app-error-message>
+        </div>
+        <div class="name">
+          <lib-input-field type="text" formControlName="lastName" [label]="'FIELDS.LAST_NAME' | translate"></lib-input-field>
+          <app-error-message [control]="accountDetailsForm.controls.lastName"></app-error-message>
+        </div>
+      </div>
+      <div class="email-address top-space">
+        <lib-input-field type="email" formControlName="email" [label]="'FIELDS.EMAIL' | translate"></lib-input-field>
+        <app-error-message [control]="accountDetailsForm.controls.email"></app-error-message>
+      </div>
+      <div class="password top-space">
+        <lib-input-field
+          [type]="passwordVisibility ? 'text' : 'password'"
+          formControlName="password"
+          customPasswordValidator
+          [label]="'FIELDS.PASSWORD' | translate"
+        ></lib-input-field>
+        <ion-icon (click)="changePasswordVisibility()" [name]="passwordVisibility ? 'eye' : 'eye-off'" class="password-icon"></ion-icon>
+      </div>
+      <app-error-message class="input-error" [customErrorMessage]="accountDetailsForm.controls.password.errors?.message || ''" [control]="accountDetailsForm.controls.password">
+      </app-error-message>
+      <div class="password top-space">
+        <lib-input-field
+          [type]="confirmPasswordVisibility ? 'text' : 'password'"
+          formControlName="confirmPassword"
+          [label]="'FIELDS.CONFIRM_PASSWORD' | translate"
+          [appConfirmPasswordValidator]="'password'"
+        ></lib-input-field>
+        <ion-icon (click)="changeConfirmPasswordVisibility()" [name]="confirmPasswordVisibility ? 'eye' : 'eye-off'" class="password-icon"></ion-icon>
+      </div>
+      <app-error-message
+        class="input-error"
+        [customErrorMessage]="
+          accountDetailsForm.controls.confirmPassword.value &&
+          accountDetailsForm.controls.confirmPassword.errors &&
+          (accountDetailsForm.controls.confirmPassword.touched || accountDetailsForm.controls.confirmPassword.dirty)
+            ? ('FIELDS.PASSWORD_MUST_MATCH' | translate)
+            : ''
+        "
+        [control]="accountDetailsForm.controls.confirmPassword"
+      >
+      </app-error-message>
+    </form>
+
+    <div class="button-container">
+      <ion-button
+        mode="md"
+        *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+        (click)="onContinue()"
+        class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+        >{{ 'UNMATCHED_USER.CONTINUE' | translate }}
+      </ion-button>
+      <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+    </div>
+  </div>
+</ion-content>

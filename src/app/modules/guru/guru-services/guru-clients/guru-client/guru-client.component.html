@@ -1,0 +1,82 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body" *ngIf="client">
+    <div class="page-inner-body">
+      <app-guru-services-header [enableNotification]="false" [backTitle]="'BUTTONS.BACK' | translate" [enableBack]="true">
+        <ng-template #rightContent>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="client menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu"></mat-menu>
+        </ng-template>
+      </app-guru-services-header>
+      <div class="client-card-header">
+        <img [src]="client.profileImage" alt="clint image" class="user-photo profile-photo" />
+        <div class="client-card-header-user profile-header">
+          <h4>
+            {{ client.name }}
+            <img src="assets/images/star.png" alt="rate" />
+            <span class="rate">{{ client.rate }}</span>
+          </h4>
+          <p>{{ client.country }}</p>
+        </div>
+        <span class="spacer"></span>
+      </div>
+      <img [src]="icons.separator" alt="separator" class="section-separator" />
+
+      <section class="accounts">
+        <h4 class="section-title">{{ 'GURU.ACCOUNTS' | translate }}</h4>
+        <div class="account" *ngFor="let account of client.accounts" (click)="openDatingAccount(account)">
+          <div class="account-logo" matRipple>
+            <img [src]="account.logo" alt="account" />
+          </div>
+          <p>
+            <span>x</span>
+            <span>{{ account.x }}</span>
+          </p>
+          <span class="spacer"></span>
+          <button mat-icon-button>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </section>
+
+      <section class="date-preferences">
+        <h4 class="section-title">{{ 'GURU.DATE_PREFERENCES' | translate }}</h4>
+        <div class="box">
+          <div class="date-preferences-item">
+            <div>{{ 'GURU.AGE' | translate }}</div>
+            <div>20 - 32</div>
+          </div>
+          <div class="date-preferences-item">
+            <div>{{ 'GURU.HEIGHT' | translate }}</div>
+            <div>4’ 3” - 5’ 7” ft</div>
+          </div>
+          <div class="date-preferences-item">
+            <div>{{ 'GURU.FACE' | translate }}</div>
+            <div>Moderate</div>
+          </div>
+          <div class="date-preferences-item">
+            <div>{{ 'GURU.ETHNICITY' | translate }}</div>
+            <div>Latino, American, Black</div>
+          </div>
+          <div class="date-preferences-item">
+            <div>{{ 'GURU.RACK' | translate }}</div>
+            <div>Any</div>
+          </div>
+          <div class="date-preferences-item">
+            <div>{{ 'GURU.ASS' | translate }}</div>
+            <div>Handful</div>
+          </div>
+        </div>
+      </section>
+
+      <img [src]="icons.separator" alt="separator" class="section-separator" />
+
+      <section class="earn-section">
+        <h2>{{ 'GURU.YOU_WILL_EARN' | translate }}</h2>
+        <span class="spacer"></span>
+        <p><span>$</span><span>125</span></p>
+      </section>
+    </div>
+  </div>
+</ion-content>

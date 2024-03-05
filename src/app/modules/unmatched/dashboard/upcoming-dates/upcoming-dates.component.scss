@@ -1,0 +1,13 @@
+:host .wrapper {
+  overflow-x: auto;
+  display: flex;
+  gap: 13px;
+  padding: 10px 16px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.wrapper::-webkit-scrollbar {
+  display: none;
+}

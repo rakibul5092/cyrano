@@ -1,0 +1,8 @@
+<ion-content>
+  <div class="wrapper">
+    <ng-container *ngFor="let date of dates; let ndx = index">
+      <div class="dash-class" *ngIf="date.dash && dates[ndx - 1] && !dates[ndx - 1].dash"></div>
+      <app-upcoming-date-card *ngIf="!date.dash" [upcomingDate]="date"></app-upcoming-date-card>
+    </ng-container>
+  </div>
+</ion-content>

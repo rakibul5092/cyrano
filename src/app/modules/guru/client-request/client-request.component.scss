@@ -1,0 +1,70 @@
+@import '../guru.global.scss';
+
+ion-content {
+  --padding-end: 54px;
+  --padding-start: 54px;
+}
+
+@media screen and (max-width: $md) {
+  ion-content {
+    --padding-start: 35px;
+    --padding-end: 35px;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  ion-content {
+    --padding-start: 25px;
+    --padding-end: 25px;
+  }
+}
+
+.main-wrapper {
+  .container {
+    display: grid;
+  }
+
+  .status-container {
+    display: flex;
+    margin-top: 38px;
+    margin-bottom: 125px;
+
+    .type {
+      display: flex;
+      width: 50%;
+
+      .text {
+        &-left {
+          color: var(--ion-text-color-secondary);
+        }
+
+        &-right {
+          color: var(--text-highlight-color);
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  .message {
+    color: var(--ion-text-color-secondary);
+    margin-bottom: 47px;
+
+    span {
+      color: var(--text-accent-color);
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: 365px) {
+  ion-card {
+    padding: 20px 20px 15px 20px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  ion-card {
+    padding: 20px 15px 15px 15px;
+  }
+}

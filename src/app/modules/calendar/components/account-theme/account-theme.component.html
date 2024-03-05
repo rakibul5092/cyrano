@@ -1,0 +1,62 @@
+<ion-content>
+  <app-sheet-modal-header [loading]="loading" [saveButtonTitle]="'BUTTONS.SAVE'" [modalTitle]="'ACCOUNT_SETUP.THEME'" (saveEvent)="saveTheme()"> </app-sheet-modal-header>
+  <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
+  <form [formGroup]="form" *ngIf="form" autocomplete="off" appFocusInvalidInput (ngSubmit)="saveTheme()">
+    <ion-item lines="inset" class="no-shadow">
+      <div class="selected-account">
+        <img [src]="calendarAccount.type === accountTypes.GOOGLE ? icons.accountSetup.googleCalender : icons.accountSetup.microsoft" alt="account icon" />
+        <span [style.color]="form.controls['backgroundColor'].value"> {{ calendarAccount.email }}</span>
+      </div>
+    </ion-item>
+    <ion-item lines="inset" class="no-shadow">
+      <ion-label>
+        {{ 'ACCOUNT_SETUP.BACKGROUND_COLOR' | translate }}
+        <div class="input-error-container"><app-error-message [control]="form.controls['backgroundColor']"></app-error-message></div>
+      </ion-label>
+      <span slot="end">
+        <input
+          type="color"
+          class="app-color-input"
+          [ngClass]="{ 'invalid-input': form.controls['backgroundColor'].invalid && form.controls['backgroundColor'].touched }"
+          formControlName="backgroundColor"
+          [readonly]="loading"
+          appInvalidInput="backgroundColor"
+        />
+      </span>
+    </ion-item>
+
+    <ion-item lines="inset" class="no-shadow">
+      <ion-label>
+        {{ 'ACCOUNT_SETUP.FOREGROUND_COLOR' | translate }}
+        <div class="input-error-container"><app-error-message [control]="form.controls['foregroundColor']"></app-error-message></div>
+      </ion-label>
+      <span slot="end">
+        <input
+          type="color"
+          class="app-color-input"
+          [ngClass]="{ 'invalid-input': form.controls['foregroundColor'].invalid && form.controls['foregroundColor'].touched }"
+          formControlName="foregroundColor"
+          [readonly]="loading"
+          appInvalidInput="foregroundColor"
+        />
+      </span>
+    </ion-item>
+
+    <ion-item lines="inset" class="no-shadow">
+      <ion-label>
+        {{ 'ACCOUNT_SETUP.BORDER_COLOR' | translate }}
+        <div class="input-error-container"><app-error-message [control]="form.controls['borderColor']"></app-error-message></div>
+      </ion-label>
+      <span slot="end">
+        <input
+          type="color"
+          class="app-color-input"
+          [ngClass]="{ 'invalid-input': form.controls['borderColor'].invalid && form.controls['borderColor'].touched }"
+          formControlName="borderColor"
+          [readonly]="loading"
+          appInvalidInput="borderColor"
+        />
+      </span>
+    </ion-item>
+  </form>
+</ion-content>

@@ -1,0 +1,46 @@
+@import '../shared.scss';
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 89px;
+}
+
+.continue-button {
+  max-width: 270px;
+  letter-spacing: unset;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 122px;
+    height: 122px;
+  }
+}
+
+.message {
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.info {
+  padding: 0px 7px 0px 8px;
+  margin-bottom: 24px;
+}
+
+span {
+  text-align: center;
+}

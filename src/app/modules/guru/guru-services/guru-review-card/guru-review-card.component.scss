@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .profile-image-wrapper {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-position: 50% 50%;
+      object-fit: cover;
+    }
+  }
+  .profile-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .reviewer {
+      font-size: 15px;
+
+      .rating {
+        letter-spacing: -0.011em;
+        color: var(--cyrano-primary-color-point5);
+        vertical-align: middle;
+      }
+
+      .duration {
+        letter-spacing: -0.011em;
+      }
+    }
+  }
+}
+
+.message {
+  margin: 0;
+  opacity: 0.6;
+}

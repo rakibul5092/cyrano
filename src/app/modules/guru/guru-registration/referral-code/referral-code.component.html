@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="main-wrapper">
+    <form [formGroup]="referralForm" (ngSubmit)="confirm()">
+      <div class="message f-calistoga f-3xl f-w-400 h-160 f-white">{{ 'GURU.REFERRAL_CODE' | translate }}</div>
+      <div class="info f-inter f-md f-w-400 h-150 f-light-gray">{{ 'GURU.REFERRAL_MESSAGE' | translate }}</div>
+      <ion-input formControlName="referralCode" class="app-input" [placeholder]="'GURU.REFERRAL_CODE_OPTIONAL' | translate"> </ion-input>
+      <div class="button-container">
+        <ion-button mode="md" type="submit" [disabled]="!referralForm.valid" [attr.disabled]="!referralForm.valid" class="continue-button f-calistoga f-w-400 f-xl h-160">{{
+          'UNMATCHED_USER.CONTINUE' | translate
+        }}</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

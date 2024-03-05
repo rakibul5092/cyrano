@@ -1,0 +1,35 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'goalsInterests'">
+    <div class="message f-calistoga f-w-400 h-160">{{ 'UNMATCHED_USER.GOALS_&_INTERESTS' | translate }}</div>
+    <div class="info f-gilroy-medium f-w-400 f-md h-150 f-light-gray">
+      {{ 'UNMATCHED_USER.SET_GOALS_AND_WEIGHT' | translate }}
+    </div>
+    <form [formGroup]="form" class="h-unset">
+      <ion-item class="goals-item">
+        <div>
+          <ion-checkbox class="app-ion-checkbox" slot="start" mode="md" [formControlName]="'friends'"></ion-checkbox>
+        </div>
+        <p>
+          {{ 'UNMATCHED_USER.FIND_FRIENDS' | translate }}
+        </p>
+      </ion-item>
+      <ion-item class="goals-item">
+        <div>
+          <ion-checkbox class="app-ion-checkbox" slot="start" mode="md" [formControlName]="'relationships'"></ion-checkbox>
+        </div>
+        <p>
+          {{ 'UNMATCHED_USER.FIND_RELATIONS' | translate }}
+        </p>
+      </ion-item>
+
+      <div class="range-container f-gilroy-medium f-w-700 f-lg h-160 f-white">
+        <div class="range-title">
+          <span class="f-w-700">{{ 'UNMATCHED_USER.PASSION_MATCH' | translate }}</span>
+          <span class="f-w-400">{{ this.form.value.interests }}%</span>
+        </div>
+        <ion-range min="0" max="100" [formControlName]="'interests'" [pin]="true"></ion-range>
+      </div>
+    </form>
+  </div>
+  <app-range-meter [percentage]="percentage" [loading$]="loading$" (next)="onContinue()" [disabled]="isFormInvalid()"></app-range-meter>
+</ion-content>

@@ -1,0 +1,91 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body" *ngIf="account">
+    <div class="page-inner-body">
+      <app-guru-services-header [enableNotification]="false" [backTitle]="'GURU.MANAGE_MATCH_ACCOUNT' | translate" [enableBack]="true">
+        <ng-template #rightContent>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="client menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu"></mat-menu>
+        </ng-template>
+      </app-guru-services-header>
+      <div class="account-header">
+        <img [src]="account.logo" alt="account" />
+      </div>
+      <p class="account-description">
+        John Robert’s
+        {{ 'GURU.NOT_CREATED_ACCOUNT_YET' | translate : { account_name: account.name } }}
+        {{ 'GURU.YOU_CAN_CREATED_ACCOUNT' | translate }}
+      </p>
+
+      <button class="primary-button" matRipple>
+        {{ 'GURU.WORK_THIS_ACCOUNT' | translate }}
+      </button>
+
+      <div class="box account-attributes">
+        <div class="account-attribute">
+          <div>
+            <div class="account-attribute-icon">
+              <img [src]="icons.guru.accountType" alt="type" />
+            </div>
+            {{ 'GURU.ACCOUNT_TYPE' | translate }}
+          </div>
+          <div>{{ 'GURU.NOT_CREATED_YET' | translate }}</div>
+        </div>
+        <div class="account-attribute">
+          <div>
+            <div class="account-attribute-icon">
+              <img [src]="icons.guru.rentNumber" alt="type" />
+            </div>
+            {{ 'GURU.RENTED_NUMBER' | translate }}
+          </div>
+          <div>+1 (124) 512-5731</div>
+        </div>
+        <div class="account-attribute">
+          <div>
+            <div class="account-attribute-icon">
+              <img [src]="icons.guru.password" alt="type" />
+            </div>
+            {{ 'GURU.PASSWORD' | translate }}
+          </div>
+          <div>{{ 'GURU.NOT_CREATED_YET' | translate }}</div>
+        </div>
+        <div class="account-attribute">
+          <div>
+            <div class="account-attribute-icon">
+              <img [src]="icons.guru.dates" alt="type" />
+            </div>
+            {{ 'GURU.DATES' | translate }}
+          </div>
+          <div>1</div>
+        </div>
+        <div class="account-attribute earn">
+          <div>
+            <div class="account-attribute-icon">
+              <img [src]="icons.guru.money" alt="type" />
+            </div>
+            {{ 'GURU.YOU_WILL_EARN' | translate }}
+          </div>
+          <div>$50</div>
+        </div>
+      </div>
+
+      <div class="box inner-shadow rent-number">
+        <div class="rent-number-header">
+          <img [src]="icons.guru.rentNumber" alt="type" />
+          <span>{{ 'GURU.RENTED_NUMBER' | translate }}</span>
+        </div>
+        <div class="rent-number-content">
+          <div>
+            <span> {{ 'GURU.FROM' | translate }} </span>
+            <span> Message </span>
+          </div>
+          <div>
+            <span> 0241 </span>
+            <span> Dial *123# now and get 20gb internet... </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

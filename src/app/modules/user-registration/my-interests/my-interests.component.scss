@@ -1,0 +1,70 @@
+@import '../shared.scss';
+
+ion-content {
+  --padding-start: 0;
+  --padding-end: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  height: auto;
+  overflow: hidden;
+  flex: 1;
+  padding-bottom: 16px;
+}
+
+.selectables {
+  margin-bottom: 0;
+  padding: 0 19px; // (24px - 5px margin on each ion-button)
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.message {
+  margin-bottom: 16px;
+  padding: 0 24px;
+}
+
+.main-wrapper {
+  max-width: 550px;
+}
+
+.button-container {
+  padding: 12px 0;
+  position: static;
+}
+
+.info {
+  margin-top: unset;
+  margin-bottom: 18px;
+  display: block;
+  padding: 0 24px;
+}
+
+.app-primary-button {
+  --box-shadow: var(--box-shadow-2) !important;
+}
+
+@media screen and (max-height: 740px) {
+  .selectables {
+    height: 68%;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .selectables {
+  }
+}
+
+@media screen and (max-height: 655px) {
+  .selectables {
+    height: 60%;
+  }
+}

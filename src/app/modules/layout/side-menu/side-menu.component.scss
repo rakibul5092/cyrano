@@ -1,0 +1,314 @@
+:host {
+  --menu-close: calc(var(--side-menu-side-padding) + var(--icon-font-size) + var(--side-menu-side-padding));
+  --menu-open: 300px;
+  --menu-open-extra-tiny-screen: calc(100vw - 50px);
+  display: flex;
+  width: var(--menu-close);
+  transition: width 0.5s, transform 0.5s;
+  position: relative;
+  z-index: 30;
+
+  box-shadow: var(--box-shadow);
+
+  &.slide-in {
+    transform: translateX(0);
+  }
+}
+
+// class definition for when menu is open
+:host {
+  &.side-menu-is-docked {
+    width: var(--menu-open);
+  }
+}
+
+ion-content {
+  --overflow: hidden;
+}
+
+.side-menu-content-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  button {
+    background: transparent;
+    color: #fff;
+    border: none;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 12px 12px 12px 0;
+    display: flex;
+    gap: var(--gap-between-icon-text);
+    align-items: center;
+    cursor: pointer;
+
+    i {
+      font-size: var(--icon-font-size);
+      opacity: 0.5;
+    }
+
+    label {
+      font-family: Lato;
+      font-size: 16px;
+      font-weight: 400;
+      cursor: inherit;
+    }
+
+    &.selected-tab {
+      color: var(--cyrano-pink-shade-2);
+
+      i {
+        opacity: 1;
+      }
+    }
+  }
+
+  .btn-add-tab {
+    opacity: 0;
+    width: 100%;
+    padding: 6px;
+    margin-top: 25px;
+    box-shadow: 12.1px 11px 29.7px 2.75px rgba(17, 16, 20, 0.65), -5.5px -5.5px 17.6px -4.4px rgba(203, 199, 209, 0.25);
+    border-radius: 33px;
+
+    &.is-docked {
+      opacity: 1 !important;
+    }
+
+    .inner-shadow {
+      width: 100%;
+      padding: 15px;
+      box-shadow: inset 12px 11px 29.7px 2.75px rgba(17, 16, 20, 0.65), inset -5.5px -5.5px 17.6px -4.4px rgba(203, 199, 209, 0.25);
+      border-radius: 29px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-size: 20px;
+      color: var(--cyrano-pink-shade-2);
+
+      label {
+        font-family: Lato;
+      }
+    }
+  }
+
+  .logo-section {
+    padding: 30px 30px 0 30px;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    &.is-docked {
+      opacity: 1;
+    }
+  }
+
+  .tabs {
+    padding: var(--side-menu-side-padding);
+  }
+
+  .more-settings {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 30px;
+    white-space: pre;
+    opacity: 0;
+
+    &.is-docked {
+      opacity: 1 !important;
+    }
+
+    header {
+      text-transform: uppercase;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      font-family: Lato;
+
+      li {
+        padding: 0;
+        margin: 15px 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+:host:hover {
+  width: var(--menu-open);
+
+  .btn-add-tab,
+  .more-settings {
+    transition: opacity 0.5s 0.3s !important;
+    opacity: 1 !important;
+  }
+
+  .logo-section {
+    opacity: 1;
+  }
+}
+
+.btn_dock-side-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--cyrano-pink-shade-2);
+  background: transparent;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px;
+
+  .inner-core {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+
+    &.is-docked {
+      background-color: var(--cyrano-pink-shade-2);
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  :host {
+    width: var(--menu-open);
+    transform: translateX(-100%);
+  }
+
+  .more-settings,
+  .btn-add-tab {
+    opacity: 1 !important;
+  }
+
+  .btn_dock-side-menu {
+    display: none;
+  }
+
+  .side-menu-content-inner {
+    .tabs {
+      display: none;
+    }
+
+    .logo-section {
+      opacity: 1;
+    }
+  }
+
+  .more-settings {
+    border-top: none;
+    flex: 1;
+
+    header {
+      display: none;
+    }
+  }
+
+  .backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    display: none;
+  }
+
+  :host {
+    &.slide-in {
+      .backdrop {
+        display: block;
+        animation: fade-in 0.5s 0.4s forwards;
+      }
+    }
+  }
+}
+
+@media screen and (hover: none) {
+  :host {
+    width: var(--menu-open) !important;
+    transform: translateX(-100%);
+  }
+
+  .more-settings,
+  .btn-add-tab {
+    opacity: 1 !important;
+  }
+
+  .btn_dock-side-menu {
+    display: none;
+  }
+
+  .side-menu-content-inner {
+    .tabs {
+      display: none;
+    }
+
+    .logo-section {
+      opacity: 1;
+    }
+  }
+
+  .more-settings {
+    border-top: none;
+    flex: 1;
+
+    header {
+      display: none;
+    }
+  }
+
+  .backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    display: none;
+  }
+
+  :host {
+    &.slide-in {
+      .backdrop {
+        display: block;
+        animation: fade-in 0.5s 0.4s forwards;
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// very tiny screen needs a gap to be able to toggle off the side menu
+@media screen and (max-width: 320px) {
+  :host {
+    width: var(--menu-open-extra-tiny-screen) !important;
+  }
+}

@@ -1,0 +1,198 @@
+p,
+h2,
+h6 {
+  margin: 0;
+}
+
+h2 {
+  margin-top: 36px;
+}
+
+h6 {
+  display: flex;
+  margin-bottom: 13px;
+
+  button {
+    background: rgba(255, 255, 255, 0.12);
+    margin: auto;
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: var(--ion-text-color);
+  }
+
+  &.no-slots-header {
+    align-items: center;
+    margin-bottom: 0;
+    gap: 8px;
+
+    .unavailable {
+      padding: 0.5rem 2rem;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 25px;
+      opacity: 0.5;
+    }
+
+    button {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+main {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+app-text-mark {
+  text-transform: capitalize;
+
+  strong {
+    font-weight: 400;
+  }
+}
+
+.free-slot-day-list {
+  .free-slot-day-list-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+}
+
+.date-itineraries {
+  display: flex;
+  margin-top: 24px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .duration {
+    padding-right: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+    color: #858585;
+    justify-content: space-between;
+  }
+
+  .vertical-divider {
+    border-radius: 4px;
+    width: 5px;
+    min-width: 5px;
+    align-self: stretch;
+    background: var(--cyrano-pink-shade-1);
+  }
+
+  .date-itineraries-content {
+    position: relative;
+    flex: 1;
+
+    .background {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--cyrano-pink-shade-1);
+      opacity: 0.1;
+    }
+
+    .foreground {
+      position: relative;
+      height: 100%;
+      z-index: 1;
+      display: flex;
+      gap: 0 36px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 16px;
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 16px 0;
+
+        .cyrano-icon {
+          color: var(--cyrano-pink-shade-1);
+          font-size: 18px;
+          font-weight: bolder;
+        }
+      }
+
+      .location {
+        &.no-location {
+          margin-bottom: 0;
+        }
+
+        i {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  app-location-card {
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+  }
+
+  app-itinerary-card {
+    --itinerary-card-background: transparent;
+    --box-shadow: none;
+    --edit-icon-color: var(--cyrano-pink-shade-1);
+    --side-padding: 0;
+    --map-box-width: 96px;
+    --map-box-shadow: 11px 10px 27px 2.5px rgba(17, 16, 20, 0.65), -5px -5px 16px -3px rgba(203, 199, 209, 0.25);
+    border-bottom: 1px solid var(--border-color);
+
+    .location-card {
+      padding: 0;
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  padding-top: 32px;
+  margin-top: auto;
+  flex-wrap: wrap;
+
+  .btn-complete {
+    flex: auto;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .date-itineraries {
+    flex-wrap: wrap;
+
+    .duration {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .date-itineraries-content {
+      .foreground {
+        gap: 6px;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .action-buttons {
+    button {
+      flex: auto;
+    }
+  }
+}

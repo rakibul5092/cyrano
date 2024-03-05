@@ -1,0 +1,104 @@
+<ion-content>
+  <app-sheet-modal-header
+    [saveButtonTitle]="eventData && eventData._id ? 'BUTTONS.SAVE' : 'BUTTONS.ADD'"
+    [modalTitle]="eventData && eventData._id ? 'CALENDAR.EVENT_DATA' : 'CALENDAR.NEW_EVENT'"
+    (saveEvent)="saveEvent()"
+  >
+  </app-sheet-modal-header>
+
+  <form [formGroup]="form" *ngIf="form" autocomplete="off" appFocusInvalidInput (ngSubmit)="saveEvent()">
+    <div class="input-title">
+      <input
+        type="text"
+        class="app-input"
+        [ngClass]="{ 'invalid-input': form.controls['title'].invalid && form.controls['title'].touched }"
+        formControlName="title"
+        [readonly]="loading"
+        appInvalidInput="title"
+        [placeholder]="'CALENDAR.TITLE_FIELD' | translate"
+      />
+      <ion-label>
+        <app-error-message class="input-error" [control]="form.controls['title']"></app-error-message>
+      </ion-label>
+    </div>
+    <ion-item class="no-shadow">
+      <ion-label>{{ 'CALENDAR.ALL_DAY' | translate }}</ion-label>
+      <ion-toggle slot="end" formControlName="allDay"></ion-toggle>
+    </ion-item>
+    <ion-item class="no-shadow">
+      <ion-label>{{ 'CALENDAR.STARTS' | translate }}</ion-label>
+      <ion-label slot="end" class="input-group">
+        <div>
+          <input
+            type="text"
+            formControlName="startDate"
+            class="app-input"
+            [ngClass]="{ 'invalid-input': form.controls['startDate'].invalid && form.controls['startDate'].touched }"
+            appInvalidInput="startDate"
+            (click)="openDateTimePicker($event, presentation.date, 'startDate')"
+            [readOnly]="true"
+            [placeholder]="'FIELDS.DATE' | translate"
+          />
+          <div class="input-error-container">
+            <app-error-message class="input-error" [control]="form.controls['startDate']" style="margin-top: -20px"></app-error-message>
+          </div>
+        </div>
+        <div *ngIf="!form.controls['allDay'].value">
+          <input
+            type="text"
+            formControlName="startTime"
+            class="app-input"
+            [readOnly]="true"
+            [ngClass]="{ 'invalid-input': form.controls['startTime'].invalid && form.controls['startTime'].touched }"
+            (click)="openDateTimePicker($event, presentation.time, 'startTime')"
+            appInvalidInput="startTime"
+            [placeholder]="'FIELDS.TIME' | translate"
+          />
+          <div class="input-error-container">
+            <app-error-message class="input-error" [control]="form.controls['startTime']"></app-error-message>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="!form.controls['allDay'].value" class="no-shadow">
+      <ion-label>{{ 'CALENDAR.ENDS' | translate }}</ion-label>
+      <ion-label slot="end" class="input-group">
+        <div>
+          <input
+            type="text"
+            formControlName="endDate"
+            class="app-input"
+            [readOnly]="true"
+            [ngClass]="{ 'invalid-input': form.controls['endDate'].invalid && form.controls['endDate'].touched }"
+            (click)="openDateTimePicker($event, presentation.date, 'endDate')"
+            appInvalidInput="endDate"
+            [placeholder]="'FIELDS.DATE' | translate"
+          />
+          <div class="input-error-container">
+            <app-error-message class="input-error" [control]="form.controls['endDate']"></app-error-message>
+          </div>
+        </div>
+        <div>
+          <input
+            type="text"
+            formControlName="endTime"
+            class="app-input"
+            [readOnly]="true"
+            [ngClass]="{ 'invalid-input': form.controls['endTime'].invalid && form.controls['endTime'].touched }"
+            appInvalidInput="endTime"
+            (click)="openDateTimePicker($event, presentation.time, 'endTime')"
+            [placeholder]="'FIELDS.TIME' | translate"
+          />
+          <div class="input-error-container">
+            <app-error-message class="input-error" [control]="form.controls['endTime']"></app-error-message>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item class="no-shadow">
+      <div class="custom-input custom-input-textarea input-title">
+        <textarea type="text" formControlName="note" [placeholder]="'FIELDS.NOTE' | translate"> </textarea>
+      </div>
+    </ion-item>
+  </form>
+</ion-content>

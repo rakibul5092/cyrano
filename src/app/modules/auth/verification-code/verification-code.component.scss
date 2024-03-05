@@ -1,0 +1,20 @@
+@import '../auth.shared.scss';
+
+.forgot-password-info {
+  text-align: left;
+}
+.otp-input {
+  color: var(--cyrano-pink-shade-1);
+  text-align: center;
+  margin-bottom: 20px;
+  --invalid-border-bottom-color: var(--cyrano-pink-shade-1);
+}
+.mat-button.resend-cod {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+lib-otp-input {
+  --color: white;
+}

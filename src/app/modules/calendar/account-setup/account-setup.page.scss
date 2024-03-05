@@ -1,0 +1,31 @@
+section {
+  padding: 0 32px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: var(--footer-tab-clearance);
+  line-height: 21px;
+
+  h2 {
+    text-transform: capitalize;
+    margin: 0;
+    margin-top: 34px;
+  }
+  .icon-calendar {
+    font-size: 6.6rem;
+    color: var(--cyrano-milky-white);
+  }
+
+  p {
+    text-align: center;
+    margin: 0;
+    margin-top: 8px;
+  }
+
+  .btn-proceed {
+    margin-top: 24px;
+    text-transform: capitalize;
+  }
+}

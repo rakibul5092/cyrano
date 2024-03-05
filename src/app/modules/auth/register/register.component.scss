@@ -1,0 +1,50 @@
+@import '../auth.shared.scss';
+.wordWrap {
+  word-wrap: normal;
+  width: 60%;
+}
+.terms {
+  margin: 0 0 30px 0;
+}
+:host ::ng-deep {
+  .country-dropdown {
+    border: 1px solid #151419 !important;
+  }
+
+  form {
+    position: relative;
+    z-index: 11; //So that it goes on top of the footer
+    border: hidden;
+  }
+
+  input {
+    border: hidden;
+  }
+}
+.form-control {
+  border: 0;
+}
+
+.align {
+  padding-top: 5px !important;
+}
+:host ::ng-deep {
+  .alignheading {
+    --padding-start: 0px;
+  }
+}
+
+.wordWrap {
+  width: 93%;
+  word-break: break-word;
+  white-space: normal;
+}
+@media screen and (max-width: 320px) {
+  form.register-form {
+    margin-top: 20px !important;
+  }
+}
+.confirm-password-error {
+  margin-top: -20px;
+  font-size: 13px !important;
+}

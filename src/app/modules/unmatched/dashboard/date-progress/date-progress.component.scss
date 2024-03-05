@@ -1,0 +1,37 @@
+:host {
+  --width: 100px;
+  --height: 150px;
+
+  font-family: Lato;
+}
+
+.svg {
+  position: relative;
+}
+
+.date-image {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  > img {
+    border-radius: 50%;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.progress-bar-container {
+  width: var(--width);
+}
+
+.progress-number {
+  text-align: center;
+  font-size: 10px;
+}

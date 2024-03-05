@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <!-- back button -->
+    <ion-buttons mode="ios" class="start-buttons" slot="start">
+      <ion-button [matTooltip]="'BUTTONS.BACK' | translate" (click)="modalCtrl.dismiss()" class="back-container">
+        <ion-icon [src]="commonUtilService.icons.header.back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="f-calistoga f-w-400 f-xl h-160 f-white">
+      {{ 'HEADER_TITLES.ACTIVITY_LOG' | translate }}
+    </ion-title>
+    <ion-buttons class="end-buttons" mode="ios" slot="end">
+      <ion-button [matTooltip]="'BUTTONS.CANCEL' | translate" class="back-container" (click)="modalCtrl.dismiss()"
+        ><ion-icon [src]="commonUtilService.icons.close"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div class="page-body">
+    <div class="page-container">
+      <div class="center-contents-column">
+        <div class="logs-tags">
+          <mat-chip-list aria-label="Fish selection">
+            <ion-chip color="accent" selected (removed)="removeTag()">
+              <span>X Jackie</span>
+            </ion-chip>
+          </mat-chip-list>
+        </div>
+
+        <div class="logs-data">
+          <div class="log-data">
+            <span>You requested a Premium Text Message, with a first date goal.</span>
+            <span>Small 79 cents.</span>
+            <span>10:28 am 5/2/2022</span>
+          </div>
+
+          <div class="log-data">
+            <span> You received message help: </span>
+            <span> “What is your schedule like Saturday” </span>
+            <span> Costing 79 cents. </span>
+            <span> 10:28 am 5/2/2022</span>
+          </div>
+
+          <div class="log-data">
+            <span>Jackie Burkhart changed her Profile Picture:</span>
+            <span>10:28 am 5/2/2022</span>
+          </div>
+        </div>
+
+        <button mat-raised-button class="log-action primary-btn" aria-label="filter-notification-btn" type="button">
+          {{ 'UNMATCHED.FILTER_NOTIFICATION' | translate }}
+        </button>
+
+        <button mat-raised-button class="log-action primary-btn" aria-label="mak-as-read-btn" type="button">
+          {{ 'UNMATCHED.MARK_ALL_READ' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

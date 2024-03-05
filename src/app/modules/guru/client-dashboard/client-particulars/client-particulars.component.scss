@@ -1,0 +1,18 @@
+@import '../../guru.global.scss';
+
+.info-container {
+  display: grid;
+
+  lib-profile-header {
+    margin-bottom: 30px;
+  }
+
+  .multi-colored-buttons {
+    margin-bottom: 36px;
+  }
+
+  .text-1 {
+    margin-bottom: 24px;
+    max-width: 300px;
+  }
+}

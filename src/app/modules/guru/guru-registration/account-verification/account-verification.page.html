@@ -1,0 +1,69 @@
+<ion-content>
+  <div class="wrapper">
+    <main>
+      <h2 class="title f-3xl f-calistoga f-400 h-160">{{ 'GURU.GURU_REGISTRATION.DOCUMENTS_REQUIREMENT' | translate }}</h2>
+      <p class="subtitle f-gilroy-regular page-subheader">{{ 'GURU.GURU_REGISTRATION.PLEASE_PROVIDE_FOLLOWING_DOCUMENTS' | translate }}</p>
+
+      <section class="identity-docs">
+        <div class="doc drivers-license">
+          <h5 class="f-gilroy-semibold f-w-700 f-lg">{{ 'GURU.GURU_REGISTRATION.DRIVING_LICENSE' | translate }}</h5>
+          <div class="doc-parts">
+            <div *ngIf="mediaCaptureService.drivingLicense.front; else noFrontImageForDrivingLicense" class="document-side front">
+              <h5 class="side-title f-gilroy-regular f-w-400 h-150 f-md f-light-gray">{{ 'GURU.GURU_REGISTRATION.FRONT' | translate }}</h5>
+              <img [src]="mediaCaptureService.drivingLicense.front" alt="" />
+              <button class="btn-recapture cyrano cyrano-camera" [routerLink]="['./capture-media/driving-license', 'front']"></button>
+            </div>
+            <ng-template #noFrontImageForDrivingLicense>
+              <div class="side front">
+                <span class="f-gilroy-regular f-w-400 h-150 f-md f-light-gray"> {{ 'GURU.GURU_REGISTRATION.FRONT' | translate }} </span>
+                <div class="camera-box center-contents-column" [routerLink]="['./capture-media/driving-license', 'front']">
+                  <i class="cyrano cyrano-camera"></i>
+                  <span class="f-gilroy-regular f-md h-150 f-w-400 f-light-gray">{{ 'BUTTONS.TAP_HERE' | translate }}</span>
+                </div>
+              </div>
+            </ng-template>
+            <div *ngIf="mediaCaptureService.drivingLicense.back; else noBackImageForDrivingLicense" class="document-side back">
+              <h5 class="side-title f-gilroy-regular f-w-400 h-150 f-md f-light-gray">{{ 'GURU.GURU_REGISTRATION.BACK' | translate }}</h5>
+              <img [src]="mediaCaptureService.drivingLicense.back" alt="" />
+              <button class="btn-recapture cyrano cyrano-camera" [routerLink]="['./capture-media/driving-license/', 'back']"></button>
+            </div>
+            <ng-template #noBackImageForDrivingLicense>
+              <div class="side back">
+                <span class="f-gilroy-regular f-w-400 h-150 f-md f-light-gray"> {{ 'GURU.GURU_REGISTRATION.BACK' | translate }} </span>
+                <div class="camera-box center-contents-column" [routerLink]="['./capture-media/driving-license/', 'back']">
+                  <i class="cyrano cyrano-camera"></i>
+                  <span class="f-gilroy-regular f-md h-150 f-w-400 f-light-gray">{{ 'BUTTONS.TAP_HERE' | translate }}</span>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="doc passport-visa">
+          <h5 class="f-gilroy-semibold f-w-700 f-lg">{{ 'GURU.GURU_REGISTRATION.PASSPORT_OR_VISA' | translate }}</h5>
+          <div class="doc-parts">
+            <div class="side front">
+              <span class="f-gilroy-regular f-w-400 f-inter h-150 f-md f-light-gray"> {{ 'GURU.GURU_REGISTRATION.FRONT' | translate }} </span>
+              <div class="camera-box center-contents-column">
+                <i class="cyrano cyrano-camera"></i>
+                <span class="f-gilroy-regular f-md h-150 f-w-400 f-light-gray">{{ 'BUTTONS.TAP_HERE' | translate }}</span>
+              </div>
+            </div>
+            <div class="side back">
+              <span class="f-gilroy-regular f-w-400 f-inter h-150 f-md f-light-gray"> {{ 'GURU.GURU_REGISTRATION.BACK' | translate }} </span>
+              <div class="camera-box center-contents-column">
+                <i class="cyrano cyrano-camera"></i>
+                <span class="f-gilroy-regular f-md h-150 f-w-400 f-light-gray">{{ 'BUTTONS.TAP_HERE' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-action-buttons">
+        <ion-button class="f-gilroy-regular f-w-400 f-xl h-160" [routerLink]="['/guru-registration/background-check']" [disabled]="!isCapturedAllDocs"
+          >{{ 'BUTTONS.SUBMIT' | translate }}</ion-button
+        >
+      </div>
+    </main>
+  </div>
+</ion-content>

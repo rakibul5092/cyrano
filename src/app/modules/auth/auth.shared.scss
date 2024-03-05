@@ -1,0 +1,154 @@
+.auth-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+form {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 40px);
+  padding: 40px 40px 40px 40px;
+  box-shadow: var(--box-shadow);
+
+  div {
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      max-width: 500px;
+      font-family: 'Gilroy-Regular', serif;
+
+      &.form-title {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 28px;
+        text-align: center;
+        font-family: 'Calistoga', serif;
+      }
+    }
+
+    &.create-account-section {
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+      div {
+        width: 100%;
+        max-width: 308px;
+      }
+      .create-account-text {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .social-login {
+    .mat-mini-fab {
+      border-radius: 50%;
+      height: 46px;
+      width: 46px;
+      position: relative;
+      display: inline-block;
+      margin: 20px;
+      background: var(--primary-background);
+    }
+  }
+
+  .custom-input {
+    max-width: 500px;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s;
+    box-shadow: none;
+    background: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .auth-container {
+    form {
+      padding: 24px;
+      padding-top: 48px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .auth-container {
+    form {
+      padding: 12px;
+    }
+  }
+
+  img.cyrano-logo {
+    margin-top: 20px;
+  }
+
+  .form-title {
+    margin-bottom: 20px !important;
+    font-size: 20px !important;
+
+    &.register-title {
+      margin-top: 30px !important;
+    }
+  }
+}
+
+.auth-circle {
+  text-align: center;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  background: var(--background-color);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  line-height: 90px;
+  margin-bottom: 15px;
+
+  img {
+    height: 70px;
+    width: 70px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.forgot-password {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.input-error {
+  width: 100%;
+  max-width: 500px;
+  margin-top: -15px;
+}
+
+.mat-raised-button.forgot-password-submit-btn {
+  margin-top: 20px;
+}
+
+.mat-raised-button.login-btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 47px;
+}
+
+.custom-input .mat-icon-button,
+.custom-input .mat-icon {
+  top: 8px;
+  right: 8px;
+  z-index: 999;
+}

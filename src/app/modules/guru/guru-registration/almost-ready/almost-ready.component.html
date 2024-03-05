@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="guru-registration-screen">
+      <div class="almost-ready-container center-contents-column">
+        <img [src]="'assets/images/almost-ready.png'" alt="almost ready" />
+        <h2 class="page-title page-title-lg">{{ 'ALMOST_READY.TITLE' | translate }}</h2>
+        <p class="guru-registration-paragraph">{{ 'ALMOST_READY.INFO' | translate }}</p>
+        <button mat-raised-button type="button" (click)="onContinue()" class="continue">
+          <span>{{ 'CONTINUE' | translate }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

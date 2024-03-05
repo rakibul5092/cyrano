@@ -1,0 +1,130 @@
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  align-items: flex-start;
+  width: fit-content;
+  margin: auto;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 160%;
+  margin-top: 32px;
+  text-transform: capitalize;
+}
+
+p {
+  margin: 0;
+  margin-top: 1rem;
+}
+
+ul {
+  padding: 0;
+  margin-top: 32px;
+  width: 100%;
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    &:first-child {
+      margin-top: 0;
+    }
+    .icon-wrapper {
+      padding: 10px;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      margin-right: 5px;
+      &.active-wrapper {
+        box-shadow: 0 0 8px var(--cyrano-pink-shade-1);
+      }
+
+      .is-active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 3px solid var(--cyrano-pink-shade-1);
+        backdrop-filter: blur(1px);
+        color: var(--cyrano-pink-shade-1);
+        box-shadow: 0 0 8px var(--cyrano-pink-shade-1);
+        .mat-icon {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .mat-icon-button {
+      padding: 0;
+      margin: 0;
+      margin-right: -10px;
+      .mat-icon {
+        font-size: 15px;
+      }
+    }
+
+    .icon-add {
+      color: var(--cyrano-pink-shade-1);
+    }
+
+    div {
+      .mat-button {
+        padding: 0;
+        margin: 0;
+        line-height: 20px;
+      }
+    }
+
+    .mat-button.add-account {
+      margin: 10px 0;
+      padding-left: 10px;
+    }
+  }
+}
+
+h5 {
+  margin: 0;
+}
+
+.btn-next {
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.mat-menu-item.add-calendar-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  img {
+    width: 25px;
+  }
+}
+.progress-bar-container{
+  position: relative;
+  display: block;
+  height: 3px;
+  max-height: 3px;
+  width: 100%;
+}
+
+//  For extra small screens
+@media screen and (max-width: 359px) {
+  main {
+    padding: 0 1rem calc(1rem + var(--footer-tab-clearance)) 1rem;
+  }
+  app-account-setup-header {
+    padding: 0 1rem;
+  }
+}

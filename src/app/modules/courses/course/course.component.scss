@@ -1,0 +1,30 @@
+.page-container {
+  padding: 100px 20px 80px 20px;
+}
+
+.mat-button.profile-btn {
+  margin: -15px 5px;
+  color: var(--ion-text-color-secondary);
+  text-transform: lowercase;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+}
+.mat-raised-button.purchase-btn {
+  width: 100%;
+  max-width: 341px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px !important;
+  line-height: 40px;
+  text-transform: capitalize;
+  font-size: 17px;
+  background: linear-gradient(94.44deg, #fe3c72 1.26%, #e15561 100%);
+  color: #fff;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  font-family: 'Calistoga';
+}

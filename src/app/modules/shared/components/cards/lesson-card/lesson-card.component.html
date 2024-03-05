@@ -1,0 +1,22 @@
+<ion-card class="block-container common-card lesson-card">
+  <div (click)="cardClickEvent.emit(true)" class="card-head">
+    <div class="block-container img-container">
+      <img class="block-container" [src]="lesson.cover" />
+    </div>
+    <div class="card-header">
+      <ion-label>{{ lesson.title }}</ion-label>
+      <span class="spacer"></span>
+      <span class="minutes-title">24 {{ 'COURSES.MINUTES' | translate }}</span>
+    </div>
+  </div>
+
+  <ion-card-content>
+    <p class="common-paragraph">{{ lesson.description }}</p>
+  </ion-card-content>
+
+  <div class="card-actions">
+    <button mat-raised-button (click)="cardClickEvent.emit(true)" color="danger" class="primary-btn" type="button">
+      {{ 'COURSES.CONTINUE_WATCHING' | translate }}
+    </button>
+  </div>
+</ion-card>

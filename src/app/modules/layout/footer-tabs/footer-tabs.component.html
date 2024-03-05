@@ -1,0 +1,18 @@
+<ion-footer>
+  <div *ngIf="currentRoute && !currentRoutExcluded" mode="ios">
+    <div class="custom-footer">
+      <button (click)="onTabClick(tab.route)" *ngFor="let tab of footerTabs" [disabled]="tab.route === 'add'" [ngClass]="{ active: activeTab === tab.route }" mat-button>
+        <img [src]="activeTab === tab.route ? icons.footer.guruFooter[tab.activeIcon] : icons.footer.guruFooter[tab.icon]" alt="" />
+        {{ tab.name | translate }}
+      </button>
+    </div>
+
+    <!-- Add button -->
+    <!--    TODO: REMOVE IF NO USE-->
+    <!--<ion-buttons *ngIf="currentRoute && !currentRoutExcluded" class="add-outer-container" mode="ios">
+      <ion-button class="add-inner-container">
+        <ion-icon [src]="icons.footer.add"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+  </div>
+</ion-footer>

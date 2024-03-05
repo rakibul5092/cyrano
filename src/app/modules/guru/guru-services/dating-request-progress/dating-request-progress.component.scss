@@ -1,0 +1,64 @@
+.progress-circle {
+  background: #32363b;
+  border-radius: 50%;
+  z-index: 9;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  top: 10px;
+}
+
+.dating-request-progress {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(318.21deg, #101113 14.05%, #2b2f33 85.29%);
+  box-shadow: var(--progress-circle-box-shadow);
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  .nested-circle {
+    height: 59px;
+    width: 59px;
+    @extend .progress-circle;
+    background: linear-gradient(318.21deg, #101113 14.05%, #2b2f33 85.29%);
+    .nested-circle-inner {
+      box-shadow: var(--progress-nested-circle-box-shadow);
+      height: 45px;
+      width: 45px;
+      @extend .progress-circle;
+      top: 6px;
+      right: 1px;
+
+      font-family: 'Gilroy-Regular';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      background: var(--progress-circle-background);
+      color: var(--ion-text-color);
+    }
+  }
+
+  .progress {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(143.55deg, #c3ebff 23.73%, rgba(195, 255, 241, 0) 95.73%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    height: 80px;
+    width: 50px;
+  }
+}

@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="main-wrapper">
+    <form class="form" (ngSubmit)="confirm()" [formGroup]="usernameForm">
+      <div class="message f-calistoga f-3xl f-w-400 h-160 f-white">{{ 'GURU.USERNAME' | translate }}</div>
+      <ion-input formControlName="username" class="app-input" [placeholder]="'GURU.CREATE_USERNAME' | translate"> </ion-input>
+      <div class="info f-inter f-w-400 f-md h-150">
+        {{ 'UNMATCHED.SUBSCRIPTION.RECOMMENDED' | translate }}
+        <ion-label *ngFor="let recommend of recommends; let i = index">{{ recommend + (i < recommends.length - 1 ? ', ' : '') }}</ion-label>
+      </div>
+      <div class="button-container">
+        <ion-button mode="md" type="submit" [disabled]="!usernameForm.valid" [attr.disabled]="!usernameForm.valid" class="continue-button f-calistoga f-w-400 f-xl h-160">{{
+          'UNMATCHED_USER.CONTINUE' | translate
+        }}</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

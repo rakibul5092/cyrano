@@ -1,0 +1,25 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="gotoWelcome()" [route]="'congratulations'">
+    <span class="message f-calistoga f-w-400 f-3xl h-160 f-white">
+      {{ 'UNMATCHED_USER.CONGRATULATIONS' | translate }}
+    </span>
+
+    <div class="image-container">
+      <img src="assets/images/congratulations.png" />
+      <div class="icons">
+        <div class="icons-relative">
+          <ion-icon class="cp" src="assets/icon/unmatched-registration/cp.svg"></ion-icon>
+          <ion-icon class="ip" src="assets/icon/unmatched-registration/ip.svg"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <span class="info f-w-400 f-md h-150 f-light-gray">
+        {{ 'UNMATCHED_USER.REWARDS_MESSAGE' | translate }}
+      </span>
+      <ion-button (click)="gotoWelcome()" [attr.disabled]="false" class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+        >{{ 'UNMATCHED_USER.SETUP_PROFILE' | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

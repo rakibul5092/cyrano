@@ -1,0 +1,31 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'interests'">
+    <form>
+      <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.MY_INTERESTS_ARE' | translate }}</span>
+
+      <span class="info f-w-400 f-md h-150 f-light-gray">
+        {{ 'UNMATCHED_USER.INTEREST_MESSAGE' | translate }}
+      </span>
+
+      <div class="selectables">
+        <ion-button
+          *ngFor="let interest of myInterestsArray"
+          (click)="onInterestClick(interest)"
+          [class]="'btn-selectable ' + (interest.selected ? 'app-primary-button' : 'unselected')"
+          >{{ interest.name }}</ion-button
+        >
+      </div>
+    </form>
+    <div class="button-container">
+      <ion-button
+        (click)="onContinue()"
+        [disabled]="this.selectedInterestsArray.length < 5"
+        *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+        [attr.disabled]="this.selectedInterestsArray.length < 5"
+        class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+        >{{ ('UNMATCHED_USER.CONTINUE' | translate) + ' (' + this.selectedInterestsArray.length + '/' + 5 + ')' }}</ion-button
+      >
+      <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+    </div>
+  </div>
+</ion-content>

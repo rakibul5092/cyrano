@@ -1,0 +1,32 @@
+<ion-card mode="md" [attr.recommended]="subscriptionData.recommended">
+  <div class="recommended" *ngIf="subscriptionData.recommended">
+    <img src="/assets/svg/bookmark.svg" alt="bookmark icon" />
+    <div class="text f-calistoga f-white">
+      {{ 'UNMATCHED.SUBSCRIPTION.RECOMMENDED' | translate }}
+    </div>
+  </div>
+
+  <ion-card-content>
+    <div [attr.recommended]="subscriptionData.recommended" class="pricing f-calistoga f-w-400 f-xl h-160">
+      <div class="price">
+        {{ subscriptionData.price | translate }}
+      </div>
+      <div class="price-unit f-lato f-xs h-100 f-dark" *ngIf="subscriptionData.priceUnit">
+        {{ '/' + (subscriptionData.priceUnit | translate) }}
+      </div>
+    </div>
+    <div class="title-and-price f-calistoga f-w-400 f-xl h-160 f-white">
+      <div class="title">{{ subscriptionData.name | translate }}</div>
+    </div>
+    <ng-container *ngFor="let feature of subscriptionData.features">
+      <div class="feature f-lato -w-400 f-sm h-160 f-white">
+        <ion-icon src="/assets/svg/tick.svg" class="icon" alt="tick icon"></ion-icon>
+        <div class="f-lato f-w-400 f-sm h-160 f-white">
+          {{ feature.text | translate }}
+          <span class="f-w-600 highlight">{{ feature.highlight | translate }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </ion-card-content>
+  <ion-button [ngClass]="subscriptionData.isPlatinum ? 'app-primary-button' : 'app-black-button'">{{ 'UNMATCHED.SUBSCRIPTION.SUBSCRIBE' | translate }}</ion-button>
+</ion-card>

@@ -1,0 +1,65 @@
+<ion-content>
+  <div class="wrapper">
+    <h2 class="page-header">{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.CHOOSE_A_PHONE_NUMBER' | translate }}</h2>
+
+    <section class="platforms-wrapper">
+      <h5 class="page-sub-header">{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.PLATFORMS_THAT_REQUIRE_PHONE_NUMBER' | translate }}</h5>
+      <ul class="platforms">
+        <li *ngFor="let datingPlatform of newAccounts">{{ datingPlatform?.platform }}</li>
+      </ul>
+    </section>
+
+    <ul class="phone-number-options">
+      <li>
+        <label>
+          <input type="radio" name="phone-number" value="rent" (change)="willRentPhoneNumber = true" checked />
+          <span></span>
+          <strong>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.RENT_A_PHONE_NUMBER' | translate }}</strong>
+          <button class="cyrano cyrano-hint btn-hint" (click)="showRentPhoneNumInfo()"></button>
+        </label>
+        <small>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.RENTING_A_PHONE_NUMBER_MOST_CONVENIENT' | translate }}</small>
+      </li>
+      <li>
+        <label>
+          <input type="radio" name="phone-number" value="continue" (change)="willRentPhoneNumber = false" />
+          <span></span>
+          <strong>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.MY_OWN_PHONE_NUMBER' | translate }}</strong>
+        </label>
+        <small>{{ unmatchedInfo?.phoneNumber }}</small>
+
+        <ng-container *ngIf="!willRentPhoneNumber">
+          <svg class="divider" viewBox="0 0 342 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 3L342 3.00003" stroke="url(#paint0_radial_8_1832)" stroke-width="5" />
+            <defs>
+              <radialGradient id="paint0_radial_8_1832" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(171 3.50001) rotate(90) scale(0.5 171)">
+                <stop stop-color="#F7F5DD" />
+                <stop offset="1" stop-color="#F7F5DD" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+          </svg>
+
+          <ul>
+            <li>
+              <label>
+                <input type="radio" name="account-with-phonenumber" value="no" checked (change)="noOtherAccountExists = true" />
+                <span></span>
+                <strong>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.CONFIRM_NOT_TO_HAVE_AN_ACCOUNT_WITH_NUMBER' | translate }}</strong>
+              </label>
+            </li>
+            <li [routerLink]="['../automation-requirements']">
+              <label>
+                <input type="radio" name="account-with-phonenumber" value="yes" (change)="noOtherAccountExists = false" />
+                <span></span>
+                <strong>{{ 'ACCOUNT_TAKEOVER.NEW_ACCOUNTS_SECTION.CONFIRM_TO_DELETE_ACCOUNT_WITH_PERMISSION' | translate }}</strong>
+              </label>
+            </li>
+          </ul>
+        </ng-container>
+      </li>
+    </ul>
+
+    <section class="action-buttons" [ngClass]="{'will-complete': !willRentPhoneNumber}">
+      <button class="app-pink-proceed-button btn-proceed" (click)="onNext()">{{ (willRentPhoneNumber ? 'BUTTONS.NEXT' : 'BUTTONS.COMPLETE') | translate }}</button>
+    </section>
+  </div>
+</ion-content>

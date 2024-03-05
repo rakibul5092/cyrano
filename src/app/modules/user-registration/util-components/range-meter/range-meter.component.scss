@@ -1,0 +1,96 @@
+@import '../../shared.scss';
+
+.button-container {
+  --button-container-width: 400px;
+  --meter-container-height: 120px;
+  overflow: hidden;
+  background: var(--cyrano-dark-color);
+  box-shadow: -3px -3px 16px rgba(255, 255, 255, 0.1), 5px 5px 16px rgba(0, 0, 0, 0.32);
+  border-radius: 24px 24px 0px 0px;
+  height: 266px;
+  left: 0px;
+  right: 0px;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: var(--button-container-width);
+  margin-left: auto;
+  margin-right: auto;
+
+  .range-items {
+    display: grid;
+    justify-content: center;
+
+    .meter-container {
+      height: var(--meter-container-height);
+      position: relative;
+
+      .range-container{
+        width: var(--button-container-width);
+        height: var(--meter-container-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .range-image {
+          transform: translateX(1.5em);
+          max-width: none !important;
+        }
+      }
+
+      .indicator-icon {
+        width: 23.17px;
+        height: 33.56px;
+        position: absolute;
+        bottom: -4px;
+        left: 48%;
+        transform: rotate(80deg);
+
+        ion-icon {
+          transform-origin: 10px 24px;
+        }
+      }
+    }
+  }
+
+  span {
+    text-align: center;
+  }
+
+  .percent {
+    margin-top: 4.44px;
+    margin-bottom: 2px;
+  }
+
+  .preference {
+    margin-bottom: 18px;
+  }
+
+  @media screen and (max-width: 300px) {
+    .preference {
+      font-size: 12px;
+    }
+  }
+
+  .info-icon {
+    position: absolute;
+    top: 23px;
+    right: 24px;
+    cursor: pointer;
+    height: 21.5px;
+    width: 21.5px;
+    z-index: 1;
+  }
+
+  .meter-icon {
+    width: 23.17px;
+    height: 33.56px;
+  }
+}
+
+.continue-button {
+  text-transform: capitalize;
+}
+.continue-overlay {
+  width: 100%;
+  height: 48px;
+}

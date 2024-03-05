@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  flex-direction: column;
+  line-height: 160%;
+}
+
+.text {
+  opacity: 0.6;
+  text-align: center;
+  width: 80%;
+  margin-top: 30px;
+  font: 12px Lato;
+}
+
+.update-info-button {
+  margin-top: 59px;
+  background: #27242c;
+  box-shadow: var(--box-shadow);
+  border-radius: 100px;
+  text-transform: none !important;
+  max-width: 245px;
+  width: 100%;
+  overflow: hidden;
+}

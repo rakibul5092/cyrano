@@ -1,0 +1,65 @@
+@import './../admin.scss';
+
+.title-container {
+  padding-top: 128px;
+}
+
+.admin-login-sub-title {
+  margin-top: 10px;
+}
+
+form {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 308px;
+}
+
+.login-button {
+  background: var(--footer-tab-label);
+  color: var(--ion-text-color) !important;
+  width: 100%;
+  max-width: 500px;
+  margin: 3.5rem 0 0 0;
+  box-shadow: var(--box-shadow) !important;
+}
+
+.title-container,
+.the-form {
+  width: 100%;
+
+  .password-container {
+    position: relative;
+    margin-top: 27px;
+
+    button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.title-container {
+  padding-left: 1rem;
+}
+
+.email-input {
+  margin-top: 51px;
+}
+
+button {
+  background: var(--ion-background-color);
+  border-radius: 100px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: var(--text);
+  position: relative;
+  display: block;
+  line-height: 48px;
+  font-size: 18px;
+  font-weight: 400;
+}

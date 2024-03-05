@@ -1,0 +1,16 @@
+p {
+  color: var(--ion-text-color);
+  margin: 0;
+}
+
+.triangle {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  position: absolute;
+  background: var(--ion-background-color-no-gradient);
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 50%) rotate(45deg);
+}

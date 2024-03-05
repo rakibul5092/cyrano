@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-inner-body">
+      <div class="services-header">
+        <app-guru-services-header [title]="'GURU.REQUESTS' | translate"></app-guru-services-header>
+      </div>
+      <div class="requests-map" [ngClass]="{ 'map-container-no-location': !initialLocation && !loadingLocation }">
+        <app-map
+          *ngIf="initialLocation"
+          [markers]="requestsMarkers"
+          [mapType]="mapType"
+          [initialLocation]="initialLocation"
+          (mapLoaded)="onMapLoaded($event)"
+          (markerClick)="onMarkerClick($event)"
+        >
+        </app-map>
+        <div class="location-permission-error" *ngIf="!initialLocation && !loadingLocation">
+          <img [src]="'assets/svg/enable_location.svg'" alt="location" />
+          <p>{{ 'ENABLE_LOCATION.ERROR_MESSAGE' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

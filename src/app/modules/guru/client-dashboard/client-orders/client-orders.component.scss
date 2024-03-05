@@ -1,0 +1,40 @@
+@import '../../guru.global.scss';
+
+.orders-container {
+  padding-right: 3px;
+
+  .details-container {
+    display: grid;
+    margin-bottom: 20px;
+
+    .header {
+      margin-bottom: 24px;
+      margin-top: 33px;
+      display: flex;
+      .header-text {
+        padding-left: 48px;
+        width: 80%;
+      }
+
+      .header-value {
+        text-align: end;
+        width: 20%;
+      }
+    }
+
+    .item {
+      margin-bottom: 10px;
+      display: flex;
+
+      .text {
+        justify-content: left;
+        width: 80%;
+      }
+
+      .value {
+        text-align: end;
+        width: 20%;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="client.photo"
+      [name]="client.name"
+      [leftIcon]="commonutilService.icons.hash"
+      [leftText]="client.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+      [rightIcon]="commonutilService.icons.location"
+      [rightText]="client.address"
+    ></lib-profile-header>
+
+    <!-- Surfing, Tennis and Fiction buttons -->
+    <div class="multi-colored-buttons">
+      <ion-button mode="md" class="f-lato light-green">{{ 'GURU.SURFING' | translate }}</ion-button>
+      <ion-button mode="md" class="f-lato light-blue">{{ 'GURU.TENNIS' | translate }}</ion-button>
+      <ion-button mode="md" class="f-lato light-purple">{{ 'GURU.FICTION' | translate }}</ion-button>
+    </div>
+
+    <!-- Client relation -->
+    <div class="client-relation">
+      <span class="f-lato f-w-600 f-md h-160 f-white">{{ 'GURU.CLIENT_RELATION' | translate }}</span>
+      <div class="bottom-border"></div>
+    </div>
+
+    <!-- Client relations data -->
+    <div class="info-container">
+      <div class="item">
+        <span class="f-lato f-w-600 f-md f-dark">{{ 'GURU.DATES_YOU_GOT_HIM' | translate }}</span>
+        <span class="value f-lato f-w-600 f-md h-160 f-white">4</span>
+      </div>
+      <div class="item">
+        <span class="f-lato f-w-600 f-md f-dark">{{ 'GURU.TOTAL_AMOUNT_PAID_BY_CLIENT' | translate }}</span>
+        <span class="value f-lato f-w-600 f-md h-160 f-white">$64</span>
+      </div>
+    </div>
+
+    <ion-button mode="md" [routerLink]="['/guru/client-dashboard', client.id]" class="app-primary-button">{{ 'BUTTONS.MESSAGE_TAKEOVER' | translate }}</ion-button>
+
+    <!-- About me -->
+    <ion-card class="box-container">
+      <span class="card-header">{{ 'UNMATCHED.ABOUT_ME' | translate }}</span>
+      <span class="information"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span>
+    </ion-card>
+
+    <!-- My photos section -->
+    <ion-card class="box-container">
+      <span class="card-header">{{ 'GURU.MY_PHOTOS' | translate }}</span>
+      <swiper [config]="config">
+        <ng-template swiperSlide *ngFor="let photo of client.myPhotos">
+          <img [src]="photo" alt="Cinque Terre" />
+        </ng-template>
+      </swiper>
+    </ion-card>
+
+    <!-- Meta information -->
+    <ion-card class="box-container">
+      <span class="card-header">{{ 'UNMATCHED.ACCOUNT_META' | translate }}</span>
+      <span class="information"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span>
+    </ion-card>
+  </div>
+</ion-content>

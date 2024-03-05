@@ -1,0 +1,57 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'birthday'">
+    <form [formGroup]="birthdayForm">
+      <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.MY_BIRTHDAY_IS' | translate }}</span>
+
+      <div class="input-container">
+        <div class="select-div" *ngFor="let data of placeholders">
+          <img src="assets/icon/unmatched-registration/down-arrow.png" (click)="selectionEnabled = true" />
+          <input
+            [formControlName]="data.formControlName"
+            [placeholder]="data.placeholder | translate"
+            class="app-input f-gilroy-regular f-w-400 f-lg h-160 f-dark"
+            (click)="selectionEnabled = true"
+          />
+        </div>
+      </div>
+
+      <span class="info f-w-400 f-md h-150 f-gray">
+        {{ 'UNMATCHED_USER.YOUR_AGE_WILL_BE_PUBLIC' | translate }}
+      </span>
+
+      <div class="button-container">
+        <ion-button
+          (click)="onContinue()"
+          [disabled]="!birthdayForm.valid"
+          *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+          [attr.disabled]="!birthdayForm.valid"
+          class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+          >{{ 'UNMATCHED_USER.CONTINUE' | translate }}</ion-button
+        >
+        <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+      </div>
+
+      <lib-popup [isOpen]="selectionEnabled" [customClass]="'popover-datetime'">
+        <ion-datetime
+          #datetime
+          mode="ios"
+          presentation="date"
+          preferWheel="true"
+          formControlName="date"
+          (ionCancel)="onModalDismiss()"
+          (ionChange)="onDateChange($event)"
+          [max]="maxDate"
+        >
+          <div class="buttons" slot="buttons">
+            <button mat-raised-button (click)="datetime.cancel()" type="button" class="primary-button normal-text cancel-button">
+              {{ 'UNMATCHED_USER.CANCEL' | translate }}
+            </button>
+            <button mat-raised-button (click)="datetime.confirm(); this.selectionEnabled = false" id="confirm-button" type="button" class="primary-button normal-text">
+              {{ 'UNMATCHED_USER.DONE' | translate }}
+            </button>
+          </div>
+        </ion-datetime>
+      </lib-popup>
+    </form>
+  </div>
+</ion-content>

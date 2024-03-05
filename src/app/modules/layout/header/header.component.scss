@@ -1,0 +1,128 @@
+ion-title {
+  font-family: 'Calistoga';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+  color: var(--ion-text-color);
+  padding-left: 0px;
+  padding-right: 0px;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+ion-toolbar {
+  --padding-top: 23px;
+  --padding-bottom: 23px;
+  --background: unset;
+
+  .start-buttons {
+    margin-inline-start: 0px;
+
+    .back-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 24px;
+      height: 32px;
+      width: 32px;
+      border-radius: 100px;
+      box-shadow: var(--header-button-shadow);
+      background: var(--button-background);
+
+      ion-icon {
+        width: 14.47px;
+        height: 12.58px;
+      }
+    }
+  }
+}
+
+.end-buttons {
+  margin-inline-end: 8.425px;
+
+  .header-button {
+    margin-left: unset;
+    margin-right: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    -webkit-margin-start: unset;
+    -webkit-margin-end: unset;
+    --padding-start: 15.575px;
+    --padding-end: 15.575px;
+    width: unset;
+    height: 24px;
+
+    &-noti {
+      width: 17.85px;
+      height: 21.08px;
+    }
+
+    &-menu {
+      width: 25px;
+      height: 17.5px;
+    }
+
+    &-alert {
+      position: absolute;
+      top: -4px;
+      right: -7px;
+      z-index: 99;
+    }
+  }
+}
+
+.btn_side-menu-toggle {
+  display: none;
+}
+
+:host ::ng-deep {
+  ion-header {
+    background: var(--header-background);
+
+    ion-toolbar {
+      display: flex;
+    }
+  }
+}
+
+ion-title {
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  --parent-size: 100%;
+
+  .title-wrapper {
+    width: calc(100% - 40px); //20px padding on both side
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+  }
+}
+
+.title-content {
+  white-space: pre;
+  text-align: left;
+  margin: auto;
+}
+
+.marque {
+  position: relative;
+  animation: marque 20s -10s infinite linear;
+}
+
+@keyframes marque {
+  from {
+    transform: translateX(var(--marque-wrapper-width));
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .btn_side-menu-toggle {
+    display: block;
+  }
+}

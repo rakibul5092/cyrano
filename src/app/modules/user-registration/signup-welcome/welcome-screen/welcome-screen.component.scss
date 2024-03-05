@@ -1,0 +1,165 @@
+@import '../../shared.scss';
+@import '../../custom-checkbox.scss';
+
+form {
+  display: flex;
+  gap: 10px;
+  margin: 24px 0px;
+}
+
+.checkbox-label {
+  letter-spacing: -0.011em;
+  color: var(--cyrano-milky-white);
+  cursor: pointer;
+}
+
+.checkbox-label {
+  cursor: pointer;
+}
+
+.spacing {
+  letter-spacing: -0.011em;
+}
+
+.img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 215px;
+    height: 133px;
+  }
+}
+
+.top-text {
+  display: grid;
+  text-align: center;
+  gap: 16px;
+  margin-bottom: 33px;
+}
+
+.policy-container {
+  margin-bottom: 90px;
+  height: 48%;
+  overflow-y: auto;
+
+  .policies {
+    padding-left: 6.68px;
+    padding-right: 6.68px;
+    display: flex;
+    flex-direction: row;
+    gap: 15.68px;
+    margin-bottom: 24px;
+
+    .icon {
+      padding-top: 5px;
+
+      ion-icon {
+        height: 15.12px;
+        width: 15.12px;
+        transform: rotate(6.06deg);
+      }
+    }
+
+    .text-container {
+      display: grid;
+      line-height: 18px;
+    }
+  }
+}
+
+.checkbox-container {
+  cursor: pointer;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-height: 740px) {
+  .policy-container {
+    height: 42%;
+  }
+
+  .top-text {
+    margin-bottom: 30px;
+
+    .welcome {
+      font-size: 26px;
+    }
+  }
+
+  .img-container > img {
+    height: 125px;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  .policy-container {
+    height: 38%;
+  }
+
+  .top-text {
+    margin-bottom: 25px;
+
+    .welcome {
+      font-size: 25px;
+    }
+  }
+
+  .img-container > img {
+    height: 120px;
+  }
+}
+
+@media screen and (max-height: 660px) {
+  .policy-container {
+    height: 32%;
+  }
+
+  .top-text {
+    margin-bottom: 20px;
+
+    .welcome {
+      font-size: 22px;
+    }
+  }
+
+  .img-container > img {
+    height: 110px;
+  }
+}
+
+@media screen and (max-height: 655px) {
+  .policy-container {
+    height: 32%;
+  }
+
+  .top-text {
+    margin-bottom: 15px;
+
+    .welcome {
+      font-size: 20px;
+    }
+  }
+
+  .img-container > img {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .top-text {
+    .welcome {
+      font-size: 22px;
+    }
+
+    .rules {
+      font-size: 12px;
+    }
+  }
+
+  .checkbox-label {
+    font-size: 12px;
+  }
+}

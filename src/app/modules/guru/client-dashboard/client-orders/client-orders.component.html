@@ -1,0 +1,36 @@
+<div class="orders-container">
+  <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+  <lib-profile-header
+    [orientation]="orientation"
+    [photo]="client.photo"
+    [name]="client.name"
+    [leftIcon]="commonService.icons.hash"
+    [leftText]="client.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+    [rightIcon]="commonService.icons.location"
+    [rightText]="client.address"
+  ></lib-profile-header>
+
+  <!-- All past request list -->
+  <div class="details-container f-lato f-md h-160">
+    <div class="header f-w-600 f-white">
+      <span class="header-text">{{ 'GURU.PAST_REQUESTS' | translate }}</span>
+      <span class="header-value">{{ 'GURU.PRICE' | translate }}</span>
+    </div>
+    <div class="item f-w-500">
+      <span class="text f-dark">Message for Jessica @ opener</span>
+      <span class="value f-white">4</span>
+    </div>
+    <div class="item f-w-500">
+      <span class="text f-dark">Message for Jessica @ last message</span>
+      <span class="value f-white">$64</span>
+    </div>
+    <div class="item f-w-500">
+      <span class="text f-dark">Message for Jessica @ opener</span>
+      <span class="value f-white">$4</span>
+    </div>
+    <div class="item f-w-500">
+      <span class="text f-dark">Message for Jessica @ last message</span>
+      <span class="value f-white">$64</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.range-container {
+  position: relative;
+
+  ion-range::part(knob) {
+    width: 32px;
+    height: 27px;
+    transform: none;
+  }
+
+  ion-range::part(bar) {
+    opacity: 0.5;
+  }
+
+  ion-range::part(bar-active) {
+    box-shadow: 0px 2px 10px -4.5px #f7f5dd, 0px 0px 10px 0px rgb(203 199 209 / 25%);
+  }
+
+  ion-range {
+    --knob-background: url('./../../../../../assets/icon/slider.svg');
+    --bar-height: 16px;
+    --bar-border-radius: 18px;
+    --knob-border-radius: 9px;
+    --knob-size: 28px;
+    --bar-background-active: var(--text-highlight-color);
+    --bar-background: var(--text-highlight-color);
+    width: 100%;
+    padding-inline: 0px;
+  }
+}

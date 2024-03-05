@@ -1,0 +1,57 @@
+<ion-content fullscreen>
+  <div class="main-wrapper">
+    <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+    <lib-profile-header
+      [orientation]="orientation"
+      [photo]="client.photo"
+      [name]="client.name"
+      [leftIcon]="commonUtilService.icons.star"
+      [leftText]="'4.5/5 ' + ('GURU.STARS' | translate)"
+      [rightIcon]="commonUtilService.icons.hash"
+      [rightText]="'24 ' + ('GURU.REVIEWS' | translate)"
+    ></lib-profile-header>
+
+    <!-- Search input box container -->
+    <div class="search-container">
+      <ion-icon name="search"></ion-icon>
+      <ion-input class="app-input emphasis" [placeholder]="'GURU.SEARCH_FOR_ANYTHING' | translate"></ion-input>
+    </div>
+
+    <!-- Circular progresses -->
+    <div class="circle-container">
+      <lib-circle-progress
+        [value]="item.value"
+        [max]="item.maxValue"
+        [prefix]="item.unit"
+        width="101px"
+        height="102px"
+        [type]="item.type | translate"
+        *ngFor="let item of statistics"
+      ></lib-circle-progress>
+    </div>
+
+    <!-- About me card -->
+    <ion-card>
+      <div class="card-header">
+        <span>{{ 'UNMATCHED.ABOUT_ME' | translate }}</span>
+        <ion-icon [src]="commonUtilService.icons.unmatched.edit"></ion-icon>
+      </div>
+
+      <span class="information"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span>
+    </ion-card>
+
+    <!-- Bottom options -->
+    <div class="bottom-buttons">
+      <span class="info f-lato f-md f-w-600 h-160 f-dark">{{ 'UNMATCHED.ACCOUNT_INFORMATION' | translate }}</span>
+      <span [routerLink]="['/guru/meta-information']" class="info f-lato f-md f-w-600 h-160 f-dark">{{ 'GURU.META_INFORMATION' | translate }}</span>
+      <div class="border"></div>
+      <span class="works f-lato f-md f-w-600 h-160 f-dark">{{ 'UNMATCHED.HOW_IT_WORKS' | translate }}</span>
+      <span class="settings f-lato f-md f-w-600 h-160 f-dark">{{ 'UNMATCHED.SETTINGS' | translate }}</span>
+    </div>
+
+    <!-- Cashout earnings button -->
+    <ion-button mode="md" (click)="gotoCashoutEarnings()" class="bottom-button f-calistoga f-lg f-w-400 f-16 h-160 f-white">{{
+      'GURU.CASHOUT_EARNINGS_BUTTON' | translate
+    }}</ion-button>
+  </div>
+</ion-content>

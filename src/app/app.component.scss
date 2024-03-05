@@ -1,0 +1,46 @@
+:host {
+  --side-menu-side-padding: 20px;
+  --icon-font-size: 24px;
+  --gap-between-icon-text: 20px;
+
+  --side-menu-width: calc(var(--side-menu-side-padding) + var(--icon-font-size) + var(--gap-between-icon-text));
+}
+
+.no-side-menu {
+  --side-menu-width: 0;
+}
+
+ion-app {
+  flex-direction: row;
+}
+
+ion-router-outlet {
+  left: var(--side-menu-width);
+  transition: left 0.5s;
+}
+
+app-footer-tabs {
+  display: none;
+}
+
+@media screen and (max-width: 650px) {
+  :host {
+    /*  convert side menu to sliding in side menu at this breakpoint   */
+    --side-menu-width: 0 !important;
+  }
+
+  app-footer-tabs {
+    display: block;
+  }
+}
+
+@media screen and (hover: none) {
+  :host {
+    /*  convert side menu to sliding in side menu at this breakpoint   */
+    --side-menu-width: 0 !important;
+  }
+
+  app-footer-tabs {
+    display: block;
+  }
+}

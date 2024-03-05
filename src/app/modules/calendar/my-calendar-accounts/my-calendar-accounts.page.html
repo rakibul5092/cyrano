@@ -1,0 +1,50 @@
+<app-user-registration-header></app-user-registration-header>
+<div class="progress-bar-container">
+  <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+</div>
+<ion-content>
+  <main appSubmitOnEnter (enter)="next()" [route]="'calendarAccounts'">
+    <h2 class="f-calistoga f-w-400 f-3xl">{{ 'ACCOUNT_SETUP.MY_CALENDER_ACCOUNTS' | translate }}</h2>
+    <p class="f-gilroy-medium f-md f-light-gray">{{ 'ACCOUNT_SETUP.ADD_ACCOUNTS_YOU_WANT' | translate }}</p>
+    <ul>
+      <li *ngFor="let account of calendarAccounts; let i = index">
+        <div class="icon-wrapper" [ngClass]="{'active-wrapper': account.active}" mat-ripple (click)="activeCalendarAccount(i, account)">
+          <img [src]="icons.accountSetup[calendarAccountIcons[account.type]]" [alt]="calendarAccountIcons[account.type]" />
+          <div class="is-active center-content" *ngIf="account.active">
+            <mat-icon>check</mat-icon>
+          </div>
+        </div>
+        <h5 class="f-md f-gilroy-medium" [style.color]="account.theme?.backgroundColor">{{account.email}}</h5>
+        <span class="spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editTheme(i, account)">
+            <mat-icon>color_lens</mat-icon>
+            <span>{{'BUTTONS.THEME' | translate}}</span>
+          </button>
+          <button mat-menu-item (click)="deleteCalendarAccount(i, account)">
+            <mat-icon>delete</mat-icon>
+            <span>{{'BUTTONS.DELETE' | translate}}</span>
+          </button>
+        </mat-menu>
+      </li>
+      <li>
+        <button mat-button class="add-account" [matMenuTriggerFor]="calendarsMenu">
+          <i class="cyrano cyrano-add icon-add"></i>
+          <span class="f-light-gray f-md f-gilroy-medium"> {{ 'ACCOUNT_SETUP.ADD_ACCOUNT' | translate }} </span>
+        </button>
+        <mat-menu #calendarsMenu="matMenu">
+          <button mat-menu-item (click)="addAccount(accountTypes.GOOGLE)" class="add-calendar-option">
+            <img [src]="icons.accountSetup.googleCalender" alt="google" /> {{ 'ACCOUNT_SETUP.ADD_GOOGLE_ACCOUNT' | translate }}
+          </button>
+          <button mat-menu-item (click)="addAccount(accountTypes.MICROSOFT)" class="add-calendar-option">
+            <img [src]="icons.accountSetup.microsoft" alt="microsoft" /> {{ 'ACCOUNT_SETUP.ADD_MICROSOFT_ACCOUNT' | translate }}
+          </button>
+        </mat-menu>
+      </li>
+    </ul>
+    <button class="app-pink-proceed-button btn-next" (click)="next()">{{ 'BUTTONS.NEXT' | translate }}</button>
+  </main>
+</ion-content>

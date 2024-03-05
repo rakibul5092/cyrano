@@ -1,0 +1,142 @@
+<div *ngIf="editExplicit" (mousedown)="hideExplicitEditModal()" class="modal-box">
+  <div (mousedown)="modalClicked($event)" class="modal-anim modal-box-inner">
+    <div class="Explicittag">
+      <ng-template ngFor let-module [ngForOf]="prefModuleNames">
+        <lib-multi-colored-text
+          *ngIf="this.currentModule === module?.name"
+          class="f-calistoga f-w-400 f-3xl h-160 text-center"
+          text="{{ module?.modalTitle }}"
+        ></lib-multi-colored-text>
+      </ng-template>
+
+      <div class="Explicitrrange">
+        <div *ngIf="this.currentModule === 'age-height'" class="mt-1-5 range-container f-gilroy-medium f-w-700 f-lg h-160 f-white">
+          <div class="range-title rtitle">
+            <span class="f-w-700">{{ 'UNMATCHED_USER.AGE_RANGE' | translate }}</span>
+            <span class="f-w-400">{{ ageRange.lower.toFixed(0) + ' - ' + ageRange.upper.toFixed(0) }}</span>
+          </div>
+          <ion-range min="{{ htmlAgeRange.min }}" max="{{ htmlAgeRange.max }}" [(ngModel)]="ageRange" [dualKnobs]="true"></ion-range>
+        </div>
+        <div *ngIf="this.currentModule === 'age-height'" class="mt-1-5 range-container f-gilroy-medium f-lg h-160 f-white">
+          <div class="range-title htitle">
+            <span class="f-w-700">{{ 'UNMATCHED_USER.HEIGHT_RANGE' | translate }}</span>
+            <span class="f-w-400">{{ heightRange.lower.toFixed(2) + ' - ' + heightRange.upper.toFixed(2) }}</span>
+          </div>
+          <ion-range min="4" max="7" step="0.1" [(ngModel)]="heightRange" [dualKnobs]="true"></ion-range>
+        </div>
+        <div *ngIf="this.currentModule === 'face-ethnicity'" class="mt-1-5 face selectables">
+          <div class="text f-gilroy-medium f-w-700 f-lg h-160 f-white">
+            {{ 'UNMATCHED_USER.FACE' | translate }}
+          </div>
+          <ion-range class="ion-range" min="1" max="10" [(ngModel)]="faceValue" (ngModelChange)="setFaceValue($event)" [pin]="true" [pinFormatter]="faceRangeFormatter"></ion-range>
+        </div>
+        <div *ngIf="this.currentModule === 'face-ethnicity'" class="mt-1-5 Ethnicity selectables EthnicityM">
+          <div class="text f-gilroy-medium f-w-700 f-lg h-160 f-white">
+            {{ 'UNMATCHED_USER.ETHNICITY' | translate }}
+          </div>
+          <ion-button
+            (click)="btnClicked('ethnicities', i)"
+            [class]="'btn-selectable btn-bg ' + (ethnicity.selected ? 'app-primary-button' : 'unselected')"
+            *ngFor="let ethnicity of ethnicities; let i = index"
+            >{{ ethnicity.name }}</ion-button
+          >
+        </div>
+        <div *ngIf="this.currentModule === 'rack-ass'" class="mt-1-5 face selectables">
+          <div class="text f-gilroy-medium f-w-700 f-lg h-160 f-white">
+            {{ 'UNMATCHED_USER.RACK' | translate }}
+          </div>
+          <ion-button
+            (click)="btnClicked('rack', i)"
+            [class]="'btn-selectable btn-bg ' + (rack.selected ? 'app-primary-button' : 'unselected')"
+            *ngFor="let rack of racks; let i = index"
+            >{{ rack.name }}</ion-button
+          >
+        </div>
+        <div *ngIf="this.currentModule === 'rack-ass'" class="mt-1-5 Ethnicity selectables">
+          <div class="text f-gilroy-medium f-w-700 f-lg h-160 f-white">
+            {{ 'UNMATCHED_USER.ASS' | translate }}
+          </div>
+          <ion-button
+            (click)="btnClicked('ass', i)"
+            [class]="'btn-selectable btn-bg ' + (ass.selected ? 'app-primary-button' : 'unselected')"
+            *ngFor="let ass of asses; let i = index"
+            >{{ ass.name }}</ion-button
+          >
+        </div>
+      </div>
+      <ion-toolbar class="footer-toolbar tool-back">
+        <div class="Editstore mt-1-5">
+          <ion-button (click)="hideExplicitEditModal()" class="btn-no-active btcancel btn-bg">{{ 'BUTTONS.CANCEL' | translate }}</ion-button>
+          <ion-button (click)="saveExplicitData()" class="btn-active btsave btn-bg">{{ 'BUTTONS.SAVE' | translate }}</ion-button>
+        </div>
+      </ion-toolbar>
+    </div>
+  </div>
+</div>
+<div *ngIf="editImplicit" (mousedown)="hideImplicitEditModal()" class="modal-box">
+  <div (mousedown)="modalClicked($event)" class="modal-anim modal-box-inner">
+    <lib-multi-colored-text class="f-calistoga f-w-400 f-3xl h-160 text-center" text="{{ 'USER_REGISTRATION.RESET_IMPLICIT_SWIPES_MODAL' | translate }}"></lib-multi-colored-text>
+    <ion-toolbar mode="md" class="footer-toolbar tool-back">
+      <div *ngIf="!loadingProgressBar" class="mt-1-5 flex-grow-1 implicit-options p-1">
+        <ion-button class="btn-active my-1-5" (mousedown)="resetLikesDislikes()" [disabled]="!this.implicitFormGroup.controls?.addMore?.value">{{
+          'BUTTONS.NO_ADD_MORE' | translate
+        }}</ion-button>
+        <ion-button class="btn-no-active mt-1-5" (mousedown)="resetLikesDislikes(true)" [disabled]="!this.implicitFormGroup.controls?.reset?.value">{{
+          'BUTTONS.YES' | translate
+        }}</ion-button>
+      </div>
+      <div *ngIf="loadingProgressBar" class="mt-1-5 flex-grow-1 implicit-options p-1">
+        <ion-progress-bar type="indeterminate"></ion-progress-bar>
+      </div>
+    </ion-toolbar>
+  </div>
+</div>
+<ion-content>
+  <div class="page-body" appSubmitOnEnter (enter)="onContinue()" [route]="'preferenceVsSwipes'">
+    <div class="main-wrapper" [ngStyle]="{ filter: editExplicit || editImplicit ? 'blur(5px)' : 'blur(0px)' }">
+      <div class="top-container">
+        <div class="title-container">
+          <lib-multi-colored-text [class]="'title f-calistoga f-w-400 f-3xl h-160'" [text]="'UNMATCHED_ACCOUNT_SETUP.WHAT_MAKES_SWIPE_RIGHT' | translate"> </lib-multi-colored-text>
+        </div>
+        <div class="subtitle f-inter f-w-400 f-md h-150 f-light-gray">
+          {{ 'UNMATCHED_ACCOUNT_SETUP.PREFERENCE_TEXT_1' | translate }}
+        </div>
+        <div class="progress-container">
+          <div class="percent">
+            <svg>
+              <circle id="bar1" cx="75" cy="67" r="70"></circle>
+              <circle id="bar2" cx="75" cy="67" r="70"></circle>
+            </svg>
+            <div class="percent-container">
+              <div class="percent f-lato f-w-700 f-2xl h-160 f-white">{{ progress }}%</div>
+              <div class="type f-lato f-w-400 f-md h-120 f-light-gray">
+                {{ 'UNMATCHED_ACCOUNT_SETUP.DIFFERENCE' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ion-segment mode="ios" class="f-lato f-w-700 f-lg h-160 f-white" [(ngModel)]="selectedTab" mode="md">
+        <div class="tabs-container">
+          <ion-segment-button value="ageAndHeight">{{ 'TAB_BUTTONS.AGE_&_HEIGHT' | translate }} </ion-segment-button>
+          <ion-segment-button value="faceAndEthnicity">{{ 'TAB_BUTTONS.FACE_&_ETHNICITY' | translate }} </ion-segment-button>
+          <ion-segment-button value="rackAndAss">{{ 'TAB_BUTTONS.RACK_&_ASS' | translate }}</ion-segment-button>
+        </div>
+      </ion-segment>
+      <div class="tab-container" [ngSwitch]="selectedTab">
+        <app-age-and-height *ngSwitchCase="tabs[0]"></app-age-and-height>
+        <app-face-and-ethnicity *ngSwitchCase="tabs[1]"></app-face-and-ethnicity>
+        <app-rack-and-ass *ngSwitchCase="tabs[2]"></app-rack-and-ass>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer *ngIf="!editExplicit && !editImplicit">
+  <ion-toolbar mode="md" class="footer-toolbar">
+    <div class="footer main-wrapper f-calistoga f-w-400 f-xl h-160 div-h-3">
+      <ion-button *ngIf="!savingData" class="btn-cancel" (click)="onCancel()">{{ 'BUTTONS.CANCEL' | translate }}</ion-button>
+      <ion-button *ngIf="!savingData" (click)="onContinue()" class="btn-save">{{ 'BUTTONS.SAVE' | translate }}</ion-button>
+      <ion-progress-bar type="indeterminate" *ngIf="savingData"></ion-progress-bar>
+    </div>
+  </ion-toolbar>
+</ion-footer>

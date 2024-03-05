@@ -1,0 +1,113 @@
+@import '../shared.scss';
+
+.message {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+@media screen and (max-width: 300px) {
+  .main-wrapper {
+    padding-top: 0px;
+  }
+}
+
+.button-container {
+  display: grid;
+
+  span {
+    letter-spacing: -0.011em;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -28px;
+  margin-top: 15%;
+  width: 114.712%;
+  height: 44.78%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .icons {
+    position: absolute;
+    top: 33%;
+
+    .icons-relative {
+      position: relative;
+      width: 135px;
+
+      .cp {
+        position: absolute;
+        width: 71px;
+        height: 84px;
+        top: 0px;
+        left: 0px;
+      }
+
+      .ip {
+        position: absolute;
+        width: 79.55px;
+        height: 79.55px;
+        top: 0px;
+        right: 0px;
+      }
+
+      @media screen and (max-width: 370px) {
+        .cp {
+          width: 61px;
+          height: 74px;
+          left: 10px;
+          top: 10px;
+        }
+
+        .ip {
+          width: 69.55px;
+          height: 69.55px;
+          right: 10px;
+          top: 10px;
+        }
+      }
+
+      @media screen and (max-width: 350px) {
+        .cp {
+          width: 51px;
+          height: 64px;
+          left: 20px;
+          top: 15px;
+        }
+
+        .ip {
+          width: 59.55px;
+          height: 59.55px;
+          right: 20px;
+          top: 15px;
+        }
+      }
+
+      @media screen and (max-width: 330px) {
+        .cp {
+          width: 41px;
+          height: 54px;
+          left: 30px;
+          top: 20px;
+        }
+
+        .ip {
+          width: 49.55px;
+          height: 49.55px;
+          right: 30px;
+          top: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'location'">
+    <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.ENABLE_LOCATION' | translate }}</span>
+
+    <span class="info f-w-400 f-md h-150 f-light-gray">
+      {{ 'UNMATCHED_USER.LOCATION_MESSAGE' | translate }}
+    </span>
+
+    <ion-button *ngIf="locationEnabled" (click)="disableLocation()" class="location-button f-dark unselected">{{ 'UNMATCHED_USER.DISABLE_LOCATION' | translate }}</ion-button>
+    <ion-button *ngIf="!locationEnabled" (click)="onRequestLocationPermission()" class="location-button app-black-button f-gilroy-regular">{{
+      'UNMATCHED_USER.ALLOW_LOCATION' | translate
+    }}</ion-button>
+
+    <div class="button-container">
+      <div class="bottom-text-container f-gilroy-medium f-w-400 f-sm h-160 f-dark">
+        <span class="f-white">{{ 'UNMATCHED_USER.NOTE' | translate }}</span>
+        {{ 'UNMATCHED_USER.NOTE_MESSAGE' | translate }}
+      </div>
+      <ion-button (click)="onContinue()" [attr.disabled]="!locationEnabled" class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+        >{{ 'UNMATCHED_USER.CONTINUE' | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

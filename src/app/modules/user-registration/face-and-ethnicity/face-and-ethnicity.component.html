@@ -1,0 +1,33 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onContinue()" [route]="'faceEthnicity'">
+    <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.FACE_&_ETHNICITY' | translate }}</span>
+    <span class="info f-w-400 f-md h-150 f-light-gray">
+      {{ 'UNMATCHED_USER.FACE_&_ETHNICITY_MSG' | translate }}
+    </span>
+
+    <div class="selectable-container">
+      <form form [formGroup]="form">
+        <div class="f-gilroy-medium f-w-700 f-lg h-160 f-white">
+          <div class="face-title">
+            <span class="f-w-700">{{ 'UNMATCHED_USER.FACE' | translate }}</span>
+            <span class="f-w-400">{{ this.form.value.face }}</span>
+          </div>
+          <ion-range min="1" max="10" [formControlName]="'face'" [pin]="true"></ion-range>
+        </div>
+
+        <div class="Ethnicity selectables">
+          <div class="text f-gilroy-medium f-w-700 f-lg h-160 f-white">
+            {{ 'UNMATCHED_USER.ETHNICITY' | translate }}
+          </div>
+          <ion-button
+            (click)="onEthnicitySelection(ethnicity)"
+            [class]="'btn-selectable ' + (ethnicity.selected ? 'app-primary-button' : 'unselected')"
+            *ngFor="let ethnicity of ethnicities"
+            >{{ ethnicity.name }}</ion-button
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+  <app-range-meter [percentage]="percentage" [loading$]="loading$" [disabled]="form.invalid" (next)="onContinue()"> </app-range-meter>
+</ion-content>

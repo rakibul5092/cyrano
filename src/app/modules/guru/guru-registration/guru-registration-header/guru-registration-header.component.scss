@@ -1,0 +1,27 @@
+:host {
+  padding: 0 24px;
+  position: relative;
+  display: flex;
+  --box-shadow-cyrano: none;
+}
+
+ion-toolbar,
+ion-buttons {
+  --background: transparent;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  overflow: visible;
+}
+
+ion-button {
+  &.back-container {
+    background: var(--button-background);
+    --box-shadow: 11px 10px 27px 2.5px rgba(17, 16, 20, 0.5), -3px -3px 10px -3px rgba(203, 199, 209, 0.25);
+    border-radius: 7px;
+    width: auto;
+  }
+  i {
+    color: var(--ion-text-color);
+    padding: 3px;
+  }
+}

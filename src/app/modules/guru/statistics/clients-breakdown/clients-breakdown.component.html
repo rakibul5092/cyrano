@@ -1,0 +1,15 @@
+<ion-grid class="f-lato f-w-600 f-md h-160">
+  <ion-row class="header">
+    <ion-col size="6" class="center title">{{ 'GURU.CLIENT_NAME' | translate }}</ion-col>
+    <ion-col size="3" class="ion-text-center">{{ 'GURU.AMOUNT' | translate }}</ion-col>
+    <ion-col size="3" class="ion-text-center title">{{ 'GURU.REQUESTS' | translate }}</ion-col>
+  </ion-row>
+  <ion-row *ngFor="let data of clients">
+    <ion-col class="center" size="6">
+      <app-rounded-photo [width]="24" [height]="24" [url]="data.photo"></app-rounded-photo>
+      {{ data.name }}
+    </ion-col>
+    <ion-col class="ion-text-center" size="3">${{ data.amount }}</ion-col>
+    <ion-col class="ion-text-center" size="3">{{ data.requests }}</ion-col>
+  </ion-row>
+</ion-grid>

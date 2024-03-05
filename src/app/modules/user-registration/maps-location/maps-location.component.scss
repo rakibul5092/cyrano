@@ -1,0 +1,121 @@
+@import '../shared.scss';
+$sm: 358px;
+
+.page-inner-body {
+  position: relative;
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.title-text {
+  font-family: 'Calistoga';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 160%;
+  text-transform: capitalize;
+}
+
+.normal-text {
+  font-family: 'Gilroy-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.011em;
+  color: var(--ion-text-color);
+  opacity: 0.7;
+}
+
+.page-body {
+  overflow: hidden;
+  height: 75vh;
+  padding: 0;
+}
+
+.requests-map {
+  height: 550px;
+  overflow: hidden;
+  &.map-container-no-location {
+    height: 51vh;
+  }
+}
+
+.location-permission-error {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 88%;
+  img {
+    position: relative;
+    display: block;
+    margin-bottom: 0;
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+  }
+  h2 {
+    @extend .title-text;
+  }
+  p {
+    @extend .normal-text;
+    font-size: 16px;
+    text-align: center;
+    padding: 0 20px;
+  }
+  button {
+    margin: 20px auto;
+  }
+}
+
+.message {
+  margin-bottom: 0;
+}
+
+.button-container-maps {
+  width: fit-content;
+  z-index: 30000;
+  position: absolute;
+  margin-left: -88px;
+  left: 50%;
+  bottom: 20px;
+}
+
+.main-wrapper {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 440px) {
+  ion-content::part(scroll) {
+    padding: 0px !important;
+  }
+  .main-wrapper {
+    max-width: unset !important;
+  }
+  .heading-location {
+    padding-left: 15px;
+  }
+}
+
+.loader {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--ion-background-color-no-gradient);
+}
+
+.pr-bar {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  left: 25%;
+}

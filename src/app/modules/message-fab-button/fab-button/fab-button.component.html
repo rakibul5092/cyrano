@@ -1,0 +1,16 @@
+<ion-fab-list [class]="class" [side]="side">
+  <div class="icon-text-container">
+    <ion-fab-button (click)="onButtonClick(name)">
+      <ion-icon [src]="icon"></ion-icon>
+    </ion-fab-button>
+    <ion-label>{{ name }}</ion-label>
+  </div>
+  <ion-fab-list *ngIf="haveMinutesButton" side="start" class="fab-list-side-start-child">
+    <ion-fab-button (click)="onMinutesButtonClick(minute)" *ngFor="let minute of [15, 30, 45, 60]">
+      <div style="display: grid">
+        <span class="text-large">{{ minute }}</span>
+        <span class="text-small">mins</span>
+      </div>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab-list>

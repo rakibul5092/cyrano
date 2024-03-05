@@ -1,0 +1,24 @@
+<div class="info-container">
+  <!-- Profile header component, contains rounded photo, name, rating and reviews -->
+  <lib-profile-header
+    [orientation]="orientation"
+    [photo]="client.photo"
+    [name]="client.name"
+    [leftIcon]="commonService.icons.hash"
+    [leftText]="client.age + ' ' + ('GURU.YEARS_OLD' | translate)"
+    [rightIcon]="commonService.icons.location"
+    [rightText]="client.address"
+  ></lib-profile-header>
+
+  <!-- Surfing, Tennis and Fiction buttons -->
+  <div class="multi-colored-buttons">
+    <ion-button mode="md" class="margin-right f-lato light-green">{{ 'GURU.SURFING' | translate }}</ion-button>
+    <ion-button mode="md" class="margin-right f-lato light-blue">{{ 'GURU.TENNIS' | translate }}</ion-button>
+    <ion-button mode="md" class="margin-right f-lato light-purple">{{ 'GURU.FICTION' | translate }}</ion-button>
+  </div>
+
+  <!-- Information text -->
+  <span class="text-1 f-lato f-sm f-w-400 f-gray h-180"
+    >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</span
+  >
+</div>

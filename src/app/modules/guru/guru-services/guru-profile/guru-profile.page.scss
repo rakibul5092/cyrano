@@ -1,0 +1,116 @@
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-toggle-menu {
+  color: var(--cyrano-pink-shade-1);
+}
+
+ion-button {
+  --parding-start: 0;
+  --padding-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  --background: transparent;
+  --box-shadow: none;
+
+  ion-icon {
+    font-size: 38px;
+  }
+}
+
+ion-content {
+  --overflow: hidden;
+}
+
+.wrapper {
+  padding: 24px;
+  margin-bottom: 80px;
+  height: 100%;
+  overflow: auto;
+
+  main {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  lib-profile-header {
+    --image-width: 148px;
+    --image-height: 148px;
+  }
+  .search-input {
+    display: flex;
+    gap: 18.18px;
+    padding: 13px 13px 13px 20px;
+    margin: 24px auto 0 auto;
+
+    button {
+      background: transparent;
+      color: var(--ion-text-color);
+      padding: 0;
+      font-size: 20px;
+    }
+
+    input {
+      padding: 0;
+      height: auto;
+    }
+  }
+
+  .about-me {
+    margin-top: 24px;
+    box-shadow: var(--box-shadow);
+    padding: 16px;
+    border-radius: 12px;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        background: transparent;
+        color: var(--cyrano-pink-shade-1);
+        padding: 0;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .about-me-content {
+      margin-top: 20px;
+    }
+  }
+  app-guru-review-card {
+    box-shadow: var(--box-shadow);
+  }
+
+  .reviews {
+    margin-top: 32px;
+
+    .review-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 24px;
+    }
+  }
+
+  .btn-see-more {
+    background: transparent;
+    color: var(--ion-text-color);
+    display: flex;
+    align-items: center;
+    margin: auto;
+    margin-top: 24px;
+
+    i {
+      color: var(--cyrano-pink-shade-1);
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<ion-content>
+  <div class="wrapper">
+    <h2>{{ 'ACCOUNT_TAKEOVER.EXISTING_ACCOUNTS.CHANGE_SELECTED_PLATFORMS' | translate }}</h2>
+    <ul>
+      <li *ngFor="let datingPlatform of existingAccounts">{{ datingPlatform?.platform }}</li>
+    </ul>
+
+    <section class="action-buttons">
+      <button class="app-black-return-button btn-back" routerLink="../setup-dating-account">{{ 'BUTTONS.BACK' | translate }}</button>
+      <button class="app-pink-proceed-button btn-proceed" (click)="onNext()">{{ 'BUTTONS.NEXT' | translate }}</button>
+    </section>
+  </div>
+</ion-content>

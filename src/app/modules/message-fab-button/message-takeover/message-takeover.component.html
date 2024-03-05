@@ -1,0 +1,32 @@
+<ion-fab *ngIf="user" vertical="center" horizontal="end" slot="fixed">
+  <!-- backdrop component -->
+  <ion-fab-list side="end">
+    <div class="fab-backdrop"></div>
+  </ion-fab-list>
+  <!-- Fab button -->
+  <ion-fab-button [closeIcon]="icons.messageTakeoverFab.close">
+    <ion-icon class="blue" [src]="commonIcons.plus"></ion-icon>
+  </ion-fab-button>
+
+  <!-- Fab child buttons -->
+  <app-fab-button side="top" name="Context" [icon]="icons.messageTakeoverFab.context" (fabBtnClicked)="onFabBtnClicked($event)"></app-fab-button>
+
+  <!-- Fab child buttons -->
+  <app-fab-button side="top" name="Context" [icon]="icons.messageTakeoverFab.context" (fabBtnClicked)="onFabBtnClicked($event)"></app-fab-button>
+
+  <app-fab-button side="top top-right" name="Live" [icon]="icons.messageTakeoverFab.live" (fabBtnClicked)="onFabBtnClicked($event)"></app-fab-button>
+
+  <app-fab-button side="bottom" name="Translate" [icon]="icons.messageTakeoverFab.translate" (fabBtnClicked)="onFabBtnClicked($event)"></app-fab-button>
+
+  <app-fab-button side="bottom bottom-right" name="Vent" [icon]="icons.messageTakeoverFab.vent" (fabBtnClicked)="onFabBtnClicked($event)"></app-fab-button>
+
+  <app-fab-button
+    side="start"
+    class="scan-button"
+    name="Scan"
+    [haveMinutesButton]="true"
+    [icon]="icons.messageTakeoverFab.scan"
+    (fabBtnClicked)="onFabBtnClicked($event)"
+    (minuteBtnClicked)="onMinBtnClicked($event)"
+  ></app-fab-button>
+</ion-fab>

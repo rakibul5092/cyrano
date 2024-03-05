@@ -1,0 +1,40 @@
+@import './../guru.global.scss';
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+img {
+  width: 93px;
+  height: 102px;
+  margin-bottom: 34px;
+}
+
+.status {
+  margin-bottom: 59px;
+  margin-left: 66px;
+  margin-right: 66px;
+  text-align: center;
+}
+
+.app-black-button {
+  margin: unset;
+  height: 46px;
+  width: 245px;
+}
+
+@media screen and (max-width: 320px) {
+  .status {
+    margin-left: 21px;
+    margin-right: 21px;
+  }
+
+  .app-black-button {
+    width: 200px;
+    font-size: 14px;
+  }
+}

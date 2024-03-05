@@ -1,0 +1,68 @@
+<app-user-registration-header></app-user-registration-header>
+
+<ion-content>
+  <main appSubmitOnEnter (enter)="onComplete()" [route]="'freeSlots'">
+    <h2 class="f-calistoga f-3xl h-160 f-w-400"></h2>
+    <app-text-mark class="f-calistoga f-3xl h-160 f-w-400" [color]="'#f7f5dd'" [bold]="false">
+      <p>{{ 'ROUTINE.HERE_ARE_YOUR_FREE_SLOTS' | translate }}</p>
+      <mark>{{ 'ROUTINE.FREE_SLOTS'| translate }}</mark>
+    </app-text-mark>
+    <p class="f-gilroy-regular f-md f-light-gray">{{ 'ROUTINE.YOUR_GURU_CAN_SCHEDULE_THE_DATE' | translate }}</p>
+    <ul class="free-slot-day-list">
+      <li *ngFor="let eventDay of currentWeekDays" class="free-slot-day-list-item">
+        <ng-container *ngIf="isWorkDay(eventDay); else no_free_slots">
+          <h6>
+            <span class="f-gilroy-medium f-sm">{{ eventDay | date:'ccc' | uppercase }}</span>
+            <button class="date-in-numbers f-gilroy-regular f-sm">{{ eventDay | date:'M/d/yyyy' | uppercase }}</button>
+          </h6>
+
+          <div *ngFor="let slot of freeSlots | appFilter: filterIntoDay : eventDay" class="date-itineraries">
+            <div class="duration">
+              <p class="start f-gilroy-medium f-sm">{{ slot.startHour | clockHour }}:{{ slot.startMinute }}</p>
+              <p class="end f-gilroy-medium f-sm">{{ slot.endHour | clockHour }}: {{ slot.endMinute }}</p>
+            </div>
+            <div class="vertical-divider"></div>
+            <div class="date-itineraries-content">
+              <div class="background"></div>
+              <div class="foreground">
+                <app-itinerary-card
+                  *ngIf="slot.itinerary; else no_itinerary_added"
+                  [title]="slot.itinerary.name"
+                  [dateTime]="slot.itinerary.dateTime"
+                  [mainPlace]="slot.itinerary.mainPlace"
+                  [places]="slot.itinerary.places"
+                ></app-itinerary-card>
+                <ng-template #no_itinerary_added>
+                  <p class="itenaries f-gilroy-regular f-md" (click)="addItinerary(slot)">
+                    <i class="cyrano cyrano-file cyrano-icon"></i>{{ 'ROUTINE.DATE_ITINERARIES' | translate }}
+                  </p>
+                </ng-template>
+                <app-location-card
+                  *ngIf="slot.location; else no_location_added"
+                  [location]="'Ginsoy, Sector F-5/2, Islamabad, Pakistan'"
+                  [locationTitle]="'ROUTINE.LOCATION' | translate"
+                ></app-location-card>
+                <ng-template #no_location_added>
+                  <p (click)="addLocation(slot)" class="location f-gilroy-regular f-md h-160" [ngClass]="{ 'no-location' : (slot.itinerary) && !(slot.location) }">
+                    <i class="cyrano cyrano-map-marker cyrano-icon"></i>{{ 'ROUTINE.LOCATION' | translate }}
+                  </p>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #no_free_slots>
+          <h6 class="no-slots-header">
+            <span class="f-gilroy-medium f-sm">{{ eventDay | date:'ccc' | uppercase }}</span>
+            <span class="unavailable f-gilroy-regular f-md">{{ 'ROUTINE.UNAVAILABLE' | translate }}</span>
+            <button class="date-in-numbers f-gilroy-regular f-sm">{{ eventDay | date:'M/d/yyyy' | uppercase }}</button>
+          </h6>
+        </ng-template>
+      </li>
+    </ul>
+    <div class="action-buttons">
+      <button class="app-black-return-button" routerLink="../">{{ 'BUTTONS.BACK' | translate }}</button>
+      <button class="app-pink-proceed-button btn-complete" routerLink="../complete">{{ 'BUTTONS.COMPLETE' | translate }}</button>
+    </div>
+  </main>
+</ion-content>

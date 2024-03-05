@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="box-header">
+    <span class="box-header-title">{{ goalTitle }}</span>
+    <img [src]="commonUtilService.icons.common.arrowRight" alt="" width="5" />
+    <img [src]="goalIcon" alt="" class="header-right" width="24" />
+  </div>
+  <div class="box-body">
+    <div class="earnings">
+      <span class="earnings-currency">$</span>
+      <span class="earnings-achieved">{{ earnings | number }}</span
+      >/
+      <span class="earnings-target">{{ targetEarnings | number }}</span>
+    </div>
+  </div>
+  <aside *ngIf="progress" class="progress-bar">
+    <div [ngStyle]="{ width: progressPercentage + '%' }"></div>
+    <span class="glow" [ngStyle]="{ width: progressPercentage + '%' }"></span>
+  </aside>
+</div>

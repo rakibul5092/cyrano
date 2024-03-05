@@ -1,0 +1,25 @@
+@import './../potential-dates-shared-style.scss';
+
+.message {
+  margin-top: 0.75rem;
+}
+
+.name {
+  margin-bottom: 2rem;
+}
+
+.line-divider {
+  width: 28px;
+  height: 0.0625rem;
+  background-color: var(--ion-text-color);
+  opacity: 0.25;
+  margin: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.date,
+.location {
+  color: #fe3c72;
+  margin-bottom: 0.25rem;
+}

@@ -1,0 +1,25 @@
+<app-user-registration-header></app-user-registration-header>
+<ion-content>
+  <div class="wrapper" appSubmitOnEnter (enter)="gotoNextPage()" [route]="'routineComplete'">
+    <section class="routine-status">
+      <svg class="success-marker" width="132" height="122" version="1.1" viewBox="0 0 132 122" xmlns="http://www.w3.org/2000/svg">
+        <path
+          id="path829"
+          d="m118 61c0 31.48-25.52 57-57 57s-57-25.52-57-57 25.52-57 57-57c11.235 0 21.711 3.2506 30.539 8.8626"
+          fill="none"
+          stroke="#4da723"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="4"
+        />
+        <path id="path824" d="m31.648 51.023 29.352 29.355 66.891-66.893" fill="none" stroke="#4da723" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+      </svg>
+      <h3 class="f-calistoga f-w-400 f-3xl h-160">{{ 'ROUTINE.SCHEDULE_COMPLETED' | translate }}</h3>
+      <p class="f-gilroy-regular f-md h-150 f-light-gray">{{ 'ROUTINE.YOUR_SCHEDULE_SETUP_IS_DONE' | translate }}</p>
+    </section>
+
+    <section class="action-buttons">
+      <button class="app-pink-proceed-button btn-done" (click)="gotoNextPage()">{{ 'BUTTONS.SEND_REQUEST' | translate }}</button>
+    </section>
+  </div>
+</ion-content>

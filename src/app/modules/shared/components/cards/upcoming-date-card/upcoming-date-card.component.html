@@ -1,0 +1,15 @@
+<div class="upcoming-date-card" [ngClass]="upcomingDate.hasDate ? '' : 'no-date'">
+  <div class="info-card">
+    <div [ngClass]="upcomingDate.hasDate ? 'date' : 'no-date-class'">
+      {{ dayNumber }}
+    </div>
+    <div [ngClass]="upcomingDate.hasDate ? 'day' : 'no-day-class'">
+      {{ dayName }}
+    </div>
+    <div class="profile" *ngIf="upcomingDate.hasDate">
+      <img class="avatar" src="https://picsum.photos/300/300" alt="Profile Image" />
+      <div class="profile-name">Julliet Ibrahim</div>
+    </div>
+  </div>
+  <div class="white-bar"></div>
+</div>

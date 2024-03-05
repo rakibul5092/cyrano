@@ -1,0 +1,26 @@
+<div
+  (mouseenter)="mouseOnItem(true)"
+  (mouseleave)="mouseOnItem(false)"
+  (mousedown)="mouseOnItem(false)"
+  [class]="(item.selected ? 'selected-item highlighted-item ' : 'unselected-item ') + (mouseover ? 'unselected-item-hover-border ' : '')"
+>
+  <div class="top-text-container">
+    <div class="title f-lato f-w-700 f-lg h-160 f-white">{{ item.title }}</div>
+    <ion-icon (click)="editBtnClicked()" *ngIf="item.title !== 'Combined results'" [src]="'assets/icon/account-setup/edit-' + (item.selected ? 'w.svg' : 'red.svg')"></ion-icon>
+  </div>
+  <div class="text-container f-lato f-lg f-w-400 h-160">
+    <div class="left">{{ label1 | translate }}</div>
+    <div class="right f-white">{{ item.value1 }}</div>
+  </div>
+  <div class="text-container f-lato f-lg f-w-400 h-160">
+    <div class="left">{{ label2 | translate }}</div>
+    <div class="right f-white">{{ item.value2 }}</div>
+  </div>
+  <div class="glow glow-top glow-horizontal"></div>
+  <div class="glow glow-right glow-vertical"></div>
+  <div class="glow glow-bottom glow-horizontal"></div>
+  <div class="glow glow-left glow-vertical"></div>
+  <div class="glass-container">
+    <div class="squire-glass"></div>
+  </div>
+</div>

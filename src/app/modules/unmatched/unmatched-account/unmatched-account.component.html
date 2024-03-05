@@ -1,0 +1,65 @@
+<app-header [user]="user"></app-header>
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-container">
+      <div class="center-contents-column">
+        <div class="profile-container">
+          <img src="https://semantic-ui.com/images/avatar2/large/matthew.png" alt="" height="90" width="90" />
+          <h2 class="primary-text">User Name</h2>
+          <button class="top-text" type="button" mat-button aria-label="star-btn">
+            <img class="star" [src]="icons.star" alt="" height="9" width="10" />
+            <span> {{ '5 ' + ('UNMATCHED.DATES' | translate) }} </span>
+          </button>
+          <button class="top-text" type="button" mat-button aria-label="hash-btn">
+            <img class="hash" [src]="icons.hash" alt="" height="9" width="10" />
+            <span> {{ '2 ' + ('UNMATCHED.MONTHS' | translate) }}</span>
+          </button>
+        </div>
+
+        <div class="custom-input search-input">
+          <input type="button" type="text" placeholder="{{ 'FIELDS.SEARCH' | translate }}" class="leftIcon" />
+          <button mat-icon-button class="left" type="button">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+
+        <div class="about-me">
+          <div class="primary-text">
+            {{ 'UNMATCHED.ABOUT_ME' | translate }}
+            <button type="button" mat-icon-button aria-label="edit-btn">
+              <ion-icon [src]="icons.edit"></ion-icon>
+            </button>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis mattis aliquet fringilla sit integer. Hendrerit pharetra ornare non.</p>
+        </div>
+
+        <div class="profile-sections profile-sections-border">
+          <button type="button" mat-button (click)="commonUtilService.navigate('../unmatched/info')">
+            {{ 'UNMATCHED.ACCOUNT_INFORMATION' | translate }}
+          </button>
+          <button type="button" mat-button (click)="commonUtilService.navigate('../unmatchedmeta')">
+            {{ 'UNMATCHED.ACCOUNT_META' | translate }}
+          </button>
+          <button type="button" mat-button (click)="commonUtilService.navigate('../unmatchedlog')">
+            {{ 'UNMATCHED.ACCOUNT_HISTORY' | translate }}
+          </button>
+          <button type="button" mat-button>Your Expenses</button>
+        </div>
+
+        <div class="profile-sections">
+          <button type="button" mat-button>
+            {{ 'UNMATCHED.HOW_IT_WORKS' | translate }}
+          </button>
+          <button type="button" mat-button>
+            {{ 'UNMATCHED.SETTINGS' | translate }}
+          </button>
+        </div>
+
+        <button mat-raised-button class="primary-text primary-btn contact_button" id="contact-support-btn" aria-label="contact-support-btn" type="button">
+          <img [src]="commonUtilService.icons.support" height="15" width="15" alt="" />
+          <span class="contact-text">{{ 'UNMATCHED.CONTACT_SUPPORT' | translate }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

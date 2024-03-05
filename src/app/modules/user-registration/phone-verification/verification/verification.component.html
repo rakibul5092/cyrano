@@ -1,0 +1,36 @@
+<ion-content mode="md">
+  <div class="main-wrapper" appSubmitOnEnter (enter)="confirm()" [route]="'verify'">
+    <form class="form">
+      <span class="message f-calistoga f-w-400 h-160 f-white">{{ 'UNMATCHED_USER.MY_VERIFICATION_CODE_IS' | translate }}</span>
+      <div class="phone-edit">
+        <span class="f-gilroy-medium f-w-400 f-light-gray h-150 f-md">{{ phoneNumber }}</span>
+        <ion-button (click)="onEdit()" class="app-black-button">{{ 'UNMATCHED_USER.EDIT' | translate }} </ion-button>
+      </div>
+
+      <div class="verification-code f-gilroy-regular f-w-400 f-2xl h-160 f-white">
+        <lib-otp-input [formControl]="otpCode" [invalidBoxShadow]="true" [length]="5"></lib-otp-input>
+      </div>
+      <div class="resend-container" *ngIf="!alreadyVerified">
+        <ion-button (click)="onResend()" [disabled]="secondsLeft > 0" [class]="'resend f-w-400 f-xl h-160 ' + (secondsLeft > 0 ? 'app-outline-button' : 'app-primary-button')">
+          {{ 'UNMATCHED_USER.RESEND' | translate }}</ion-button
+        >
+        <span class="f-gilroy-medium f-w-400 f-sm h-150 f-light-gray"
+          >{{ 'UNMATCHED_USER.RESEND_IN' | translate }} {{ secondsLeft }} {{ 'UNMATCHED_USER.SECONDS' | translate }}</span
+        >
+      </div>
+
+      <div class="button-container">
+        <ion-button
+          (click)="confirm()"
+          *ngIf="(loading$ | async) === false || (loading$ | async) === undefined || (loading$ | async) === null"
+          [disabled]="otpCode.invalid"
+          [attr.disabled]="otpCode.invalid"
+          (ngSubmit)="confirm()"
+          class="continue-button f-gilroy-regular f-w-400 f-xl h-160"
+          >{{ 'UNMATCHED_USER.CONTINUE' | translate }}</ion-button
+        >
+        <ion-progress-bar type="indeterminate" *ngIf="loading$ | async"></ion-progress-bar>
+      </div>
+    </form>
+  </div>
+</ion-content>

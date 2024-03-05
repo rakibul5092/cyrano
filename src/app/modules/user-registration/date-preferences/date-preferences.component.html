@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="main-wrapper" appSubmitOnEnter (enter)="onSelectDatePreferences()" [route]="'datingPreferences'">
+    <ion-icon class="book" src="assets/icon/unmatched-registration/book.svg"></ion-icon>
+    <div class="message f-calistoga f-w-400 f-3xl h-160">
+      {{ 'GURU.DATE_PREFERENCES' | translate }}
+    </div>
+    <div class="info f-gilroy-medium f-w-400 f-md h-150 f-light-gray">
+      {{ 'UNMATCHED_USER.PROFILE_COMPLETED_MESSAGE' | translate }}
+    </div>
+    <ion-button mode="md" (click)="onSelectDatePreferences()" class="app-primary-button f-gilroy-regular f-w-400 h-160 f-white"
+      >{{ 'BUTTONS.SELECT_PREFERENCES' | translate }}
+    </ion-button>
+    <ion-button mode="md" (click)="onSkip()" class="app-black-button f-gilroy-regular f-w-400 h-160 f-white">
+      {{ 'UNMATCHED_USER.SKIP' | translate }}
+    </ion-button>
+  </div>
+</ion-content>

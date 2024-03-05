@@ -1,0 +1,37 @@
+<aside *ngIf="progress" class="progress">
+  <div [ngStyle]="{ width: progress + '%' }"></div>
+  <span class="glow" [ngStyle]="{ width: 'calc(' + progress + '%' + ' - 4px)' }"></span>
+</aside>
+<ion-header mode="ios" *ngIf="headerService.showHeader$ | async">
+  <ion-toolbar>
+    <ion-buttons *ngIf="headerService.showBackButton$ | async" slot="start">
+      <ion-button class="back-button" (click)="back()">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="(headerService.showCalendar$ | async)?.visible === true" slot="end" class="icon-container">
+      <div class="ip-container">
+        <p class="cyrano cyrano-calender f-xl" slot="end"></p>
+      </div>
+    </ion-buttons>
+    <ion-title class="header-title f-calistoga f-w-500 f-lg h-160" mode="md" *ngIf="headerTitle && headerTitle.visible">
+      {{ headerTitle.title | translate }}
+    </ion-title>
+    <ng-container *ngIf="(headerService.congratulations$ | async) === true">
+      <ion-buttons slot="end" class="icon-container">
+        <div class="cp-container">
+          <ion-icon class="cp" src="assets/icon/unmatched-registration/cp.svg"></ion-icon>
+          <span class="f-lato f-md h-160 f-accent">1 CP</span>
+        </div>
+        <div class="ip-container">
+          <ion-icon class="ip" src="assets/icon/unmatched-registration/ip.svg"></ion-icon>
+          <span class="f-lato f-md h-160 f-accent">1 IP</span>
+        </div>
+      </ion-buttons>
+    </ng-container>
+    <ion-buttons slot="end" class="right-text-button">
+      <ion-button *ngIf="help?.visible" (click)="onClick(help)" color="dark" class="f-calistoga h-160 f-white">{{ 'UNMATCHED_USER.HELP' | translate }}?</ion-button>
+      <ion-button *ngIf="skip?.visible" (click)="onClick(skip)" color="dark" class="f-calistoga h-160 f-white">{{ 'UNMATCHED_USER.SKIP' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,39 @@
+@import '../admin.scss';
+
+.logs-page {
+  margin: auto;
+  width: 100%;
+  max-width: 390px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.button-container {
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.button-container button {
+  width: 100%;
+  border-radius: 10rem;
+  padding-block: 1rem;
+  background: var(--footer-tab-label);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container p {
+  font-size: 1.125rem;
+  font-style: 400;
+  margin: 0;
+}
+
+.button-container span {
+  margin-right: 0.8125rem;
+  font-size: 1.125rem;
+}

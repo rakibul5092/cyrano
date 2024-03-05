@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="page-body">
+    <div class="page-inner-body">
+      <app-guru-services-header [title]="'GURU.ITINERARIES' | translate"></app-guru-services-header>
+      <div class="itineraries-sub-header" *ngIf="itineraries && itineraries.length > 0">
+        <p>{{ itineraries.length }} {{ 'GURU.TOTAL_ITINERARIES' | translate }}</p>
+        <span class="spacer"></span>
+        <button type="button" mat-button>
+          <img [src]="commonIcons.plus" alt="" />
+          <span>{{ 'GURU.CREATE_ITINERARY' | translate }}</span>
+        </button>
+      </div>
+
+      <div *ngIf="itineraries && itineraries.length > 0; else emptyItineraries" class="itineraries-container">
+        <app-guru-itineraries-card *ngFor="let itinerary of itineraries" [itinerary]="itinerary"> </app-guru-itineraries-card>
+      </div>
+
+      <ng-template #emptyItineraries>
+        <div class="empty-itineraries">
+          <img src="assets/images/Map.png" alt="no clients" class="empty-img" />
+          <h2>{{ 'GURU.NO_ITINERARIES_YET' | translate }}</h2>
+          <p>{{ 'GURU.NO_ITINERARIES_YET_MSG' | translate }}</p>
+          <button class="primary-button" matRipple>
+            <img [src]="commonIcons.plus" alt="" />
+            {{ 'GURU.CREATE_ITINERARY' | translate }}
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</ion-content>

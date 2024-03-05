@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" appFocusInvalidInput *ngIf="form">
+    <div class="page-body">
+      <div class="background-check-container guru-registration-screen">
+        <h2 class="page-title page-title-lg">{{ 'BACKGROUND_CHECK.TITLE' | translate }}</h2>
+        <p class="guru-registration-paragraph">{{ 'BACKGROUND_CHECK.TO_CONFIRM' | translate }}</p>
+        <div class="custom-input">
+          <input
+            type="text"
+            appInvalidInput="ssn"
+            autocomplete="off"
+            formControlName="ssn"
+            [mask]="ssnMask"
+            appSsnValidator
+            [ssnErrorMsg]="'VALIDATIONS.NOT_VALID_SSN' | translate"
+            placeholder="{{ 'BACKGROUND_CHECK.SSN' | translate }}"
+          />
+        </div>
+        <app-error-message
+          class="input-error"
+          [customErrorMessage]="form.controls['ssn'].errors && form.controls['ssn'].value ? form.controls['ssn'].errors?.ssn?.message : ''"
+          [control]="form.controls['ssn']"
+        >
+        </app-error-message>
+        <div class="custom-input">
+          <input type="text" maxlength="5" appInvalidInput="zip" autocomplete="off" formControlName="zip" placeholder="{{ 'BACKGROUND_CHECK.ZIP_CODE' | translate }}" />
+        </div>
+        <app-error-message class="input-error" [minLength]="5" [control]="form.controls['zip']"></app-error-message>
+
+        <div class="custom-input">
+          <input
+            type="text"
+            (click)="openDateTimePicker($event, presentation.date, 'birthDate')"
+            [readOnly]="true"
+            appInvalidInput="birthDate"
+            autocomplete="off"
+            formControlName="birthDate"
+            placeholder="{{ 'BACKGROUND_CHECK.BIRTH_DATE' | translate }}"
+          />
+        </div>
+        <app-error-message class="input-error" [control]="form.controls['birthDate']"></app-error-message>
+      </div>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="loading" [ngClass]="{ disable: loading || form.invalid }" class="continue fixed-bottom">
+      <ion-spinner color="danger" *ngIf="loading" name="dots"></ion-spinner>
+      <span *ngIf="!loading || form.invalid">{{ 'CONTINUE' | translate }}</span>
+    </button>
+  </form>
+</ion-content>

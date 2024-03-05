@@ -1,0 +1,31 @@
+.text {
+  text-align: center;
+  opacity: 0.6;
+  font: 12px Lato;
+  line-height: 160%;
+  font-weight: 400;
+  padding: 12px;
+}
+
+.image-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  .image-icon {
+    width: 74.6px;
+    margin: 10px 0;
+    margin-right: 16px; //    Adjustment of trash can icon to centre it's base
+  }
+}
+
+.host {
+  max-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+app-multi-colored-text {
+  text-align: center;
+}

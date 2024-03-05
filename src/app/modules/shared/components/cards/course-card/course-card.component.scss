@@ -1,0 +1,52 @@
+@import '../common-card';
+
+ion-card {
+  margin-top: 30px !important;
+  .img-container {
+    height: 84px;
+  }
+  .card-header {
+    padding: 20px 0;
+    .rating {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 160%;
+      img {
+        margin-right: 2px;
+        height: 9px;
+        width: 10px;
+      }
+    }
+  }
+  .card-actions {
+    padding: 5px 0 0 0;
+    .mat-raised-button {
+      width: 100%;
+      max-width: 341px;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      border-radius: 50px !important;
+      line-height: 40px;
+      text-transform: capitalize;
+      font-size: 17px;
+      background: linear-gradient(94.44deg, #fe3c72 1.26%, #e15561 100%);
+      color: #fff;
+      font-family: 'Calistoga';
+    }
+  }
+  ion-card-content {
+    padding: 10px 0;
+    .price {
+      font-family: 'Calistoga';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 28px;
+      color: #fe3c72;
+      margin-top: -3px;
+      margin-left: 20px;
+    }
+  }
+}

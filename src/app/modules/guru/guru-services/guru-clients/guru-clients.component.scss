@@ -1,0 +1,32 @@
+@import '../guru-services-common';
+
+.empty-clients {
+  text-align: center;
+  img {
+    position: relative;
+    display: block;
+    margin: 14vh auto;
+    margin-bottom: 0;
+  }
+  h2 {
+    @extend .title-text;
+  }
+  p {
+    text-align: center;
+    @extend .normal-text;
+    position: relative;
+    display: block;
+    max-width: 327px;
+    margin: 0 auto;
+  }
+  button {
+    margin: 20px auto;
+  }
+}
+
+.guru-clients {
+  p.clients-sub-title {
+    @extend .normal-text;
+    font-size: 16px;
+  }
+}

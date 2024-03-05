@@ -1,0 +1,35 @@
+<ion-content fullscreen>
+  <!-- Top child components container -->
+  <div class="main-wrapper main-wrapper-top" [ngSwitch]="selectedSegment">
+    <app-client-context *ngSwitchCase="segments[0]"></app-client-context>
+    <app-client-events *ngSwitchCase="segments[1]"></app-client-events>
+    <app-client-schedule *ngSwitchCase="segments[2]"></app-client-schedule>
+    <app-client-basic-info *ngSwitchCase="segments[3]"></app-client-basic-info>
+    <app-client-particulars *ngSwitchCase="segments[4]"></app-client-particulars>
+    <app-client-orders *ngSwitchCase="segments[5]"></app-client-orders>
+  </div>
+
+  <!-- Middle segment tabs -->
+  <ion-segment mode="md" scrollable="true" (ionChange)="segmentChanged($event)" [value]="selectedSegment">
+    <ion-segment-button *ngFor="let segment of segments; let i = index" (click)="moveToSegment(i)" [value]="segment">
+      <ion-label [class]="'text ' + (selectedSegment === segment ? 'f-calistoga f-w-400 f-lg h-160 f-white' : 'f-lato f-w-600 f-md h-160 f-dark')"
+        >{{ 'TAB_BUTTONS.' + segment | translate }}
+      </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Bottom container with input and send button -->
+  <div class="main-wrapper main-wrapper-bottom">
+    <div class="bottom-container">
+      <ion-input class="app-input f-lato f-md h-160 f-dark" [placeholder]="'FIELDS.FULL_NAME' | translate"></ion-input>
+      <div class="container">
+        <div class="circular-progress">
+          <ion-icon [src]="commonUtilService.icons.send"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <div class="cartoons">
+      <img class="image" src="assets/images/cartoon-image.png" />
+    </div>
+  </div>
+</ion-content>
